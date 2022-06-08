@@ -35,11 +35,15 @@ set statusline+=\ %P            " Position in buffer: Percentage
 set hlsearch
 set t_Co=127
 syntax on
-hi Visual cterm=bold ctermbg=236 ctermfg=NONE
+hi Visual cterm=bold ctermbg=8 ctermfg=NONE
 hi Folded cterm=bold ctermbg=236 ctermfg=NONE term=reverse
 hi MatchParen cterm=bold ctermbg=237 ctermfg=None  
 set colorcolumn=80
-map s /
+map S /
+" hide search highlighting on escape
+imap <c-b> <right>
+imap <c-x> <left>
+nnoremap <Esc> :noh<CR>
 map P "0p
 set t_u7=
 set number
@@ -47,4 +51,15 @@ set nornu
 imap jj <Esc>
 " show file path at bottom
 set laststatus=2
-set statusline+=%
+set statusline+=%F
+let mapleader='q'
+nmap s <Plug>(easymotion-overwin-f)
+let g:EasyMotion_smartcase = 1
+map <Leader>j <Plug>(easymotion-j)
+map <Leader>k <Plug>(easymotion-k)
+
+hi EasyMotionTarget ctermbg=none ctermfg=white cterm=bold
+hi EasyMotionShade ctermbg=none ctermfg=green 
+hi EasyMotionTarget2First ctermbg=none ctermfg=red
+hi EasyMotionTarget2Second ctermbg=none ctermfg=lightred
+
