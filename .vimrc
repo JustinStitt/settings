@@ -44,3 +44,7 @@ map P "0p
 set t_u7=
 set number
 set nornu
+imap jj <Esc>
+" show file path at bottom
+set laststatus=2
+set statusline+=%
