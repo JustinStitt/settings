@@ -1,2 +1,2 @@
 # settings
-My personal config files for programming purposes.
+My personal config files/plugins for programming purposes.
