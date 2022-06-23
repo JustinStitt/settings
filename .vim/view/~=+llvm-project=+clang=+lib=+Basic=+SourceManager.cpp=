@@ -2,8 +2,8 @@ let s:so_save = &g:so | let s:siso_save = &g:siso | setg so=0 siso=0 | setl so=-
 argglobal
 let s:cpo_save=&cpo
 set cpo&vim
-imap <buffer> <S-Tab> <Plug>delimitMateS-Tab
 imap <buffer> <silent> <C-G>g <Plug>delimitMateJumpMany
+imap <buffer> <S-Tab> <Plug>delimitMateS-Tab
 imap <buffer> <S-BS> <Plug>delimitMateS-BS
 imap <buffer> <C-H> <Plug>delimitMateBS
 imap <buffer> <BS> <Plug>delimitMateBS
@@ -106,7 +106,7 @@ setlocal norelativenumber
 setlocal norightleft
 setlocal rightleftcmd=search
 setlocal noscrollbind
-setlocal scrolloff=-1
+setlocal scrolloff=5
 setlocal shiftwidth=8
 setlocal noshortname
 setlocal showbreak=
@@ -148,14 +148,144 @@ setlocal wrap
 setlocal wrapmargin=0
 779
 normal! zo
-807
+810
 normal! zo
-let s:l = 812 - ((21 * winheight(0) + 23) / 47)
+812
+normal! zo
+840
+normal! zo
+878
+normal! zo
+896
+normal! zo
+913
+normal! zo
+922
+normal! zo
+947
+normal! zo
+961
+normal! zo
+970
+normal! zo
+982
+normal! zo
+1000
+normal! zo
+1052
+normal! zo
+1091
+normal! zo
+1106
+normal! zo
+1111
+normal! zo
+1126
+normal! zo
+1141
+normal! zo
+1146
+normal! zo
+1168
+normal! zo
+1194
+normal! zo
+1213
+normal! zo
+1219
+normal! zo
+1274
+normal! zo
+1276
+normal! zo
+1282
+normal! zo
+1301
+normal! zo
+1302
+normal! zo
+1332
+normal! zo
+1358
+normal! zo
+1369
+normal! zo
+1417
+normal! zo
+1418
+normal! zo
+1426
+normal! zo
+1429
+normal! zo
+1529
+normal! zo
+1565
+normal! zo
+1568
+normal! zo
+1605
+normal! zo
+1668
+normal! zo
+1673
+normal! zo
+1687
+normal! zo
+1695
+normal! zo
+1707
+normal! zo
+1770
+normal! zo
+1778
+normal! zo
+1792
+normal! zo
+1836
+normal! zo
+1842
+normal! zo
+1854
+normal! zo
+1860
+normal! zo
+1925
+normal! zo
+1959
+normal! zo
+2030
+normal! zo
+2084
+normal! zo
+2128
+normal! zo
+2138
+normal! zo
+2166
+normal! zo
+2169
+normal! zo
+2177
+normal! zo
+2204
+normal! zo
+2211
+normal! zo
+2226
+normal! zo
+2257
+normal! zo
+2263
+normal! zo
+let s:l = 819 - ((36 * winheight(0) + 22) / 44)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 812
-normal! 016|
+keepjumps 819
+normal! 07|
+lcd ~/llvm-project
 let &g:so = s:so_save | let &g:siso = s:siso_save
+nohlsearch
 doautoall SessionLoadPost
 " vim: set ft=vim :

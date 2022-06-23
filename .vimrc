@@ -101,6 +101,17 @@ map <C-j> <C-e>
 map <C-k> <C-y>
 vmap <space> <Esc>
 command Diff :w !git diff --no-index % -
+nmap <Leader>l :Lines<CR>
+noremap <silent> <c-u> :call smooth_scroll#up(&scroll, 0, 2)<CR>
+noremap <silent> <c-d> :call smooth_scroll#down(&scroll, 0, 2)<CR>
+noremap <silent> <c-b> :call smooth_scroll#up(&scroll*2, 0, 4)<CR>
+noremap <silent> <c-f> :call smooth_scroll#down(&scroll*2, 0, 4)<CR>
+let g:loaded_youcompleteme = 1
+map <Leader><< :tabm -1<CR>
+map <Leader>>> :tabm +1<CR>
+map <Leader>+ :tabnew<CR>
+nnoremap <silent><Leader><C-]> <C-w><C-]><C-w>T
+set shiftwidth=4
 if exists("+showtabline")
     function! MyTabLine()
         let s = ''
