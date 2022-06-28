@@ -21,7 +21,6 @@ set laststatus=2                " make the last line where the status is two lin
 set showmode                    " show the current mode
 set clipboard=unnamed           " set clipboard to unnamed to access the system clipboard under windows
 set wildmode=list:longest,longest:full   " Better command line completion
-
 " Show EOL type and last modified timestamp, right after the filename
 " Set the statusline
 set statusline=%f               " filename relative to current $PWD
@@ -52,11 +51,15 @@ set number
 set nornu
 imap jj <Esc>
 " show file path at bottom
+set ignorecase
+set smartcase
 set laststatus=2
 set statusline+=%F
 " nmap s <Plug>(easymotion-overwin-f)
 map s <Plug>(easymotion-bd-f)
-nmap s <Plug>(easymotion-overwin-f)
+" map <Leader>w <Plug>(easymotion-w)
+" map s <Plug>(easymotion-s)
+" nmap s <Plug>(easymotion-overwin-f)
 let g:EasyMotion_smartcase = 1
 map <Leader>j <Plug>(easymotion-j)
 map <Leader>k <Plug>(easymotion-k)
@@ -107,6 +110,7 @@ noremap <silent> <c-d> :call smooth_scroll#down(&scroll, 0, 2)<CR>
 noremap <silent> <c-b> :call smooth_scroll#up(&scroll*2, 0, 4)<CR>
 noremap <silent> <c-f> :call smooth_scroll#down(&scroll*2, 0, 4)<CR>
 let g:loaded_youcompleteme = 1
+set foldnestmax=1
 map <Leader><< :tabm -1<CR>
 map <Leader>>> :tabm +1<CR>
 map <Leader>+ :tabnew<CR>
@@ -155,3 +159,5 @@ if exists("+showtabline")
     set showtabline=1
     highlight link TabNum Special
 endif
+
+hi Folded ctermbg=55 cterm=bold
