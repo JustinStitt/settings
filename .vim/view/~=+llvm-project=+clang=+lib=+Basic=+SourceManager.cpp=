@@ -1,290 +1,153 @@
 let s:so_save = &g:so | let s:siso_save = &g:siso | setg so=0 siso=0 | setl so=-1 siso=-1
 argglobal
-let s:cpo_save=&cpo
-set cpo&vim
-imap <buffer> <silent> <C-G>g <Plug>delimitMateJumpMany
-imap <buffer> <S-Tab> <Plug>delimitMateS-Tab
-imap <buffer> <S-BS> <Plug>delimitMateS-BS
-imap <buffer> <C-H> <Plug>delimitMateBS
-imap <buffer> <BS> <Plug>delimitMateBS
-imap <buffer> <silent> g <Plug>delimitMateJumpMany
-imap <buffer>  <Plug>delimitMateBS
-imap <buffer> " <Plug>delimitMate"
-imap <buffer> ' <Plug>delimitMate'
-imap <buffer> ( <Plug>delimitMate(
-imap <buffer> ) <Plug>delimitMate)
-imap <buffer> [ <Plug>delimitMate[
-imap <buffer> ] <Plug>delimitMate]
-imap <buffer> ` <Plug>delimitMate`
-imap <buffer> { <Plug>delimitMate{
-imap <buffer> } <Plug>delimitMate}
-let &cpo=s:cpo_save
-unlet s:cpo_save
-setlocal keymap=
-setlocal noarabic
-setlocal autoindent
-setlocal backupcopy=
-setlocal balloonexpr=
-setlocal nobinary
-setlocal nobreakindent
-setlocal breakindentopt=
-setlocal bufhidden=
-setlocal buflisted
-setlocal buftype=
-setlocal cindent
-setlocal cinkeys=0{,0},0),0],:,0#,!^F,o,O,e
-setlocal cinoptions=
-setlocal cinscopedecls=public,protected,private
-setlocal cinwords=if,else,while,do,for,switch
-setlocal colorcolumn=80
-setlocal comments=sO:*\ -,mO:*\ \ ,exO:*/,s1:/*,mb:*,ex:*/,://
-setlocal commentstring=/*%s*/
-setlocal complete=.,w,b,u,t,i
-setlocal concealcursor=
-setlocal conceallevel=0
-setlocal completefunc=
-setlocal nocopyindent
-setlocal cryptmethod=
-setlocal nocursorbind
-setlocal nocursorcolumn
-setlocal nocursorline
-setlocal cursorlineopt=both
-setlocal define=^\\s*#\\s*define
-setlocal dictionary=
-setlocal nodiff
-setlocal equalprg=
-setlocal errorformat=
-setlocal expandtab
-if &filetype != 'cpp'
-setlocal filetype=cpp
-endif
-setlocal fixendofline
-setlocal foldcolumn=0
-setlocal foldenable
-setlocal foldexpr=0
-setlocal foldignore=#
-setlocal foldlevel=6
-setlocal foldmarker={{{,}}}
-setlocal foldmethod=syntax
-setlocal foldminlines=1
-setlocal foldnestmax=20
-setlocal foldtext=foldtext()
-setlocal formatexpr=
-setlocal formatoptions=croql
-setlocal formatlistpat=^\\s*\\d\\+[\\]:.)}\\t\ ]\\s*
-setlocal formatprg=
-setlocal grepprg=
-setlocal iminsert=0
-setlocal imsearch=-1
-setlocal include=^\\s*#\\s*include
-setlocal includeexpr=
-setlocal indentexpr=
-setlocal indentkeys=0{,0},0),0],:,0#,!^F,o,O,e
-setlocal noinfercase
-setlocal iskeyword=@,48-57,_,192-255
-setlocal keywordprg=
-setlocal nolinebreak
-setlocal nolisp
-setlocal lispwords=
-setlocal nolist
-setlocal listchars=
-setlocal makeencoding=
-setlocal makeprg=
-setlocal matchpairs=(:),{:},[:]
-setlocal nomodeline
-setlocal modifiable
-setlocal nrformats=bin,hex
-setlocal number
-setlocal numberwidth=4
-setlocal omnifunc=ccomplete#Complete
-setlocal path=
-setlocal nopreserveindent
-setlocal nopreviewwindow
-setlocal quoteescape=\\
-setlocal noreadonly
-setlocal norelativenumber
-setlocal norightleft
-setlocal rightleftcmd=search
-setlocal noscrollbind
-setlocal scrolloff=5
-setlocal shiftwidth=8
-setlocal noshortname
-setlocal showbreak=
-setlocal sidescrolloff=-1
-setlocal signcolumn=auto
-setlocal nosmartindent
-setlocal softtabstop=0
-setlocal nospell
-setlocal spellcapcheck=[.?!]\\_[\\])'\"\	\ ]\\+
-setlocal spellfile=
-setlocal spelllang=en
-setlocal spelloptions=
-setlocal statusline=%!airline#statusline(1)
-setlocal suffixesadd=
-setlocal swapfile
-setlocal synmaxcol=3000
-if &syntax != 'cpp'
-setlocal syntax=cpp
-endif
-setlocal tabstop=4
-setlocal tagcase=
-setlocal tagfunc=
-setlocal tags=
-setlocal termwinkey=
-setlocal termwinscroll=10000
-setlocal termwinsize=
-setlocal textwidth=0
-setlocal thesaurus=
-setlocal thesaurusfunc=
-setlocal undofile
-setlocal undolevels=-123456
-setlocal varsofttabstop=
-setlocal vartabstop=
-setlocal virtualedit=
-setlocal wincolor=
-setlocal nowinfixheight
-setlocal nowinfixwidth
-setlocal wrap
-setlocal wrapmargin=0
-779
+setlocal fdm=syntax
+setlocal fde=0
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=6
+setlocal fml=1
+setlocal fdn=20
+setlocal fen
+78
 normal! zo
-810
+764
 normal! zo
-812
+784
 normal! zo
-840
+815
 normal! zo
-878
+845
 normal! zo
-896
+884
 normal! zo
-913
+902
 normal! zo
-922
+919
 normal! zo
-947
+928
 normal! zo
-961
+953
 normal! zo
-970
+967
 normal! zo
-982
+976
 normal! zo
-1000
+988
 normal! zo
-1052
+1006
 normal! zo
-1091
+1058
 normal! zo
-1106
+1097
 normal! zo
-1111
+1112
 normal! zo
-1126
+1117
 normal! zo
-1141
+1132
 normal! zo
-1146
+1147
 normal! zo
-1168
+1152
 normal! zo
-1194
+1174
 normal! zo
-1213
+1200
 normal! zo
 1219
 normal! zo
-1274
+1225
 normal! zo
-1276
+1280
 normal! zo
 1282
 normal! zo
-1301
+1288
 normal! zo
-1302
+1307
 normal! zo
-1332
+1308
 normal! zo
-1358
+1338
 normal! zo
-1369
+1364
 normal! zo
-1417
+1375
 normal! zo
-1418
+1423
 normal! zo
-1426
+1424
 normal! zo
-1429
+1432
 normal! zo
-1529
+1435
 normal! zo
-1565
+1535
 normal! zo
-1568
+1571
 normal! zo
-1605
+1574
 normal! zo
-1668
+1611
 normal! zo
-1673
+1674
 normal! zo
-1687
+1679
 normal! zo
-1695
+1693
 normal! zo
-1707
+1701
 normal! zo
-1770
+1713
 normal! zo
-1778
+1776
 normal! zo
-1792
+1784
 normal! zo
-1836
+1798
 normal! zo
 1842
 normal! zo
-1854
+1848
 normal! zo
 1860
 normal! zo
-1925
+1866
 normal! zo
-1959
+1931
 normal! zo
-2030
+1965
 normal! zo
-2084
+2036
 normal! zo
-2128
+2090
 normal! zo
-2138
+2134
 normal! zo
-2166
+2144
 normal! zo
-2169
+2184
 normal! zo
-2177
+2187
 normal! zo
-2204
+2195
 normal! zo
-2211
+2222
 normal! zo
-2226
+2229
 normal! zo
-2257
+2244
 normal! zo
-2263
+2275
 normal! zo
-let s:l = 819 - ((36 * winheight(0) + 22) / 44)
+2281
+normal! zo
+let s:l = 2177 - ((28 * winheight(0) + 23) / 47)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 819
-normal! 07|
-lcd ~/llvm-project
+keepjumps 2177
+normal! 075|
 let &g:so = s:so_save | let &g:siso = s:siso_save
 nohlsearch
 doautoall SessionLoadPost

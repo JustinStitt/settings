@@ -61,6 +61,8 @@ map s <Plug>(easymotion-bd-f)
 " map s <Plug>(easymotion-s)
 " nmap s <Plug>(easymotion-overwin-f)
 let g:EasyMotion_smartcase = 1
+map <c-s> <Esc>:w<CR>
+imap <c-s> <Esc>:w<CR>
 map <Leader>j <Plug>(easymotion-j)
 map <Leader>k <Plug>(easymotion-k)
 map <Leader>u :UndotreeToggle<CR>:UndotreeFocus<CR>
@@ -161,3 +163,5 @@ if exists("+showtabline")
 endif
 
 hi Folded ctermbg=55 cterm=bold
+nnoremap <Leader>b :<C-u>call gitblame#echo()<CR>
+nmap yr :call system("ssh $machineA_IP pbcopy", @*)<CR>
