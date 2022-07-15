@@ -1,0 +1,3 @@
+term_.prefs_.set('font-family', '"Fira Code", Cousine, "Roboto Mono", "Source Code Pro", monospace');
+term_.prefs_.set('user-css-text', "x-row { font-feature-settings: 'liga', 'calt', 'ss01', 'ss02', 'ss03', 'ss04', 'ss05', 'ss06', 'ss07', 'cv31', 'cv29', 'cv30', 'cv01', 'cv02', 'cv06', 'cv14'; text-rendering: optimizeLegibility; }")
+term_.prefs_.set('user-css', 'https://cdn.jsdelivr.net/npm/firacode@latest/distr/fira_code.min.css')
