@@ -50,6 +50,7 @@ set t_u7=
 set number
 set nornu
 imap jj <Esc>
+imap jk <Esc>
 " show file path at bottom
 set ignorecase
 set smartcase
@@ -79,10 +80,11 @@ map <c-l> :NERDTreeToggle<CR>
 hi LineNr ctermbg=none
 hi Visual cterm=bold
 " Start NERDTree when Vim is started without file arguments.
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists('s:std_in') | NERDTree | endif
+" autocmd StdinReadPre * let s:std_in=1
+" autocmd VimEnter * if argc() == 0 && !exists('s:std_in') | NERDTree | endif
 
 nmap <tab> gt
+xmap <tab> gt
 let g:ycm_autoclose_preview_window_after_completion=1
 " Rename tabs to show tab number.
 " (Based on http://stackoverflow.com/questions/5927952/whats-implementation-of-vims-default-tabline-function)
@@ -98,6 +100,7 @@ let $FZF_DEFAULT_COMMAND = 'rg --files --ignore-case --hidden -g "!{.git,node_mo
 command! -bang -nargs=? -complete=dir Files
      \ call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
 nnoremap <S-Tab> gT
+xnoremap <S-Tab> gT
 let g:rainbow_active=1
 let g:ycm_auto_hover=''
 nmap <Leader>D <Plug>(YCMHover)
@@ -118,50 +121,62 @@ map <Leader>>> :tabm +1<CR>
 map <Leader>+ :tabnew<CR>
 nnoremap <silent><Leader><C-]> <C-w><C-]><C-w>T
 set shiftwidth=4
-if exists("+showtabline")
-    function! MyTabLine()
-        let s = ''
-        let wn = ''
-        let t = tabpagenr()
-        let i = 1
-        while i <= tabpagenr('$')
-            let buflist = tabpagebuflist(i)
-            let winnr = tabpagewinnr(i)
-            let s .= '%' . i . 'T'
-            let s .= (i == t ? '%1*' : '%2*')
-            let s .= ' '
-            let wn = tabpagewinnr(i,'$')
+" if exists("+showtabline")
+"     function! MyTabLine()
+"         let s = ''
+"         let wn = ''
+"         let t = tabpagenr()
+"         let i = 1
+"         while i <= tabpagenr('$')
+"             let buflist = tabpagebuflist(i)
+"             let winnr = tabpagewinnr(i)
+"             let s .= '%' . i . 'T'
+"             let s .= (i == t ? '%1*' : '%2*')
+"             let s .= ' '
+"             let wn = tabpagewinnr(i,'$')
 
-            let s .= '%#TabNum#'
-            let s .= i
-            " let s .= '%*'
-            let s .= (i == t ? '%#TabLineSel#' : '%#TabLine#')
-            let bufnr = buflist[winnr - 1]
-            let file = bufname(bufnr)
-            let buftype = getbufvar(bufnr, 'buftype')
-            if buftype == 'nofile'
-                if file =~ '\/.'
-                    let file = substitute(file, '.*\/\ze.', '', '')
-                endif
-            else
-                let file = fnamemodify(file, ':p:t')
-            endif
-            if file == ''
-                let file = '[No Name]'
-            endif
-            let s .= ' ' . file . ' '
-            let i = i + 1
-        endwhile
-        let s .= '%T%#TabLineFill#%='
-        let s .= (tabpagenr('$') > 1 ? '%999XX' : 'X')
-        return s
-    endfunction
-    set stal=2
-    set tabline=%!MyTabLine()
-    set showtabline=1
-    highlight link TabNum Special
-endif
+"             let s .= '%#TabNum#'
+"             let s .= i
+"             " let s .= '%*'
+"             let s .= (i == t ? '%#TabLineSel#' : '%#TabLine#')
+"             let bufnr = buflist[winnr - 1]
+"             let file = bufname(bufnr)
+"             let buftype = getbufvar(bufnr, 'buftype')
+"             if buftype == 'nofile'
+"                 if file =~ '\/.'
+"                     let file = substitute(file, '.*\/\ze.', '', '')
+"                 endif
+"             else
+"                 let file = fnamemodify(file, ':p:t')
+"             endif
+"             if file == ''
+"                 let file = '[No Name]'
+"             endif
+"             let s .= ' ' . file . ' '
+"             let i = i + 1
+"         endwhile
+"         let s .= '%T%#TabLineFill#%='
+"         let s .= (tabpagenr('$') > 1 ? '%999XX' : 'X')
+"         return s
+"     endfunction
+"     set stal=2
+"     set tabline=%!MyTabLine()
+"     set showtabline=1
+"     highlight link TabNum Special
+" endif
 
 hi Folded ctermbg=55 cterm=bold
 nnoremap <Leader>b :<C-u>call gitblame#echo()<CR>
 nmap yr :call system("ssh $machineA_IP pbcopy", @*)<CR>
+nmap <Leader>p :set paste!<CR>
+nmap <Leader>ds :Gdiffsplit<CR>
+nmap <C-q> :q<CR>
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#formatter = 'unique_tail'
+" syntax sync fromstart
+" set redrawtime=10000
+set re=0
+set mouse=a
+nnoremap <Leader>t :Buffers<CR>
+" language server stuff: https://github.com/mattn/vim-lsp-settings
