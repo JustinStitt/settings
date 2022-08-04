@@ -170,13 +170,19 @@ nnoremap <Leader>b :<C-u>call gitblame#echo()<CR>
 nmap yr :call system("ssh $machineA_IP pbcopy", @*)<CR>
 nmap <Leader>p :set paste!<CR>
 nmap <Leader>ds :Gdiffsplit<CR>
-nmap <C-q> :q<CR>
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#formatter = 'unique_tail'
+nmap <C-q> :q<CR>
 " syntax sync fromstart
 " set redrawtime=10000
 set re=0
 set mouse=a
 nnoremap <Leader>t :Buffers<CR>
 " language server stuff: https://github.com/mattn/vim-lsp-settings
+let g:move_key_modifier = 'S'
+let g:move_key_modifier_visualmode = 'S'
+imap <C-k> <Up>
+imap <C-j> <Down>
+imap <C-h> <Left>
+imap <C-l> <Right>
