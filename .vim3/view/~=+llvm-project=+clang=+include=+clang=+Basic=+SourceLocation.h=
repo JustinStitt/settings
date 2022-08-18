@@ -1,0 +1,36 @@
+let s:so_save = &g:so | let s:siso_save = &g:siso | setg so=0 siso=0 | setl so=-1 siso=-1
+argglobal
+setlocal fdm=syntax
+setlocal fde=0
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=4
+setlocal fml=1
+setlocal fdn=20
+setlocal fen
+31
+normal! zo
+38
+normal! zo
+86
+normal! zo
+253
+normal! zo
+302
+normal! zo
+368
+normal! zo
+463
+normal! zo
+468
+normal! zo
+let s:l = 183 - ((23 * winheight(0) + 23) / 47)
+if s:l < 1 | let s:l = 1 | endif
+keepjumps exe s:l
+normal! zt
+keepjumps 183
+normal! 018|
+lcd ~/llvm-project
+let &g:so = s:so_save | let &g:siso = s:siso_save
+doautoall SessionLoadPost
+" vim: set ft=vim :
