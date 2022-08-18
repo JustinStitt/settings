@@ -134,5 +134,11 @@ export PATH=~/llvm-project/llvm/build/bin:$PATH
 # export PATH=~/llvm-project/llvm/build_CheckICE_cache_test/bin:$PATH
 # export PATH=~/llvm-project/llvm/build_lhs_short_circuit/bin:$PATH
 # export PATH=~/llvm-project/llvm/build_print_expr_literal/bin:$PATH
-export PATH=~/llvm-project/llvm/build_binary_case_freq/bin:$PATH
+# export PATH=~/llvm-project/llvm/build_binary_case_freq/bin:$PATH
+# export PATH=~/llvm-project/llvm/build_just_return_bool/bin:$PATH
+# export PATH=~/llvm-project/llvm/build_nodiag_sentinel/bin:$PATH
+# export PATH=~/llvm-project/llvm/build_caching_literals/bin:$PATH
+export PATH=~/llvm-project/llvm/build_cppdiagonly/bin:$PATH
+#
 export PATH="$HOME/.local/bin:$PATH"
+export PATH="$PATH:/usr/local/google/home/justinstitt/repos/arcanist/bin/" # arc
