@@ -1,0 +1,13 @@
+git checkout -p origin/main(master) allows you to pick and choose what hunks to keep between the index and upstream
+
+git add -p allows you to choose what hunks to add to index.
+
+gg=G reindents entire buffer, use alongside set ts=2
+
+git branch -f <branch_name> <sha-hash> # change where branch name points to
+
+to merge by hunk do this:
+git merge --squash --no-commit <other_branch>
+git reset HEAD # unstage commits so we can patch add
+git add -p
+git commit
