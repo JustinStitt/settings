@@ -1,4 +1,5 @@
 
+DISABLE_AUTO_UPDATE="true"
 stty -ixon
 
 
@@ -287,3 +288,12 @@ ranger() {
         exit
     fi
 }
+
+alias st='git status'
+alias lg='git log'
+alias gcm='git commit -m'
+alias push='git push'
+alias add="git add"
+alias b='byobu'
+alias xo='xdg-open'
+export TRASH_DIR="/home/jstitt/.local/share/Trash"
