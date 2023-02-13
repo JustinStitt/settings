@@ -1,0 +1,510 @@
+// VSCODE KEYBINDINGS SNAPSHOT (this should be synced, this is just in case, though)
+// Place your key bindings in this file to override the defaultsauto[]
+[
+  {
+    "key": "ctrl+- ctrl+-",
+    "command": "editor.action.fontZoomOut"
+  },
+  {
+    "key": "ctrl+= ctrl+=",
+    "command": "editor.action.fontZoomIn"
+  },
+  {
+    "key": "ctrl+shift+b",
+    "command": "-workbench.action.tasks.build"
+  },
+  {
+    "key": "alt+left",
+    "command": "-workbench.action.quickInputBack",
+    "when": "inQuickOpen"
+  },
+  {
+    "key": "alt+left",
+    "command": "-workbench.action.terminal.focusPreviousPane",
+    "when": "terminalFocus && terminalHasBeenCreated || terminalFocus && terminalProcessSupported"
+  },
+  {
+    "key": "alt+left",
+    "command": "-workbench.action.navigateBack"
+  },
+  {
+    "key": "alt+left",
+    "command": "editor.action.moveCarretLeftAction"
+  },
+  {
+    "key": "alt+right",
+    "command": "editor.action.moveCarretRightAction"
+  },
+  {
+    "key": "alt+right",
+    "command": "-workbench.action.navigateForward"
+  },
+  {
+    "key": "alt+right",
+    "command": "-workbench.action.terminal.focusNextPane",
+    "when": "terminalFocus && terminalHasBeenCreated || terminalFocus && terminalProcessSupported"
+  },
+  {
+    "key": "ctrl+alt+s",
+    "command": "extension.surroundSelection"
+  },
+  {
+    "key": "ctrl+h",
+    "command": "-editor.action.startFindReplaceAction",
+    "when": "editorFocus || editorIsOpen"
+  },
+  {
+    "key": "ctrl+h",
+    "command": "-extension.vim_ctrl+h",
+    "when": "editorTextFocus && vim.active && vim.use<C-h> && !inDebugRepl"
+  },
+  // {
+  //   "key": "ctrl+h",
+  //   "command": "outline.focus"
+  // },
+  {
+    "key": "ctrl+l",
+    "command": "-expandLineSelection",
+    "when": "textInputFocus"
+  },
+  {
+    "key": "ctrl+l",
+    "command": "-notebook.centerActiveCell",
+    "when": "notebookEditorFocused"
+  },
+  {
+    "key": "ctrl+shift+b",
+    "command": "workbench.action.toggleActivityBarVisibility"
+  },
+  {
+    "key": "ctrl+shift+e",
+    "command": "-workbench.view.explorer",
+    "when": "viewContainer.workbench.view.explorer.enabled"
+  },
+  {
+    "key": "ctrl+shift+space",
+    "command": "editor.action.showHover",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "ctrl+k ctrl+i",
+    "command": "-editor.action.showHover",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "alt+x",
+    "command": "C_Cpp.SwitchHeaderSource",
+    "when": "editorTextFocus && editorLangId == 'c' || editorTextFocus && editorLangId == 'cpp' || editorTextFocus && editorLangId == 'cuda-cpp'"
+  },
+  {
+    "key": "alt+o",
+    "command": "-C_Cpp.SwitchHeaderSource",
+    "when": "editorTextFocus && editorLangId == 'c' || editorTextFocus && editorLangId == 'cpp' || editorTextFocus && editorLangId == 'cuda-cpp'"
+  },
+  {
+    "key": "alt+o",
+    "command": "editor.action.insertLineAfter",
+    "when": "editorTextFocus && !editorReadonly"
+  },
+  {
+    "key": "ctrl+enter",
+    "command": "-editor.action.insertLineAfter",
+    "when": "editorTextFocus && !editorReadonly"
+  },
+  {
+    "key": "shift+alt+o",
+    "command": "editor.action.insertLineBefore",
+    "when": "editorTextFocus && !editorReadonly"
+  },
+  {
+    "key": "ctrl+shift+enter",
+    "command": "-editor.action.insertLineBefore",
+    "when": "editorTextFocus && !editorReadonly"
+  },
+  {
+    "key": "shift+alt+o",
+    "command": "-editor.action.organizeImports",
+    "when": "editorTextFocus && !editorReadonly && supportedCodeAction =~ /(\\s|^)source\\.organizeImports\\b/"
+  },
+  {
+    "key": "ctrl+j",
+    "command": "-workbench.action.togglePanel"
+  },
+  {
+    "key": "ctrl+shift+/",
+    "command": "editor.action.addSelectionToNextFindMatch",
+    "when": "editorFocus"
+  },
+  // {
+  //   "key": "ctrl+d",
+  //   "command": "-editor.action.addSelectionToNextFindMatch",
+  //   "when": "editorFocus"
+  // },
+  {
+    "key": "ctrl+l",
+    "when": "!editorFocus",
+    "command": "workbench.view.explorer"
+  },
+  {
+    "key": "alt+a",
+    "command": "workbench.action.focusPreviousGroup"
+  },
+  {
+    "key": "ctrl+shift+f6",
+    "command": "workbench.action.localHistory.restoreViaPicker"
+  },
+  {
+    "key": "ctrl+shift+f7",
+    "command": "workbench.action.localHistory.restore"
+  },
+  {
+    "key": "ctrl+shift+alt+up",
+    "command": "workbench.action.terminal.resizePaneUp"
+  },
+  {
+    "key": "shift+escape",
+    "command": "notifications.clearAll"
+  },
+  {
+    "key": "ctrl+shift+alt+down",
+    "command": "workbench.action.terminal.resizePaneDown"
+  },
+  {
+    "key": "ctrl+j",
+    "command": "workbench.action.quickOpenSelectNext",
+    "when": "!editorTextFocus"
+  },
+  {
+    "key": "ctrl+k",
+    "command": "workbench.action.quickOpenSelectPrevious",
+    "when": "!editorTextFocus"
+  },
+  // {
+  //   "key": "ctrl+h",
+  //   "command": "workbench.action.focusActiveEditorGroup",
+  //   "when": "!editorTextFocus"
+  // },
+  // {
+  //   "key": "ctrl+h",
+  //   "command": "outline.focus",
+  //   "when": "editorTextFocus"
+  // },
+  {
+    "key": "ctrl+s",
+    "command": "extension.multiCommand.execute",
+    "args": {
+      "sequence": ["extension.vim_escape", "workbench.action.files.save"]
+    },
+    "when": "editorTextFocus && vim.active && !inDebugRepl"
+  },
+  {
+    "key": "alt+n",
+    "command": "workbench.action.evenEditorWidths"
+  },
+  {
+    "key": "shift+alt+m",
+    "command": "workbench.action.toggleMaximizedPanel"
+  },
+  // {
+  //   "key": "ctrl+u",
+  //   "command": "multiCommand.up1LineKeepCursor",
+  //   "when": "editorTextFocus"
+  // },
+  // {
+  //   "key": "ctrl+d",
+  //   "command": "multiCommand.down1LineKeepCursor",
+  //   "when": "editorTextFocus"
+  // },
+  {
+    "key": "alt+m",
+    "command": "workbench.action.minimizeOtherEditors"
+  },
+  {
+    "key": "alt+s",
+    "command": "workbench.action.focusNextGroup"
+  },
+  {
+    "key": "alt+l",
+    "command": "-toggleFindInSelection",
+    "when": "editorFocus"
+  },
+  {
+    "key": "alt+l",
+    "command": "-toggleSearchEditorContextLines",
+    "when": "inSearchEditor"
+  },
+  {
+    "key": "alt+l alt+o",
+    "command": "-extension.liveServer.goOnline",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "alt+l alt+c",
+    "command": "-extension.liveServer.goOffline",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "shift+f2",
+    "command": "workbench.action.splitEditorDown"
+  },
+  {
+    "key": "ctrl+f2",
+    "command": "workbench.action.splitEditorRight"
+  },
+  {
+    "key": "ctrl+f2",
+    "command": "-editor.action.changeAll",
+    "when": "editorTextFocus && !editorReadonly"
+  },
+  {
+    "key": "ctrl+h",
+    "command": "extension.vim_left",
+    "when": "editorTextFocus && vim.active && !inDebugRepl && vim.mode == 'Insert'"
+  },
+  {
+    "key": "ctrl+alt+,",
+    "command": "git.openChange",
+    "when": "vim.mode != 'Insert'"
+  },
+  {
+    "key": "ctrl+h",
+    "command": "outline.focus",
+    "when": "vim.mode != 'Insert'"
+  },
+  {
+    "key": "ctrl+h",
+    "command": "workbench.action.focusActiveEditorGroup",
+    "when": "!editorTextFocus"
+  },
+  {
+    "key": "alt+k",
+    "command": "-keybindings.editor.recordSearchKeys",
+    "when": "inKeybindings && inKeybindingsSearch"
+  },
+  {
+    "key": "alt+k",
+    "command": "workbench.action.toggleZenMode"
+  },
+  {
+    "key": "ctrl+k z",
+    "command": "-workbench.action.toggleZenMode"
+  },
+  {
+    "key": "ctrl+k",
+    "command": "extension.vim_ctrl+p",
+    "when": "suggestWidgetVisible && vim.active && vim.use<C-p> && !inDebugRepl || vim.active && vim.use<C-p> && !inDebugRepl && vim.mode == 'CommandlineInProgress' || vim.active && vim.use<C-p> && !inDebugRepl && vim.mode == 'SearchInProgressMode'"
+  },
+  {
+    "key": "alt+c",
+    "command": "-workbench.action.terminal.toggleFindCaseSensitive",
+    "when": "terminalFindFocused && terminalHasBeenCreated || terminalFindFocused && terminalProcessSupported || terminalFocus && terminalHasBeenCreated || terminalFocus && terminalProcessSupported"
+  },
+  {
+    "key": "alt+c",
+    "command": "-toggleSearchEditorCaseSensitive",
+    "when": "inSearchEditor && searchInputBoxFocus"
+  },
+  {
+    "key": "alt+c",
+    "command": "-toggleFindCaseSensitive",
+    "when": "editorFocus"
+  },
+  {
+    "key": "alt+c",
+    "command": "-toggleSearchCaseSensitive",
+    "when": "searchViewletFocus"
+  },
+  {
+    "key": "alt+c",
+    "command": "editor.action.blockComment",
+    "when": "editorTextFocus && !editorReadonly"
+  },
+  {
+    "key": "ctrl+j",
+    "command": "extension.vim_ctrl+n",
+    "when": "suggestWidgetVisible && vim.active && vim.use<C-n> && !inDebugRepl || vim.active && vim.use<C-n> && !inDebugRepl && vim.mode == 'CommandlineInProgress' || vim.active && vim.use<C-n> && !inDebugRepl && vim.mode == 'SearchInProgressMode'"
+  },
+  {
+    "key": "ctrl+n",
+    "command": "-extension.vim_ctrl+n",
+    "when": "editorTextFocus && vim.active && vim.use<C-n> && !inDebugRepl || vim.active && vim.use<C-n> && !inDebugRepl && vim.mode == 'CommandlineInProgress' || vim.active && vim.use<C-n> && !inDebugRepl && vim.mode == 'SearchInProgressMode'"
+  },
+  {
+    "key": "ctrl+q",
+    "command": "-workbench.action.quickOpenNavigateNextInViewPicker",
+    "when": "inQuickOpen && inViewsPicker"
+  },
+  {
+    "key": "ctrl+q",
+    "command": "-workbench.action.quickOpenView"
+  },
+  {
+    "key": "ctrl+=",
+    "command": "font-switcher.setTerminalFontSize",
+    "when": "terminalFocus && !editorTextFocus"
+  },
+  {
+    "key": "ctrl+shift+alt+right",
+    "command": "-cursorColumnSelectRight",
+    "when": "textInputFocus"
+  },
+  {
+    "key": "ctrl+shift+alt+right",
+    "command": "workbench.action.increaseViewSize"
+  },
+  {
+    "key": "ctrl+shift+alt+left",
+    "command": "workbench.action.decreaseViewSize"
+  },
+  {
+    "key": "ctrl+shift+alt+left",
+    "command": "-cursorColumnSelectLeft",
+    "when": "textInputFocus"
+  },
+  {
+    "key": "ctrl+shift+'",
+    "command": "editor.action.insertCursorBelow",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "ctrl+alt+down",
+    "command": "-editor.action.insertCursorBelow",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "ctrl+u",
+    "command": "-cursorUndo",
+    "when": "textInputFocus"
+  },
+  {
+    "key": "ctrl+d",
+    "command": "-editor.action.addSelectionToNextFindMatch",
+    "when": "editorFocus"
+  },
+  {
+    "key": "shift+enter",
+    "command": "-python.execSelectionInTerminal",
+    "when": "editorTextFocus && !findInputFocussed && !jupyter.ownsSelection && !notebookEditorFocused && !replaceInputFocussed && editorLangId == 'python'"
+  },
+  {
+    "key": "ctrl+alt+k",
+    "command": "hediet.vscode-drawio.linkFileWithSelectedNode"
+  },
+  {
+    "key": "ctrl+w",
+    "command": "workbench.action.closeGroup",
+    "when": "activeEditorGroupEmpty && multipleEditorGroups"
+  },
+  {
+    "key": "ctrl+w",
+    "command": "-workbench.action.closeGroup",
+    "when": "activeEditorGroupEmpty && multipleEditorGroups"
+  },
+  {
+    "key": "ctrl+q",
+    "command": "workbench.action.closeActiveEditor"
+  },
+  {
+    "key": "ctrl+w",
+    "command": "-workbench.action.closeActiveEditor"
+  },
+  {
+    "key": "shift+enter",
+    "command": "-language-julia.executeCodeBlockOrSelectionAndMove",
+    "when": "editorTextFocus && activeEditor != 'workbench.editor.notebook' && editorLangId in 'julia.supportedLanguageIds'"
+  },
+  {
+    "key": "q shift+=",
+    "command": "welcome.showNewFileEntries",
+    "when": "vim.mode != 'Insert' && filesExplorerFocus"
+  },
+  {
+    "key": "ctrl+alt+win+n",
+    "command": "-welcome.showNewFileEntries"
+  },
+  {
+    "key": "ctrl+'",
+    "command": "draw.editCurrentLine"
+  },
+  {
+    "key": "ctrl+'",
+    "command": "-luna.file.importFromClipboard"
+  },
+  {
+    "key": "ctrl+shift+'",
+    "command": "-luna.file.newDefaultSize"
+  },
+  {
+    "key": "ctrl+shift+k",
+    "command": "-editor.action.deleteLines",
+    "when": "textInputFocus && !editorReadonly"
+  },
+  {
+    "key": "ctrl+shift+k",
+    "command": "markdown-preview-enhanced.openPreview",
+    "when": "editorLangId == 'markdown'"
+  },
+  {
+    "key": "ctrl+shift+v",
+    "command": "-markdown-preview-enhanced.openPreview",
+    "when": "editorLangId == 'markdown'"
+  },
+  {
+    "key": "ctrl+shift+k",
+    "command": "markdown.showPreview",
+    "when": "!notebookEditorFocused && editorLangId == 'markdown'"
+  },
+  {
+    "key": "ctrl+shift+v",
+    "command": "-markdown.showPreview",
+    "when": "!notebookEditorFocused && editorLangId == 'markdown'"
+  },
+  {
+    "key": "ctrl+alt+v",
+    "command": "telesoho.MarkdownPaste",
+    "when": "editorTextFocus && resourceLangId == 'markdown'"
+  },
+  {
+    "key": "ctrl+alt+v",
+    "command": "-telesoho.MarkdownPaste",
+    "when": "editorTextFocus && resourceLangId == 'markdown'"
+  },
+  {
+    "key": "ctrl+shift+t",
+    "command": "-writeTimestamp.perform",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "alt+a",
+    "command": "workbench.action.focusActiveEditorGroup",
+    "when": "terminalFocus"
+  },
+  {
+    "key": "ctrl+b",
+    "command": "workbench.action.toggleSidebarVisibility",
+    "when": "terminalFocus"
+  },
+  {
+    "key": "alt+shift+right",
+    // "command": "workbench.action.positionPanelRight",
+    "command": "extension.multiCommand.execute",
+    "args": {
+      "sequence": [
+        "workbench.action.positionPanelRight",
+        "workbench.action.terminal.focusPrevious"
+      ]
+    },
+    "when": "terminalFocus"
+  },
+  {
+    "key": "alt+shift+down",
+    "command": "extension.multiCommand.execute",
+    "args": {
+      "sequence": [
+        "workbench.action.positionPanelBottom",
+        "workbench.action.terminal.focusPrevious"
+      ]
+    },
+    "when": "terminalFocus"
+  }
+]
