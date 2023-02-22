@@ -1,4 +1,4 @@
-
+zmodload zsh/zprof
 DISABLE_AUTO_UPDATE="true"
 stty -ixon
 
@@ -121,7 +121,6 @@ alias r='ra'
 # cros ssh wallpaper
 # https://i.ibb.co/Gd8jmVm/windows-terminal-background-fox.png
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 alias cat='/bin/bat --color=always'
 alias bat='/bin/bat --color=always'
@@ -240,7 +239,8 @@ export DISPLAY="`grep nameserver /etc/resolv.conf | sed 's/nameserver //'`:0"
 plugins=(virtualenv)
 # POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status virtualenv)
 alias python='python3'
-alias v='vim'
+# alias v='vim'
+alias v='lvim'
 # Load pyenv automatically by appending
 # the following to
 # ~/.bash_profile if it exists, otherwise ~/.profile (for login shells)
@@ -267,19 +267,21 @@ alias dropbox="/mnt/d/Dropbox (CSU Fullerton)"
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/jstitt/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/home/jstitt/miniconda3/etc/profile.d/conda.sh" ]; then
-        . "/home/jstitt/miniconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/home/jstitt/miniconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
-conda config --set auto_activate_base false
+# comment out the below code because of zsh taking so long to open as evident by `$ zprof`
+# if we have conda problems, reinstate this code
+# __conda_setup="$('/home/jstitt/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+# if [ $? -eq 0 ]; then
+#     eval "$__conda_setup"
+# else
+#     if [ -f "/home/jstitt/miniconda3/etc/profile.d/conda.sh" ]; then
+#         . "/home/jstitt/miniconda3/etc/profile.d/conda.sh"
+#     else
+#         export PATH="/home/jstitt/miniconda3/bin:$PATH"
+#     fi
+# fi
+# unset __conda_setup
+# # <<< conda initialize <<<
+# conda config --set auto_activate_base false
 
 ranger() {
     if [ -z "$RANGER_LEVEL" ]; then
@@ -296,4 +298,32 @@ alias push='git push'
 alias add="git add"
 alias b='byobu'
 alias xo='xdg-open'
+alias rg='rg -i'
 export TRASH_DIR="/home/jstitt/.local/share/Trash"
+
+timezsh() {
+  shell=${1-$SHELL}
+  for i in $(seq 1 10); do /usr/bin/time $shell -i -c exit; done
+}
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# plugins
+# plugins+=(zsh-vi-mode)
+# ZVM_VI_ESCAPE_BINDKEY=jk
+# ZVM_NORMAL_MODE_CURSOR=$ZVM_CURSOR_BLINKING_BLOCKA
+# ZVM_LINE_INIT_MODE=$ZVM_MODE_INSERT
+# source $HOME/repos/.zsh-vi-mode/zsh-vi-mode.plugin.zsh
+# bindkey -v
+# bindkey -r "^R"
+# Use ESC to edit the current command line:
+export KEYTIMEOUT=1
+autoload -U edit-command-line
+zle -N edit-command-line
+bindkey '^ ' edit-command-line
+export PROMPT_COMMAND='echo -e -n "\x1b[\x35 q"'
+bindkey -r "^b"
+alias gist="gist-paste"
+LS_COLORS+=':ow=01;33'
+export EDITOR="lvim"
+export TERM=xterm-256color
+alias vim="lvim"
