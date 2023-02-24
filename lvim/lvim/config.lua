@@ -1,8 +1,9 @@
 -- vim options
-vim.opt.tabstop = 2
 vim.opt.relativenumber = false
+vim.opt.tabstop = 2
 vim.opt.shiftwidth = 2
 vim.opt.colorcolumn = '81'
+vim.opt.scrolloff = 1
 
 -- general
 lvim.log.level = "info"
@@ -16,11 +17,9 @@ lvim.builtin.lualine.sections.lualine_a = { "mode" }
 lvim.builtin.lualine.sections.lualine_b = { "filename" }
 lvim.builtin.lualine.sections.lualine_c = { "branch", "diff", "diagnostics" }
 lvim.builtin.lualine.options.section_separators = { left = "", right = "" }
-lvim.builtin.telescope.defaults = {
-  file_ignore_patterns = { "node_modules", "conda", 'npm', '.vscode-server*', '.posh-themes', '.dbus', '.pyenv', '.vim' } }
-
 -- keymappings <https://www.lunarvim.org/docs/configuration/keybindings>
 lvim.leader = ","
+
 
 -- NORMAL Mode Keybindings
 vim.keymap.set("n", "S", "/<Space><BS>")
@@ -30,16 +29,16 @@ lvim.keys.normal_mode["qS"] = ":noh<cr>"
 lvim.keys.normal_mode["<C-q>"] = ":q<cr>"
 lvim.keys.normal_mode["<Tab>"] = "<Cmd>:BufferLineCycleNext<cr>"
 lvim.keys.normal_mode["<S-Tab>"] = "<Cmd>:BufferLineCyclePrev<cr>"
-lvim.keys.normal_mode["q<<"] = "<Cmd>:BufferLineMovePrev<cr>"
 lvim.keys.normal_mode["q>>"] = "<Cmd>:BufferLineMoveNext<cr>"
+lvim.keys.normal_mode["q<<"] = "<Cmd>:BufferLineMovePrev<cr>"
+lvim.keys.normal_mode["-"] = ":split<cr>"
 lvim.keys.normal_mode["<C-F2>"] = ":vsplit<cr>"
 lvim.keys.normal_mode["|"] = ":vsplit<cr>"
-lvim.keys.normal_mode["-"] = ":split<cr>"
 lvim.keys.normal_mode["<C-j>"] = "<C-e>"
 lvim.keys.normal_mode["<C-k>"] = "<C-y>"
 lvim.keys.normal_mode["s"] = ":HopChar1<cr>"
 lvim.keys.normal_mode["qs"] = ":HopChar1MW<cr>"
-lvim.keys.normal_mode["qu"] = "<Cmd>:UndotreeToggle<cr>:UndotreeFocus<cr>"
+lvim.keys.normal_mode["<leader>u"] = "<Cmd>:UndotreeToggle<cr>:UndotreeFocus<cr>"
 lvim.keys.normal_mode["<C-h>"] = "<Cmd>:SymbolsOutline<cr>"
 lvim.keys.normal_mode["<leader><leader>f"] =
 "<Cmd>::Telescope find_files find_command=rg,--ignore,--max-depth=4,--files prompt_prefix=🔍<cr>"
@@ -53,12 +52,15 @@ lvim.keys.normal_mode["<C-b>"] = "<Cmd>:NvimTreeToggle<cr>"
 lvim.keys.normal_mode["<C-m>"] = "<C-w>|<C-w>_"
 lvim.keys.normal_mode["<C-n>"] = "<C-w>="
 lvim.keys.normal_mode["<leader>j"] = "<Cmd>:BufferLinePick<cr>"
+lvim.keys.normal_mode["<leader>lx"] = "<Cmd>:LspStop<cr>"
+lvim.keys.normal_mode["<leader>lX"] = "<Cmd>:LspStart<cr>"
 
 
 -- INSERT Mode Keybindings
 lvim.keys.insert_mode["jk"] = "<Esc>"
 lvim.keys.insert_mode["<C-h>"] = "<left>"
 lvim.keys.insert_mode["<C-l>"] = "<right>"
+lvim.keys.insert_mode["<C-s>"] = "<Esc>:w<cr>"
 
 -- VISUAL Mode Keybindings
 lvim.keys.visual_mode["<Space>"] = "<Esc>"
@@ -71,22 +73,24 @@ vim.keymap.set({ "n", "i", "v", "x" }, "<C-b>", "<Cmd>:NvimTreeToggle<cr>")
 vim.keymap.set({ "n" }, "<C-_>", "gcc", { remap = true })
 vim.keymap.set({ "i" }, "<C-_>", "<Esc>,/A", { remap = true })
 vim.keymap.set({ "v" }, "<C-_>", "gcc", { remap = true })
+vim.keymap.set({ "i" }, "<M-c>", "/**/<left><left>  <left>", { remap = true })
 
 -- Move lines up and down
-vim.keymap.set("n", "J", " :m .+1<CR>==<left>", { silent = true })
-vim.keymap.set("n", "K", " :m .-2<CR>==<left>", { silent = true })
+vim.keymap.set("n", "K", "$<left> :m .-2<CR>==", { silent = true })
+vim.keymap.set("n", "J", "$<left> :m .+1<CR>==", { silent = true })
+
 vim.keymap.set({ "x", "v" }, "J", " :m '>+<CR>gv=gv<left>")
 vim.keymap.set({ "x", "v" }, "K", " :m '<-2<CR>gv=gv<left>")
 
 -- Change theme settings
 lvim.colorscheme = "kanagawa"
 
+lvim.builtin.nvimtree.setup.renderer.icons.show.git = true
 lvim.builtin.alpha.active = true
 lvim.builtin.alpha.mode = "dashboard"
 lvim.builtin.terminal.active = true
-lvim.builtin.nvimtree.setup.view.side = "left"
-lvim.builtin.nvimtree.setup.renderer.icons.show.git = true
 
+lvim.builtin.nvimtree.setup.view.side = "left"
 -- Automatically install missing parsers when entering buffer
 lvim.builtin.treesitter.auto_install = true
 lvim.builtin.which_key.mappings['q'] = {}
@@ -116,6 +120,7 @@ lvim.plugins = {
   { "rcarriga/nvim-notify" },
   { "mcauley-penney/tidy.nvim" },
   { "nvim-treesitter/nvim-treesitter-context" },
+  { "nvim-neo-tree/neo-tree.nvim" },
 }
 
 -- Kanagawa theme settings
@@ -136,24 +141,31 @@ require('hop').setup()
 require('neoscroll').setup()
 require('nvim-surround').setup()
 require('tidy').setup()
-require('noice').setup({
-  lsp = {
-    hover = {
-      { enabled = false }
-    },
-    signature = {
-      { enabled = false }
-    }
-  },
-  messages = {
-    view_error = "messages"
-  },
-})
+-- require('noice').setup({
+--   lsp = {
+--     hover = {
+--       { enabled = false }
+--     },
+--     signature = {
+--       { enabled = false }
+--     }
+--   },
+--   messages = {
+--     view_error = "messages"
+--   },
+-- })
 -- require('shade').setup({
 --   overlay_opacity = 70,
 --   opacity_step = 5,
 -- })
-require("symbols-outline").setup()
+require("symbols-outline").setup({
+  width = 30,
+  wrap = true,
+  keymaps = {
+    fold = { "h", "<BS>" },
+    unfold = { "l", "<Space>" }
+  }
+})
 require('nvim-highlight-colors').setup()
 require('treesitter-context').setup()
 require('lsp_signature').setup({
@@ -165,10 +177,6 @@ require('lsp_signature').setup({
   toggle_key = "<C-k>",
   zindex = 9999999
 })
--- require('whitespace-nvim').setup({
---   highlight = 'DiffDelete',
---   ignored_filetypes = { 'TelescopePrompt', 'Trouble', 'help', '[Scratch]' },
--- })
 
 local dap = require('dap')
 
@@ -204,3 +212,22 @@ vim.api.nvim_command [[ autocmd ColorScheme * highlight FloatBorder guifg=white 
 vim.api.nvim_command [[
   autocmd ColorScheme * highlight TreesitterContext guibg=#2a2a37
 ]]
+
+vim.cmd [[
+function!   QuickFixOpenAll()
+    if empty(getqflist())
+        return
+    endif
+    let s:prev_val = ""
+    for d in getqflist()
+        let s:curr_val = bufname(d.bufnr)
+        if (s:curr_val != s:prev_val)
+            exec "tabnew " . s:curr_val
+        endif
+        let s:prev_val = s:curr_val
+    endfor
+endfunction
+command! QuickFixOpenAll         call QuickFixOpenAll()
+]]
+
+require('user.telescoping')
