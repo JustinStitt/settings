@@ -4,8 +4,9 @@ vim.opt.tabstop = 2
 vim.opt.shiftwidth = 2
 vim.opt.colorcolumn = '81'
 vim.opt.scrolloff = 1
+vim.opt.foldlevel = 99
+vim.opt.foldmethod = 'indent'
 
--- general
 lvim.log.level = "info"
 lvim.format_on_save = {
   enabled = true,
@@ -17,6 +18,8 @@ lvim.builtin.lualine.sections.lualine_a = { "mode" }
 lvim.builtin.lualine.sections.lualine_b = { "filename" }
 lvim.builtin.lualine.sections.lualine_c = { "branch", "diff", "diagnostics" }
 lvim.builtin.lualine.options.section_separators = { left = "", right = "" }
+-- lvim.builtin.bufferline.options.mode = "tabs"
+-- lvim.builtin.bufferline.active = false
 -- keymappings <https://www.lunarvim.org/docs/configuration/keybindings>
 lvim.leader = ","
 
@@ -27,6 +30,8 @@ vim.keymap.set("n", "S", "/<Space><BS>")
 lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
 lvim.keys.normal_mode["qS"] = ":noh<cr>"
 lvim.keys.normal_mode["<C-q>"] = ":q<cr>"
+lvim.keys.normal_mode["<leader><Tab>"] = "<Cmd>:tabn<cr>"
+lvim.keys.normal_mode["<leader><S-Tab>"] = "<Cmd>:tabp<cr>"
 lvim.keys.normal_mode["<Tab>"] = "<Cmd>:BufferLineCycleNext<cr>"
 lvim.keys.normal_mode["<S-Tab>"] = "<Cmd>:BufferLineCyclePrev<cr>"
 lvim.keys.normal_mode["q>>"] = "<Cmd>:BufferLineMoveNext<cr>"
@@ -43,14 +48,12 @@ lvim.keys.normal_mode["<C-h>"] = "<Cmd>:SymbolsOutline<cr>"
 lvim.keys.normal_mode["<leader><leader>f"] =
 "<Cmd>::Telescope find_files find_command=rg,--ignore,--max-depth=4,--files prompt_prefix=🔍<cr>"
 -- Moving around windows (splits)
-lvim.keys.normal_mode["<C-1>"] = "<C-w>h"
-lvim.keys.normal_mode["<C-4>"] = "<C-w>l"
-lvim.keys.normal_mode["<C-3>"] = "<C-w>k"
-lvim.keys.normal_mode["<C-2>"] = "<C-w>j"
 lvim.keys.normal_mode["<C-l>"] = "<C-w>p"
 lvim.keys.normal_mode["<C-b>"] = "<Cmd>:NvimTreeToggle<cr>"
 lvim.keys.normal_mode["<C-m>"] = "<C-w>|<C-w>_"
 lvim.keys.normal_mode["<C-n>"] = "<C-w>="
+lvim.keys.normal_mode["<S-l>"] = "<Cmd>:FocusSplitCycle<CR>"
+lvim.keys.normal_mode["<S-h>"] = "<Cmd>:FocusSplitCycle reverse<CR>"
 lvim.keys.normal_mode["<leader>j"] = "<Cmd>:BufferLinePick<cr>"
 lvim.keys.normal_mode["<leader>lx"] = "<Cmd>:LspStop<cr>"
 lvim.keys.normal_mode["<leader>lX"] = "<Cmd>:LspStart<cr>"
@@ -110,6 +113,7 @@ lvim.plugins = {
   { "jesseduffield/lazygit" },
   { "simrat39/symbols-outline.nvim" },
   { "ray-x/lsp_signature.nvim" },
+  { "ray-x/guihua.lua" },
   { "tyru/capture.vim" },
   { "brenoprata10/nvim-highlight-colors" },
   -- { "sunjon/Shade.nvim" },
@@ -121,6 +125,7 @@ lvim.plugins = {
   { "mcauley-penney/tidy.nvim" },
   { "nvim-treesitter/nvim-treesitter-context" },
   { "nvim-neo-tree/neo-tree.nvim" },
+  { "beauwilliams/focus.nvim" },
 }
 
 -- Kanagawa theme settings
@@ -133,6 +138,7 @@ require('kanagawa').setup({
   typeStyle = {},
   variablebuiltinStyle = { italic = false },
   specialReturn = false, -- special highlight for the return keyword
+  dimInactive = true,
 })
 
 
@@ -141,23 +147,6 @@ require('hop').setup()
 require('neoscroll').setup()
 require('nvim-surround').setup()
 require('tidy').setup()
--- require('noice').setup({
---   lsp = {
---     hover = {
---       { enabled = false }
---     },
---     signature = {
---       { enabled = false }
---     }
---   },
---   messages = {
---     view_error = "messages"
---   },
--- })
--- require('shade').setup({
---   overlay_opacity = 70,
---   opacity_step = 5,
--- })
 require("symbols-outline").setup({
   width = 30,
   wrap = true,
@@ -168,15 +157,21 @@ require("symbols-outline").setup({
 })
 require('nvim-highlight-colors').setup()
 require('treesitter-context').setup()
+require('focus').setup()
 require('lsp_signature').setup({
   bind = true,
   handler_opts = {
     border = "rounded"
   },
-  hint_enable = false,
+  hint_enable = true,
+  floating_window = false,
   toggle_key = "<C-k>",
-  zindex = 9999999
+  zindex = 9999999,
+  transparency = 50
 })
+
+-- You probably also want to set a keymap to toggle aerial
+vim.keymap.set('n', '<leader>a', '<cmd>AerialToggle!<CR>')
 
 local dap = require('dap')
 
@@ -213,6 +208,24 @@ vim.api.nvim_command [[
   autocmd ColorScheme * highlight TreesitterContext guibg=#2a2a37
 ]]
 
+local _ft = vim.api.nvim_create_augroup("FileTypeSettings", { clear = true })
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "Outline",
+  callback = function()
+    vim.wo.signcolumn = "no"
+  end,
+  group = _ft,
+})
+
+-- load folds (works weird with unnamed buffers)
+-- vim.cmd [[
+--   augroup remember_folds
+--   autocmd!
+--   autocmd BufWinLeave * mkview
+--   autocmd BufWinEnter * silent! loadview
+--   augroup END
+-- ]]
+
 vim.cmd [[
 function!   QuickFixOpenAll()
     if empty(getqflist())
@@ -231,3 +244,16 @@ command! QuickFixOpenAll         call QuickFixOpenAll()
 ]]
 
 require('user.telescoping')
+
+-- require('lspconfig').ruff_lsp.setup {}
+
+local null_ls = require("null-ls")
+local sources = { null_ls.builtins.formatting.black, }
+-- null_ls.builtins.diagnostics.ruff
+-- source will run on LSP formatting request
+null_ls.setup({ sources = sources })
+
+-- Show line diagnostics automatically in hover window
+vim.o.updatetime = 250
+vim.keymap.set('n', '<C-Space>', vim.diagnostic.open_float, { noremap = true, silent = true })
+-- vim.cmd [[autocmd CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false})]]

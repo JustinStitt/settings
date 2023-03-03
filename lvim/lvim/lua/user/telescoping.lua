@@ -29,10 +29,6 @@ function telescope_custom_actions.multi_selection_open(prompt_bufnr)
   telescope_custom_actions._multiopen(prompt_bufnr, "edit")
 end
 
--- local actions = require("lvim.utils.modules").require_on_exported_call "telescope.actions"
-local actions = require('telescope.actions')
-
-
 lvim.builtin.telescope = {
   ---@usage disable telescope completely [not recommended]
   active = true,
