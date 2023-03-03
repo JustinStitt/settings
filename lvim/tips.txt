@@ -1,0 +1,4 @@
+-- marks (marks.nvim)
+m] m[  -- next and prev mark
+m:   -- preview a mark (floating window)
+dm-  -- delete mark on current line
