@@ -26,6 +26,7 @@ lvim.leader = ","
 
 -- NORMAL Mode Keybindings
 vim.keymap.set("n", "S", "/<Space><BS>")
+vim.keymap.set("n", ",S", ":%s/\\v")
 -- lvim.keys.normal_mode["S"] = "/<Space><BS>"
 lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
 lvim.keys.normal_mode["qS"] = ":noh<cr>"
@@ -126,6 +127,15 @@ lvim.plugins = {
   { "nvim-treesitter/nvim-treesitter-context" },
   { "nvim-neo-tree/neo-tree.nvim" },
   { "beauwilliams/focus.nvim" },
+  { "folke/todo-comments.nvim" },
+  { "Yilin-Yang/vim-markbar" },
+  { "chentoast/marks.nvim" },
+  { "junegunn/vim-peekaboo" },
+  { "mattn/emmet-vim" },
+  { "windwp/nvim-ts-autotag" },
+  { "leafOfTree/vim-svelte-plugin" },
+  { "adelarsq/vim-matchit" },
+  { "ap/vim-css-color" },
 }
 
 -- Kanagawa theme settings
