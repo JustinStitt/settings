@@ -151,6 +151,8 @@ require('kanagawa').setup({
   dimInactive = true,
 })
 
+require('todo-comments').setup()
+require('marks').setup() -- FIX: does this break shit?
 
 -- place this in one of your configuration file(s)
 require('hop').setup()
@@ -258,7 +260,7 @@ require('user.telescoping')
 -- require('lspconfig').ruff_lsp.setup {}
 
 local null_ls = require("null-ls")
-local sources = { null_ls.builtins.formatting.black, }
+local sources = { null_ls.builtins.formatting.black, --[[ null_ls.builtins.diagnostics.ruff ]] }
 -- null_ls.builtins.diagnostics.ruff
 -- source will run on LSP formatting request
 null_ls.setup({ sources = sources })
