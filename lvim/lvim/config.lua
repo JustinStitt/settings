@@ -109,10 +109,10 @@ lvim.plugins = {
     cmd = "TroubleToggle",
   },
   { "lunarvim/colorschemes" },
-  { "rebelot/kanagawa.nvim",                  version = "8e9ef295bf4116573887e9681ec06baa1550d1bc" },
   { "karb94/neoscroll.nvim" },
   { "phaazon/hop.nvim" },
   { "kylechui/nvim-surround" },
+  { "rebelot/kanagawa.nvim",                  commit = "de7fb5f" },
   { "mbbill/undotree" },
   { "jesseduffield/lazygit" },
   { "simrat39/symbols-outline.nvim" },
@@ -146,7 +146,8 @@ vim.g.mkdp_theme = "dark"
 
 -- Kanagawa theme settings
 require('kanagawa').setup({
-  undercurl = true, -- enable undercurls
+  compile = true,
+  undercurl = false, -- enable undercurls
   commentStyle = { italic = false },
   functionStyle = { bold = true },
   keywordStyle = { italic = false },
@@ -155,6 +156,15 @@ require('kanagawa').setup({
   variablebuiltinStyle = { italic = false },
   specialReturn = false, -- special highlight for the return keyword
   dimInactive = true,
+  colors = {
+    theme = {
+      all = {
+        ui = {
+          bg_gutter = "none"
+        }
+      }
+    }
+  }
 })
 
 
@@ -215,16 +225,6 @@ dap.configurations.cpp = {
     runInTerminal = true,
   },
 }
-
-vim.api.nvim_command [[
-  autocmd ColorScheme * highlight SignColumn guibg=#1f1f28
-]]
-
-vim.api.nvim_command [[
-  autocmd ColorScheme * highlight LineNr guibg=#1f1f28
-]]
-
-
 
 vim.api.nvim_command [[
   autocmd ColorScheme * highlight NormalFloat guibg=#1f1f28

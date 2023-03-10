@@ -17,7 +17,7 @@
   "guihua.lua": { "branch": "master", "commit": "a19ac4447021f21383fadd7a9e1fc150d0b67e1f" },
   "hop.nvim": { "branch": "master", "commit": "90db1b2c61b820e230599a04fedcd2679e64bd07" },
   "indent-blankline.nvim": { "branch": "master", "commit": "018bd04d80c9a73d399c1061fa0c3b14a7614399" },
-  "kanagawa.nvim": { "branch": "master", "commit": "d126d6ba54e0c77154e5b775a81e43ff1fdef64d" },
+  "kanagawa.nvim": { "branch": "master", "commit": "de7fb5f5de25ab45ec6039e33c80aeecc891dd92" },
   "lazy.nvim": { "branch": "main", "commit": "26d121ea13bee96b079403cee6598f04969d4983" },
   "lazygit": { "branch": "master", "commit": "516e9633929e0fe3be4f307db0dcae247339a1d7" },
   "lir.nvim": { "branch": "master", "commit": "1aa871f20637eccc4e1e26b0fbcf9aafc9b6caf7" },
