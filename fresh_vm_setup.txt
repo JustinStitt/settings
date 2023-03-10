@@ -1,0 +1,27 @@
+1) Get VM (aws, GCP, Oracle) -- Ensure Ubunutu
+2) SSH into it `sudo ssh -i ~/.ssh/oracle-vm-private-ssh-key ubuntu@158.101.21.24 # oracle-ssh-vm`
+3) sudo apt update
+4) Install Caddy
+  $ sudo apt install -y debian-keyring debian-archive-keyring apt-transport-https
+  $ curl -1sLf 'https://dl.cloudsmith.io/public/caddy/stable/gpg.key' | sudo gpg --dearmor -o /usr/share/keyrings/caddy-stable-archive-keyring.gpg
+  $ curl -1sLf 'https://dl.cloudsmith.io/public/caddy/stable/debian.deb.txt' | sudo tee /etc/apt/sources.list.d/caddy-stable.list
+  $ sudo apt update
+  $ sudo apt install caddy
+5) install build essentials `sudo apt install build-essential`
+6) install zsh `sudo apt-get install zsh`
+7) change shell `sudo chsh /usr/bin/zsh`
+8) install oh-my-zsh `sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"`
+9) install powerlevel10k
+  - `git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/powerlevel10k`
+     `echo 'source ~/powerlevel10k/powerlevel10k.zsh-theme' >>~/.zshrc`
+10) install python and other build dependencies
+  - `sudo apt install libssl-dev libffi-dev libncurses5-dev zlib1g zlib1g-dev libreadline-dev libbz2-dev libsqlite3-dev make gcc lzma liblzma-dev libbz2-dev`
+11) install pyenv `curl https://pyenv.run | bash`
+  - install a pyenv shim `sudo pyenv install 3.10.6`
+12) clone settings `git clone https://github.com/JustinStitt/settings.git`
+  - Neovim v0.9 Nightly `wget https://github.com/neovim/neovim/releases/download/nightly/nvim-linux64.deb`
+  - sudo apt install ./nvim-linux64.deb
+  - LunarVim pre-reqs (node, npm, cargo, pip, make, git, python)
+    -`bash <(curl -s https://raw.githubusercontent.com/lunarvim/lunarvim/master/utils/installer/install.sh)`
+13) install fzf `git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf`
+               `~/.fzf/install`
