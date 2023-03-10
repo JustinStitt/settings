@@ -6,8 +6,8 @@ vim.opt.colorcolumn = '81'
 vim.opt.scrolloff = 1
 vim.opt.foldlevel = 99
 vim.opt.foldmethod = 'indent'
-
 lvim.log.level = "info"
+
 lvim.format_on_save = {
   enabled = true,
   pattern = "*",
@@ -26,7 +26,9 @@ lvim.leader = ","
 
 -- NORMAL Mode Keybindings
 vim.keymap.set("n", "S", "/<Space><BS>")
+vim.keymap.set("n", "g!", ":.!<Space><BS>")
 vim.keymap.set("n", ",S", ":%s/\\v")
+vim.keymap.set("n", "q]]", "F{a<CR><Esc>$i<CR><up><CR><up><Tab>")
 -- lvim.keys.normal_mode["S"] = "/<Space><BS>"
 lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
 lvim.keys.normal_mode["qS"] = ":noh<cr>"
@@ -89,6 +91,7 @@ vim.keymap.set({ "x", "v" }, "K", " :m '<-2<CR>gv=gv<left>")
 -- Change theme settings
 lvim.colorscheme = "kanagawa"
 
+
 lvim.builtin.nvimtree.setup.renderer.icons.show.git = true
 lvim.builtin.alpha.active = true
 lvim.builtin.alpha.mode = "dashboard"
@@ -106,7 +109,7 @@ lvim.plugins = {
     cmd = "TroubleToggle",
   },
   { "lunarvim/colorschemes" },
-  { "rebelot/kanagawa.nvim" },
+  { "rebelot/kanagawa.nvim",                  version = "8e9ef295bf4116573887e9681ec06baa1550d1bc" },
   { "karb94/neoscroll.nvim" },
   { "phaazon/hop.nvim" },
   { "kylechui/nvim-surround" },
@@ -136,7 +139,10 @@ lvim.plugins = {
   { "leafOfTree/vim-svelte-plugin" },
   { "adelarsq/vim-matchit" },
   { "ap/vim-css-color" },
+  { "iamcco/markdown-preview.nvim",           build = function() vim.fn["mkdp#util#install"]() end },
 }
+
+vim.g.mkdp_theme = "dark"
 
 -- Kanagawa theme settings
 require('kanagawa').setup({
@@ -150,6 +156,7 @@ require('kanagawa').setup({
   specialReturn = false, -- special highlight for the return keyword
   dimInactive = true,
 })
+
 
 require('todo-comments').setup()
 require('marks').setup() -- FIX: does this break shit?
@@ -208,6 +215,15 @@ dap.configurations.cpp = {
     runInTerminal = true,
   },
 }
+
+vim.api.nvim_command [[
+  autocmd ColorScheme * highlight SignColumn guibg=#1f1f28
+]]
+
+vim.api.nvim_command [[
+  autocmd ColorScheme * highlight LineNr guibg=#1f1f28
+]]
+
 
 
 vim.api.nvim_command [[

@@ -25,3 +25,10 @@
     -`bash <(curl -s https://raw.githubusercontent.com/lunarvim/lunarvim/master/utils/installer/install.sh)`
 13) install fzf `git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf`
                `~/.fzf/install`
+14) enable low-level ports `sudo setcap CAP_NET_BIND_SERVICE=+eip $(which caddy)`
+15) git creds $ git config --global credential.helper store
+16) generate PAT and store ~/.githubpat
+
+
+-- FOR ORACLE Compute Instance VM --
+add security ingress rule for 0.0.0.0/0 TCP all ports
