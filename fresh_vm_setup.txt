@@ -28,6 +28,7 @@
 14) enable low-level ports `sudo setcap CAP_NET_BIND_SERVICE=+eip $(which caddy)`
 15) git creds $ git config --global credential.helper store
 16) generate PAT and store ~/.githubpat
+17) comment out `::1	ip6-localhost	ip6-loopback` in /etc/hosts for slow localhost stuff (ipv6)
 
 
 -- FOR ORACLE Compute Instance VM --
