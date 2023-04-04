@@ -331,4 +331,7 @@ export TERM=xterm-256color
 alias vim="lvim"
 alias opera="/mnt/c/Users/Justin/AppData/Local/Programs/Opera\ GX/opera.exe"
 alias github="/mnt/c/Users/Justin/AppData/Local/Programs/Opera\ GX/opera.exe https://github.com/JustinStitt\?tab=repositories"
-alias open-remote="opera $(git remote get-url --all origin)"
+alias lz="lazygit"
+alias downloads="/mnt/c/Users/Justin/Downloads"
+
+source ~/autovenv

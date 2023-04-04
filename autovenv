@@ -1,0 +1,53 @@
+#!/usr/bin/env zsh
+#
+# Auto activate and deactivate a virtualenv environment
+#
+# Usage:
+#
+# Add the following code to your zshrc file. If you are using bash, change the header to bash and put the following code to your bashrc.
+# ```
+#     source /dir/to/auto-virtualenv
+# ```
+#
+# How to use?
+#
+# Simply enter a directory with a virtualenv environment, you will find that it automatically activates it, and will automatically deactivate when exiting.
+# If you don't have a theme or plugin to show whether you have activated a virtualenv environment, I deeply recommend you to uncomment the code below to give you a signal.
+#
+# Technical details
+#
+# This script scans the folder to check whether there is a subdirectory contains bin/activate (For example, it has .venv/bin/activate) and try to use it to activate the virtual environment.
+# It follows the rules of virtualenv, but theoretically speaking, any virtual environment that has this directory structure should work, including but not limited to venv and virtualenvwrapper.
+#
+
+_virtualenv_auto_activate() {
+    have_not_found=true
+    for folderName in $(find -maxdepth 1 -type d); do
+        if [ -e "./venv/bin/activate" ] && [ $folderName = "./venv" ]; then
+            have_not_found=false
+            if [ "$VIRTUAL_ENV" = "" ]; then
+                _VENV_NAME=$(basename `pwd`)
+               #echo Activating virtualenv \"$_VENV_NAME\"...
+                VIRTUAL_ENV_DISABLE_PROMPT=1
+                source $folderName/bin/activate
+                _OLD_VIRTUAL_PS1="$PS1"
+                PS1="($_VENV_NAME)$PS1"
+                export PS1
+            fi
+        fi
+    done
+    if $have_not_found ; then
+        if [ "$VIRTUAL_ENV" != "" ]; then
+           #echo Deactivating Virtualenv...
+            deactivate
+        fi
+    fi
+}
+
+export PROMPT_COMMAND=_virtualenv_auto_activate
+
+function chpwd(){
+    _virtualenv_auto_activate
+}
+
+_virtualenv_auto_activate
