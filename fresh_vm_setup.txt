@@ -34,3 +34,5 @@
 
 -- FOR ORACLE Compute Instance VM --
 add security ingress rule for 0.0.0.0/0 TCP all ports on Virtual Network level via Security tab in OCI
+be sure to sudo iptables --flush
+caddy restart
