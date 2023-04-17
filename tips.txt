@@ -1,0 +1,75 @@
+wsl --shutdown # kill wsl vmmem (Vmmem) ungodly RAM usage.
+cd - # return back to previous directory.
+
+vim replace with parts of match using \(\) and \1, \2, \n
+'<,'>s/\(argv.\{-}\) == \("\w"\)/strcmp(\1, \2)/g
+pipe to clipcopy to copy to sys clipboard
+
+delete branch with `git branch -d <branch_name>`
+set a branch to a copy of another branch: `git checkout <old_branch>`, `git reset --hard <better_branch>`, `git push -f origin <old_branch>`
+
+update Ubuntu
+$ sudo apt update
+$ sudo apt upgrade
+$ yes | sudo apt dist-upgrade
+Next, you should remove all no longer required packages from your system:
+$ sudo apt autoremove
+Next, install the update-manager-core package with apt.
+$ sudo apt install update-manager-core
+When that finishes, run the Ubuntu upgrade utility.
+$ yes | sudo do-release-upgrade
+
+## Github codespaces
+0) sign-in with Github Pro for 4-core 32gb RAM machine
+1) make a private repo on Github
+2) create a new codespace on the main branch of that repo
+3) update linux to Jammy or other
+4) install zsh + oh-my-zsh + powerlevel10k
+
+
+remove sensitive file from github repo history:
+git filter-branch -f --index-filter "git rm -rf --cached --ignore-unmatch ./day-24/ayo.py" HEAD
+
+
+# Starting empty python project with virtualenv and pyenv
+0. mkdir my-project && cd my-project
+1. pyenv local 3.11.0
+2. python -m virtualenv venv
+3. source venv/bin/activate
+4. pip install pipreqs
+5. -- do project --
+6. pipreqs ./ # this freezes requirements.txt
+
+# EB CLI Stuff (Elastic Beanstalk AWS)
+eb init # to set up project directory for deployment
+eb create # make environment on AWS (set up ssh too)
+eb ssh # connect to ec2 instance
+eb deploy # deploy updates to source bundle
+note: seems like deployed bundles go to /var/app/current (or on deck if not yet deployed)
+
+
+use clip.exe to copy and paste shell output ( wsl2 w/ xserver )
+example: `python solve.py | clip.exe`
+
+# GCP AND CADDY
+# Make GCP project then make new VM (f1-micro on gen 1 is the cheapest)
+# git clone a flask app or something
+# setup systemctl services and configs to initialize venv and run flask app
+# setup caddy file
+# enable low level ports... (443, 80) $ sudo setcap CAP_NET_BIND_SERVICE=+eip $(which caddy)
+# api.jstitt.dev ssh command $ ssh -i ~/.ssh/f1-micro-ssh-private jstitt007@34.121.150.174
+# maybe use Gunicorn for flask apps!!
+
+# TODO: use Vercel rewrites https://vercel.com/docs/concepts/projects/project-configuration#rewrites to host multiple vercel deployments on one domain
+
+openssl rand -base64 12 # generate random base64 of length 12
+
+dm- # clear all marks on current line (remove mark)
+
+-- Nvim-treesitter, setting up custom LSP
+I did this with Nim and here are my steps...
+1) installed tree-sitter-cli from https://tree-sitter.github.io/tree-sitter/creating-parsers#installation
+2) read this part from the nvim-treesitter docs about adding custom LSP https://github.com/nvim-treesitter/nvim-treesitter#supported-languages
+3) clone repo of lsp (like this one https://github.com/aMOPel/tree-sitter-nim)
+4) read this from a git issue https://github.com/aMOPel/tree-sitter-nim/issues/20#issuecomment-1495060326
+5) profit$!
