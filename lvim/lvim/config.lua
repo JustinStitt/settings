@@ -5,8 +5,9 @@ vim.opt.shiftwidth = 2
 vim.opt.colorcolumn = '81'
 vim.opt.scrolloff = 1
 vim.opt.foldlevel = 99
-vim.opt.foldmethod = 'indent'
-lvim.log.level = "info"
+-- vim.opt.foldmethod = 'indent'
+vim.wo.foldmethod = "expr"
+vim.wo.foldexpr = "nvim_treesitter#foldexpr()"
 
 lvim.format_on_save = {
   enabled = true,
@@ -39,6 +40,9 @@ lvim.keys.normal_mode["<Tab>"] = "<Cmd>:BufferLineCycleNext<cr>"
 lvim.keys.normal_mode["<S-Tab>"] = "<Cmd>:BufferLineCyclePrev<cr>"
 lvim.keys.normal_mode["q>>"] = "<Cmd>:BufferLineMoveNext<cr>"
 lvim.keys.normal_mode["q<<"] = "<Cmd>:BufferLineMovePrev<cr>"
+lvim.keys.normal_mode["<leader>t"] = "<Cmd>:TodoTelescope<cr>"
+lvim.keys.normal_mode["<leader>bR"] = "<Cmd>:SessionRestore<CR>"
+lvim.keys.normal_mode["<leader>bS"] = "<Cmd>:SessionSave<CR>"
 lvim.keys.normal_mode["-"] = ":split<cr>"
 lvim.keys.normal_mode["<C-F2>"] = ":vsplit<cr>"
 lvim.keys.normal_mode["|"] = ":vsplit<cr>"
@@ -60,6 +64,9 @@ lvim.keys.normal_mode["<S-h>"] = "<Cmd>:FocusSplitCycle reverse<CR>"
 lvim.keys.normal_mode["<leader>j"] = "<Cmd>:BufferLinePick<cr>"
 lvim.keys.normal_mode["<leader>lx"] = "<Cmd>:LspStop<cr>"
 lvim.keys.normal_mode["<leader>lX"] = "<Cmd>:LspStart<cr>"
+lvim.keys.normal_mode["<leader>lF"] = "<Cmd>:LspRestart<cr>"
+lvim.keys.normal_mode["<leader>gB"] = "<Cmd>:Git blame<cr>"
+
 
 
 -- INSERT Mode Keybindings
@@ -67,6 +74,7 @@ lvim.keys.insert_mode["jk"] = "<Esc>"
 lvim.keys.insert_mode["<C-h>"] = "<left>"
 lvim.keys.insert_mode["<C-l>"] = "<right>"
 lvim.keys.insert_mode["<C-s>"] = "<Esc>:w<cr>"
+lvim.keys.insert_mode["<C-]>"] = "<space>"
 
 -- VISUAL Mode Keybindings
 lvim.keys.visual_mode["<Space>"] = "<Esc>"
@@ -140,10 +148,18 @@ lvim.plugins = {
   { "adelarsq/vim-matchit" },
   { "ap/vim-css-color" },
   { "iamcco/markdown-preview.nvim",           build = function() vim.fn["mkdp#util#install"]() end },
+  { "smzm/hydrovim" },
+  { "jcorbin/vim-lobster" },
+  { "tpope/vim-fugitive" },
+  { "alaviss/nim.nvim" },
+  { "rmagatti/auto-session" }
 }
 
 vim.g.mkdp_theme = "dark"
 
+vim.g.mkdp_auto_close = 0
+
+require("auto-session").setup()
 -- Kanagawa theme settings
 require('kanagawa').setup({
   compile = true,
@@ -169,7 +185,7 @@ require('kanagawa').setup({
 
 
 require('todo-comments').setup()
-require('marks').setup() -- FIX: does this break shit?
+require('marks').setup {}
 
 -- place this in one of your configuration file(s)
 require('hop').setup()
@@ -285,3 +301,32 @@ null_ls.setup({ sources = sources })
 vim.o.updatetime = 250
 vim.keymap.set('n', '<C-Space>', vim.diagnostic.open_float, { noremap = true, silent = true })
 -- vim.cmd [[autocmd CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false})]]
+--
+
+require 'nvim-treesitter.configs'.setup {
+  -- Install parsers synchronously (only applied to `ensure_installed`)
+  sync_install = false,
+
+  -- Automatically install missing parsers when entering buffer
+  -- Recommendation: set to false if you don't have `tree-sitter` CLI installed locally
+  auto_install = false,
+
+  ignore_install = { "nim" },
+
+}
+
+local parser_config = require "nvim-treesitter.parsers".get_parser_configs()
+parser_config.nim = {
+  install_info = {
+    url = "~/repos/tree-sitter-nim", -- local path or git repo
+    files = { "src/parser.c", "src/scanner.cc" }, -- note that some parsers also require src/scanner.c or src/scanner.cc
+    -- optional entries:
+    branch = "main", -- default branch in case of git repo if different from master
+    generate_requires_npm = false, -- if stand-alone parser without npm dependencies
+    requires_generate_from_grammar = false, -- if folder contains pre-generated src/parser.c
+  },
+  filetype = "nim", -- if filetype does not match the parser name
+}
+
+
+-- gr then <leader>le to see references of symbol under cursor
