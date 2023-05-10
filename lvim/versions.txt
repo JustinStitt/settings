@@ -1,0 +1,15 @@
+LunarVim @415521b34d8fe03fef4655946b404a0bf29cc9ed:
+
+LV_BRANCH='nvim-v0.9-bump' bash <(curl -s https://raw.githubusercontent.com/LunarVim/LunarVim/nvim-v0.9-bump/utils/installer/install.sh)
+
+and use lazy-lock.json with Lazy restore
+
+NeoVim:
+
+@446c353a507834a3cbe9007b06e7e0c2c46b5ac7 built from source on Ubuntu 22.04.1
+
+`$ make CMAKE_BUILD_TYPE=RelWithDebInfo`
+
+then
+
+`$ sudo make install`

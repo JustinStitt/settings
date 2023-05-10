@@ -9,11 +9,13 @@ vim.opt.foldlevel = 99
 vim.wo.foldmethod = "expr"
 vim.wo.foldexpr = "nvim_treesitter#foldexpr()"
 
+
 lvim.format_on_save = {
   enabled = true,
   pattern = "*",
   timeout = 1000,
 }
+
 lvim.builtin.lualine.active = false
 lvim.builtin.nvimtree.active = false
 lvim.leader = ","
@@ -61,6 +63,7 @@ lvim.keys.normal_mode["<leader>lx"] = "<Cmd>:LspStop<cr>"
 lvim.keys.normal_mode["<leader>lX"] = "<Cmd>:LspStart<cr>"
 lvim.keys.normal_mode["<leader>lF"] = "<Cmd>:LspRestart<cr>"
 lvim.keys.normal_mode["<leader>gB"] = "<Cmd>:Git blame<cr>"
+lvim.keys.normal_mode["<leader><leader>r"] = "<Cmd>:NeoRunner<cr>"
 
 
 -- ChatGPT keybindings
@@ -164,6 +167,8 @@ lvim.plugins = {
   { "nvim-neo-tree/neo-tree.nvim" },
   { "windwp/windline.nvim" },
   { "s1n7ax/nvim-window-picker" },
+  { "rmagatti/auto-session" },
+  { "BenGH28/neo-runner.nvim" }, -- then run :UpdateRemotePlugins
 }
 
 
@@ -191,6 +196,8 @@ require("chatgpt").setup({
     }
   }
 })
+
+require 'nvim-web-devicons'.setup {}
 -- Kanagawa theme settings
 require('kanagawa').setup({
   compile = true,
@@ -242,8 +249,8 @@ require('lsp_signature').setup({
   hint_enable = true,
   floating_window = false,
   toggle_key = "<C-k>",
-  zindex = 9999999,
-  transparency = 50
+  zindex = 1024,
+  transparency = 100
 })
 
 -- You probably also want to set a keymap to toggle aerial
@@ -347,3 +354,35 @@ parser_config.nim = {
 -- gr then <leader>le to see references of symbol under cursor
 require('wlsample.airline')
 require 'window-picker'.setup({})
+require("auto-session").setup({})
+vim.g.clipboard = {
+  name = 'win32yank',
+  copy = {
+    ["+"] = 'win32yank.exe -i --crlf',
+    ["*"] = 'win32yank.exe -i --crlf',
+  },
+  paste = {
+    ["+"] = 'win32yank.exe -o --lf',
+    ["*"] = 'win32yank.exe -o --lf',
+  },
+  cache_enabled = 0,
+}
+
+-- vim.diagnostic.config({ virtual_text = true, signs = true })
+
+-- disable clangd multiple offset warning
+local cmp_nvim_lsp = require "cmp_nvim_lsp"
+
+require("lspconfig").clangd.setup {
+  on_attach = on_attach,
+  capabilities = cmp_nvim_lsp.default_capabilities(),
+  cmd = {
+    "clangd",
+    "--offset-encoding=utf-16",
+  },
+}
+
+vim.g.runner_cpp_compiler = "clang++"
+vim.g.runner_cpp_options = '-std=c++20 -Wall -g'
+
+require("neo-tree").setup({ window = { width = 22, mappings = { ["<space>"] = "open" } } })
