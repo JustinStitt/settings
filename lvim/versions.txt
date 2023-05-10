@@ -13,3 +13,6 @@ NeoVim:
 then
 
 `$ sudo make install`
+
+
+Also wise to comment out LvimUpdate LvimSyncCorePlugins at ~/.local/share/lunarvim/lvim/lua/lvim/core/commands.lua +62, +68
