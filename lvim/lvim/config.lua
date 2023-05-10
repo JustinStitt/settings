@@ -14,15 +14,10 @@ lvim.format_on_save = {
   pattern = "*",
   timeout = 1000,
 }
-lvim.builtin.nvimtree.setup.view.mappings.list = { { key = "<Space>", action = "edit" } }
-lvim.builtin.lualine.sections.lualine_a = { "mode" }
-lvim.builtin.lualine.sections.lualine_b = { "filename" }
-lvim.builtin.lualine.sections.lualine_c = { "branch", "diff", "diagnostics" }
-lvim.builtin.lualine.options.section_separators = { left = "", right = "" }
--- lvim.builtin.bufferline.options.mode = "tabs"
--- lvim.builtin.bufferline.active = false
--- keymappings <https://www.lunarvim.org/docs/configuration/keybindings>
+lvim.builtin.lualine.active = false
+lvim.builtin.nvimtree.active = false
 lvim.leader = ","
+
 
 
 -- NORMAL Mode Keybindings
@@ -56,7 +51,7 @@ lvim.keys.normal_mode["<leader><leader>f"] =
 "<Cmd>::Telescope find_files find_command=rg,--ignore,--max-depth=4,--files prompt_prefix=🔍<cr>"
 -- Moving around windows (splits)
 lvim.keys.normal_mode["<C-l>"] = "<C-w>p"
-lvim.keys.normal_mode["<C-b>"] = "<Cmd>:NvimTreeToggle<cr>"
+lvim.keys.normal_mode["<C-b>"] = "<Cmd>:NeoTreeFocusToggle<cr>"
 lvim.keys.normal_mode["<C-m>"] = "<C-w>|<C-w>_"
 lvim.keys.normal_mode["<C-n>"] = "<C-w>="
 lvim.keys.normal_mode["<S-l>"] = "<Cmd>:FocusSplitCycle<CR>"
@@ -66,6 +61,19 @@ lvim.keys.normal_mode["<leader>lx"] = "<Cmd>:LspStop<cr>"
 lvim.keys.normal_mode["<leader>lX"] = "<Cmd>:LspStart<cr>"
 lvim.keys.normal_mode["<leader>lF"] = "<Cmd>:LspRestart<cr>"
 lvim.keys.normal_mode["<leader>gB"] = "<Cmd>:Git blame<cr>"
+
+
+-- ChatGPT keybindings
+lvim.keys.normal_mode["<leader><leader>g"] = "<Cmd>:ChatGPT<cr>"
+lvim.keys.visual_mode["<leader><leader>e"] = "<Cmd>:ChatGPTEditWithInstructions<cr>"
+lvim.keys.visual_mode["<leader><leader>a"] = "<Cmd>:ChatGPTRun code_readability_analysis<cr>"
+lvim.keys.visual_mode["<leader><leader>s"] = "<Cmd>:ChatGPTRun summarize<cr>"
+lvim.keys.visual_mode["<leader><leader>d"] = "<Cmd>:ChatGPTRun docstring<cr>"
+lvim.keys.visual_mode["<leader><leader>t"] = "<Cmd>:ChatGPTRun add_tests<cr>"
+lvim.keys.visual_mode["<leader><leader>x"] = "<Cmd>:ChatGPTRun explain_code<cr>"
+lvim.keys.visual_mode["<leader><leader>f"] = "<Cmd>:ChatGPTRun fix_bugs<cr>"
+lvim.keys.visual_mode["<leader><leader>c"] = "<Cmd>:ChatGPTRun complete_code<cr>"
+lvim.keys.visual_mode["<leader><leader>o"] = "<Cmd>:ChatGPTRun optimize_code<cr>"
 
 
 
@@ -105,7 +113,7 @@ lvim.builtin.alpha.active = true
 lvim.builtin.alpha.mode = "dashboard"
 lvim.builtin.terminal.active = true
 
-lvim.builtin.nvimtree.setup.view.side = "left"
+-- lvim.builtin.nvimtree.setup.view.side = "left"
 -- Automatically install missing parsers when entering buffer
 lvim.builtin.treesitter.auto_install = true
 lvim.builtin.which_key.mappings['q'] = {}
@@ -128,16 +136,14 @@ lvim.plugins = {
   { "ray-x/guihua.lua" },
   { "tyru/capture.vim" },
   { "brenoprata10/nvim-highlight-colors" },
-  -- { "sunjon/Shade.nvim" },
   { "airblade/vim-matchquote" },
-  -- { "johnfrankmorgan/whitespace.nvim" },
   { "folke/noice.nvim" },
   { "MunifTanjim/nui.nvim" },
   { "rcarriga/nvim-notify" },
   { "mcauley-penney/tidy.nvim" },
   { "nvim-treesitter/nvim-treesitter-context" },
-  { "nvim-neo-tree/neo-tree.nvim" },
   { "beauwilliams/focus.nvim" },
+  { "nvim-tree/nvim-web-devicons" },
   { "folke/todo-comments.nvim" },
   { "Yilin-Yang/vim-markbar" },
   { "chentoast/marks.nvim" },
@@ -152,14 +158,39 @@ lvim.plugins = {
   { "jcorbin/vim-lobster" },
   { "tpope/vim-fugitive" },
   { "alaviss/nim.nvim" },
-  { "rmagatti/auto-session" }
+  { "jackMort/ChatGPT.nvim" },
+  { "zbirenbaum/copilot.lua" },
+  -- { "ojroques/nvim-hardline" },
+  { "nvim-neo-tree/neo-tree.nvim" },
+  { "windwp/windline.nvim" },
+  { "s1n7ax/nvim-window-picker" },
 }
+
 
 vim.g.mkdp_theme = "dark"
 
 vim.g.mkdp_auto_close = 0
 
-require("auto-session").setup()
+-- Alt-] and Alt-\ to cycle suggestions and accept them
+require('copilot').setup({
+  suggestion = {
+    keymap = {
+      accept = "<M-\\>"
+    }
+  },
+  openai_params = {
+    max_tokens = 600
+
+  }
+})
+
+require("chatgpt").setup({
+  chat = {
+    keymaps = {
+      close = { "<C-c>", "<C-q>" }
+    }
+  }
+})
 -- Kanagawa theme settings
 require('kanagawa').setup({
   compile = true,
@@ -261,17 +292,9 @@ vim.api.nvim_create_autocmd("FileType", {
   group = _ft,
 })
 
--- load folds (works weird with unnamed buffers)
--- vim.cmd [[
---   augroup remember_folds
---   autocmd!
---   autocmd BufWinLeave * mkview
---   autocmd BufWinEnter * silent! loadview
---   augroup END
--- ]]
 
 vim.cmd [[
-function!   QuickFixOpenAll()
+function! QuickFixOpenAll()
     if empty(getqflist())
         return
     endif
@@ -295,7 +318,9 @@ local null_ls = require("null-ls")
 local sources = { null_ls.builtins.formatting.black, --[[ null_ls.builtins.diagnostics.ruff ]] }
 -- null_ls.builtins.diagnostics.ruff
 -- source will run on LSP formatting request
-null_ls.setup({ sources = sources })
+null_ls.setup({
+  sources = sources,
+})
 
 -- Show line diagnostics automatically in hover window
 vim.o.updatetime = 250
@@ -303,30 +328,22 @@ vim.keymap.set('n', '<C-Space>', vim.diagnostic.open_float, { noremap = true, si
 -- vim.cmd [[autocmd CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false})]]
 --
 
-require 'nvim-treesitter.configs'.setup {
-  -- Install parsers synchronously (only applied to `ensure_installed`)
-  sync_install = false,
-
-  -- Automatically install missing parsers when entering buffer
-  -- Recommendation: set to false if you don't have `tree-sitter` CLI installed locally
-  auto_install = false,
-
-  ignore_install = { "nim" },
-
-}
 
 local parser_config = require "nvim-treesitter.parsers".get_parser_configs()
 parser_config.nim = {
   install_info = {
-    url = "~/repos/tree-sitter-nim", -- local path or git repo
+    url = "~/repos/tree-sitter-nim",              -- local path or git repo
     files = { "src/parser.c", "src/scanner.cc" }, -- note that some parsers also require src/scanner.c or src/scanner.cc
     -- optional entries:
-    branch = "main", -- default branch in case of git repo if different from master
-    generate_requires_npm = false, -- if stand-alone parser without npm dependencies
-    requires_generate_from_grammar = false, -- if folder contains pre-generated src/parser.c
+    branch = "main",                              -- default branch in case of git repo if different from master
+    generate_requires_npm = false,                -- if stand-alone parser without npm dependencies
+    requires_generate_from_grammar = false,       -- if folder contains pre-generated src/parser.c
   },
-  filetype = "nim", -- if filetype does not match the parser name
+  filetype = "nim",                               -- if filetype does not match the parser name
 }
 
+-- local cmp_nvim_lsp = require "cmp_nvim_lsp"
 
 -- gr then <leader>le to see references of symbol under cursor
+require('wlsample.airline')
+require 'window-picker'.setup({})
