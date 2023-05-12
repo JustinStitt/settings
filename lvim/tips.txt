@@ -2,3 +2,9 @@
 m] m[  -- next and prev mark
 m:   -- preview a mark (floating window)
 dm-  -- delete mark on current line
+
+-- symbol references
+gr then <leader>le to see references of symbol under cursor
+
+-- copilot
+Alt-] and Alt-\ to cycle suggestions and accept them
