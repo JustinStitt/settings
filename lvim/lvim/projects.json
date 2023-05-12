@@ -1,0 +1,12 @@
+{
+  "~/cpp/example": {
+    "name": "ExapleCpp",
+    "description": "Project with make file",
+    "command": "make build && cd build/ && ./compiled_file"
+  },
+  "~/repos/gptcli": {
+    "name": "gpyt",
+    "description": "gpyt build system",
+    "command": "textual run --dev gpyt.app"
+  }
+}

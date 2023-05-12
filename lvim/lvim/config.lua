@@ -17,7 +17,7 @@ lvim.format_on_save = {
 }
 
 lvim.builtin.lualine.active = false
-lvim.builtin.nvimtree.active = false
+-- lvim.builtin.nvimtree.active = false
 lvim.leader = ","
 
 
@@ -29,7 +29,7 @@ vim.keymap.set("n", ",S", ":%s/\\v")
 vim.keymap.set("n", "q]]", "F{a<CR><Esc>$i<CR><up><CR><up><Tab>")
 -- lvim.keys.normal_mode["S"] = "/<Space><BS>"
 lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
-lvim.keys.normal_mode["qS"] = ":noh<cr>"
+lvim.keys.normal_mode["qS"] = ":noh<cr><Cmd>:SnipClose<CR>"
 lvim.keys.normal_mode["<C-q>"] = ":q<cr>"
 lvim.keys.normal_mode["<leader><Tab>"] = "<Cmd>:tabn<cr>"
 lvim.keys.normal_mode["<leader><S-Tab>"] = "<Cmd>:tabp<cr>"
@@ -53,7 +53,7 @@ lvim.keys.normal_mode["<leader><leader>f"] =
 "<Cmd>::Telescope find_files find_command=rg,--ignore,--max-depth=4,--files prompt_prefix=🔍<cr>"
 -- Moving around windows (splits)
 lvim.keys.normal_mode["<C-l>"] = "<C-w>p"
-lvim.keys.normal_mode["<C-b>"] = "<Cmd>:NeoTreeFocusToggle<cr>"
+lvim.keys.normal_mode["<C-b>"] = "<Cmd>:NvimTreeToggle<cr>"
 lvim.keys.normal_mode["<C-m>"] = "<C-w>|<C-w>_"
 lvim.keys.normal_mode["<C-n>"] = "<C-w>="
 lvim.keys.normal_mode["<S-l>"] = "<Cmd>:FocusSplitCycle<CR>"
@@ -63,7 +63,8 @@ lvim.keys.normal_mode["<leader>lx"] = "<Cmd>:LspStop<cr>"
 lvim.keys.normal_mode["<leader>lX"] = "<Cmd>:LspStart<cr>"
 lvim.keys.normal_mode["<leader>lF"] = "<Cmd>:LspRestart<cr>"
 lvim.keys.normal_mode["<leader>gB"] = "<Cmd>:Git blame<cr>"
-lvim.keys.normal_mode["<leader><leader>r"] = "<Cmd>:NeoRunner<cr>"
+lvim.keys.normal_mode["<leader><leader>r"] = "<Cmd>:RunCode<cr>"
+lvim.keys.visual_mode["<leader><leader>r"] = ":SnipRun<cr>"
 
 
 -- ChatGPT keybindings
@@ -164,11 +165,13 @@ lvim.plugins = {
   { "jackMort/ChatGPT.nvim" },
   { "zbirenbaum/copilot.lua" },
   -- { "ojroques/nvim-hardline" },
-  { "nvim-neo-tree/neo-tree.nvim" },
+  -- { "nvim-neo-tree/neo-tree.nvim" },
   { "windwp/windline.nvim" },
   { "s1n7ax/nvim-window-picker" },
   { "rmagatti/auto-session" },
-  { "BenGH28/neo-runner.nvim" }, -- then run :UpdateRemotePlugins
+  { "michaelb/sniprun",                       build = "bash ./install.sh" },
+  { "CRAG666/code_runner.nvim" },
+  { "pwntester/octo.nvim" },
 }
 
 
@@ -385,4 +388,8 @@ require("lspconfig").clangd.setup {
 vim.g.runner_cpp_compiler = "clang++"
 vim.g.runner_cpp_options = '-std=c++20 -Wall -g'
 
-require("neo-tree").setup({ window = { width = 22, mappings = { ["<space>"] = "open" } } })
+-- require("neo-tree").setup({ window = { width = 22, mappings = { ["<space>"] = "open" } } })
+require('code_runner').setup { mode = 'toggleterm', filetype_path = vim.fn.expand('~/.config/lvim/code_runner.json'), project_path =
+    vim.fn.expand('~/.config/lvim/projects.json'), }
+
+require "octo".setup()
