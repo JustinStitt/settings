@@ -48,5 +48,25 @@ lvim.plugins = {
   { "CRAG666/code_runner.nvim" },
   { "pwntester/octo.nvim" },
   { "chrisgrieser/nvim-spider",               lazy = true },
-  { "chrisgrieser/nvim-various-textobjs" }
+  { "chrisgrieser/nvim-various-textobjs" },
+  { "xiyaowong/virtcolumn.nvim" },
+  {
+    "willothy/flatten.nvim",
+    opts = {
+      window = {
+        open = "alternate"
+      }
+    },
+    lazy = false,
+    priority = 1001,
+  },
+  { "akinsho/git-conflict.nvim" },
+  {
+    "AckslD/nvim-neoclip.lua",
+    dependencies = { 'ibhagwan/fzf-lua' },
+    config = function()
+      require('neoclip').setup()
+    end,
+  },
+  { "Rawnly/gist.nvim" },
 }

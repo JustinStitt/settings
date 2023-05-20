@@ -37,6 +37,7 @@ lvim.keys.normal_mode["q<<"] = "<Cmd>:BufferLineMovePrev<cr>"
 lvim.keys.normal_mode["<leader>t"] = "<Cmd>:TodoTelescope<cr>"
 lvim.keys.normal_mode["<leader>bR"] = "<Cmd>:SessionRestore<CR>"
 lvim.keys.normal_mode["<leader>bS"] = "<Cmd>:SessionSave<CR>"
+lvim.keys.normal_mode["<leader>lT"] = "<Cmd>:Trouble<CR>"
 lvim.keys.normal_mode["-"] = ":split<cr>"
 lvim.keys.normal_mode["<C-F2>"] = ":vsplit<cr>"
 lvim.keys.normal_mode["|"] = ":vsplit<cr>"
@@ -48,6 +49,7 @@ lvim.keys.normal_mode["<leader>u"] = "<Cmd>:UndotreeToggle<cr>:UndotreeFocus<cr>
 lvim.keys.normal_mode["<C-h>"] = "<Cmd>:SymbolsOutline<cr>"
 lvim.keys.normal_mode["<leader><leader>f"] =
 "<Cmd>::Telescope find_files find_command=rg,--ignore,--max-depth=4,--files prompt_prefix=🔍<cr>"
+lvim.keys.normal_mode["<leader>P"] = ":lua require('neoclip.fzf')('*')<cr>"
 -- Moving around windows (splits)
 lvim.keys.normal_mode["<C-l>"] = "<C-w>p"
 lvim.keys.normal_mode["<C-b>"] = "<Cmd>:NvimTreeToggle<cr>"
@@ -90,3 +92,11 @@ lvim.keys.visual_mode["<Space>"] = "<Esc>"
 lvim.keys.term_mode = { ["<C-l>"] = false }
 lvim.lsp.buffer_mappings.normal_mode['gk'] = lvim.lsp.buffer_mappings.normal_mode['K']
 lvim.lsp.buffer_mappings.normal_mode['K'] = nil
+
+-- gitconflict default mappings
+-- co — choose ours
+-- ct — choose theirs
+-- cb — choose both
+-- c0 — choose none
+-- ]x — move to previous conflict
+-- [x — move to next conflict

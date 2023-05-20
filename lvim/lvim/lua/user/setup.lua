@@ -41,7 +41,7 @@ require('kanagawa').setup({
 require('todo-comments').setup()
 require('marks').setup {}
 require('hop').setup()
-require('neoscroll').setup()
+require('neoscroll').setup {}
 require('nvim-surround').setup()
 require('tidy').setup()
 require("symbols-outline").setup({
@@ -73,3 +73,5 @@ require('code_runner').setup { mode = 'toggleterm', filetype_path = vim.fn.expan
     vim.fn.expand('~/.config/lvim/projects.json'), }
 require "octo".setup()
 require("various-textobjs").setup {}
+require 'git-conflict'.setup {}
+require('neoclip').setup {}
