@@ -37,7 +37,7 @@ lvim.plugins = {
   { "jcorbin/vim-lobster" },
   { "tpope/vim-fugitive" },
   { "alaviss/nim.nvim" },
-  { "jackMort/ChatGPT.nvim" },
+
   { "zbirenbaum/copilot.lua" },
   -- { "ojroques/nvim-hardline" },
   -- { "nvim-neo-tree/neo-tree.nvim" },
@@ -69,4 +69,5 @@ lvim.plugins = {
     end,
   },
   { "Rawnly/gist.nvim" },
+  { "jackMort/ChatGPT.nvim" },
 }

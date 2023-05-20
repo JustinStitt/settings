@@ -10,6 +10,7 @@ require('copilot').setup({
   }
 })
 require("chatgpt").setup({
+  -- NOTE: modify ~/.local/share/lunarvim/site/pack/lazy/opt/ChatGPT.nvim/lua/chatgpt/api.lua + 98 and hardcode API KEY
   chat = {
     keymaps = {
       close = { "<C-c>", "<C-q>" }
