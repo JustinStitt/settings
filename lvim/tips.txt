@@ -8,3 +8,5 @@ gr then <leader>le to see references of symbol under cursor
 
 -- copilot
 Alt-] and Alt-\ to cycle suggestions and accept them
+
+add a ".clangd" file to home directory to support c++20 stuff
