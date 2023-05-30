@@ -242,7 +242,8 @@ plugins=(virtualenv)
 # POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status virtualenv)
 alias python='python3'
 # alias v='vim'
-alias v='lvim'
+# alias v='sudo /home/jstitt/.local/bin/lvim'
+alias v="lvim"
 # Load pyenv automatically by appending
 # the following to
 # ~/.bash_profile if it exists, otherwise ~/.profile (for login shells)
@@ -327,7 +328,8 @@ bindkey -r "^b"
 alias gist="gist-paste"
 LS_COLORS+=':ow=01;33'
 export EDITOR="lvim"
-export TERM=xterm-256color
+# export TERM=xterm-256color
+# export TERM=tmux-256color
 alias vim="lvim"
 alias opera="/mnt/c/Users/Justin/AppData/Local/Programs/Opera\ GX/opera.exe"
 alias github="/mnt/c/Users/Justin/AppData/Local/Programs/Opera\ GX/opera.exe https://github.com/JustinStitt\?tab=repositories"
@@ -335,3 +337,20 @@ alias lz="lazygit"
 alias downloads="/mnt/c/Users/Justin/Downloads"
 
 source ~/autovenv
+export PATH=/home/jstitt/.nimble/bin:$PATH
+alias ls='lsd'
+alias l='ls -l'
+alias la='ls -a'
+alias lla='ls -la'
+alias lt='ls --tree'
+source ~/.env
+OPENAI_API_KEY=$(cat ~/.env | grep --color=never -E 'OPENAI_API_KEY.*' | cut -d '=' -f2 | tr -d '"')
+PALM_API_KEY=$(cat ~/.env | grep --color=never -E 'PALM_API_KEY.*' | cut -d '=' -f2 | tr -d '"')
+
+# bun completions
+[ -s "/home/jstitt/.bun/_bun" ] && source "/home/jstitt/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+alias pd="pyenv deactivate && cd .. && cd -"
