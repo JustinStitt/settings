@@ -23,7 +23,7 @@
 _virtualenv_auto_activate() {
     have_not_found=true
     for folderName in $(find -maxdepth 1 -type d); do
-        if [ -e "./venv/bin/activate" ] && [ $folderName = "./venv" ]; then
+      if ([ -e "./venv/bin/activate" ] && [ $folderName = "./venv" ]) || ([ -e "./.venv/bin/activate" ] && [ $folderName = "./.venv" ]); then
             have_not_found=false
             if [ "$VIRTUAL_ENV" = "" ]; then
                 _VENV_NAME=$(basename `pwd`)
