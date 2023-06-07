@@ -18,3 +18,45 @@ parser_config.nim = {
   },
   filetype = "nim",                               -- if filetype does not match the parser name
 }
+
+
+-- add `pyright` to `skipped_servers` list
+-- vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers, { "pyright" })
+--
+vim.cmd([[au BufNewFile,BufRead *.v set filetype=vlang]])
+require('lspconfig').vls.setup {}
+-- require('lvim.lsp.manager').setup("vls")
+-- require('lspconfig')['vls'].setup {
+--   cmd = { "v", "ls" },
+--   filetypes = { "vlang", "v" },
+-- }
+
+-- -- -- set additional linters
+local linters = require "lvim.lsp.null-ls.linters"
+linters.setup {
+  -- { command = "pylama", filetypes = { "python" } },
+  -- { command = "isort", filetypes = { "python" } },
+}
+
+-- require('lspconfig').pyre.setup {}
+-- require('lspconfig').ruff_lsp.setup {}
+-- local util = require("lspconfig/util")
+-- require("lspconfig.configs").pylyzer = {
+--   default_config = {
+--     name = "pylyzer",
+--     cmd = { "pylyzer", "--server" },
+--     filetypes = { "python" },
+--     root_dir = function(fname)
+--       local root_files = {
+--         "pyproject.toml",
+--         "setup.py",
+--         "setup.cfg",
+--         "requirements.txt",
+--         "Pipfile",
+--       }
+--       return util.root_pattern(unpack(root_files))(fname)
+--           or util.find_git_ancestor(fname)
+--           or util.path.dirname(fname)
+--     end,
+--   },
+-- }

@@ -21,7 +21,7 @@ lvim.format_on_save                                 = {
 }
 
 -- disable built-in LVIM statusline
-lvim.builtin.lualine.active                         = false
+-- lvim.builtin.lualine.active                         = false
 
 -- Change theme settings
 lvim.colorscheme                                    = "kanagawa"
@@ -37,3 +37,5 @@ local t                                             = {}
 t['<C-u>']                                          = { 'scroll', { '-vim.wo.scroll', 'true', '100' } }
 t['<C-d>']                                          = { 'scroll', { 'vim.wo.scroll', 'true', '100' } }
 require('neoscroll.config').set_mappings(t)
+
+vim.g.leetcode_browser = 'firefox'

@@ -63,8 +63,12 @@ lvim.keys.normal_mode["<leader>lX"] = "<Cmd>:LspStart<cr>"
 lvim.keys.normal_mode["<leader>lF"] = "<Cmd>:LspRestart<cr>"
 lvim.keys.normal_mode["<leader>gB"] = "<Cmd>:Git blame<cr>"
 lvim.keys.normal_mode["<leader><leader>r"] = "<Cmd>:RunCode<cr>"
-lvim.keys.visual_mode["<leader><leader>r"] = ":SnipRun<cr>"
+lvim.keys.normal_mode["<leader>A"] = "<Cmd>:lua require('harpoon.mark').add_file()<CR>"
+-- lvim.keys.normal_mode["<leader>H"] = ":lua require('harpoon.ui').toggle_quick_menu()<CR>"
+lvim.keys.normal_mode["<leader>H"] = "<Cmd>:Telescope harpoon marks<CR>"
 
+
+lvim.keys.visual_mode["<leader><leader>r"] = ":SnipRun<cr>"
 
 -- ChatGPT keybindings
 lvim.keys.normal_mode["<leader><leader>g"] = "<Cmd>:ChatGPT<cr>"

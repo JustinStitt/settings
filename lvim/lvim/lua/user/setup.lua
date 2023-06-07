@@ -67,7 +67,7 @@ require('lsp_signature').setup({
   zindex = 1024,
   transparency = 100
 })
-require('wlsample.airline')
+-- require('wlsample.airline')
 require 'window-picker'.setup({})
 require("auto-session").setup({})
 require('code_runner').setup { mode = 'toggleterm', filetype_path = vim.fn.expand('~/.config/lvim/code_runner.json'), project_path =

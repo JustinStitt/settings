@@ -1,5 +1,6 @@
 require('user.plugins')
 require('user.setup')
+require('user.harpoon')
 require('user.mappings')
 require('user.dap')
 require('user.highlight')
