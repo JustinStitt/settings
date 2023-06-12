@@ -10,7 +10,7 @@ fi
 
 if [ ! -f $PREVIOUS_ENTRY_FILE ]
 then
-  CURRENT_TEMP=$(curl https://wttr.in/Fullerton\?format\="%l:+%C+%t+(UV:+%u)" 2>/dev/null)
+  CURRENT_TEMP=$(curl https://wttr.in/Sunnyvale\?format\="%l:+%C+%t+(UV:+%u)" 2>/dev/null)
   echo -n $CURRENT_TEMP > $PREVIOUS_ENTRY_FILE
 fi
 
@@ -21,7 +21,7 @@ DELTA=$(($CURRENT_TIME - $PREVIOUS_TIME))
 if [ $DELTA -gt $INTERVAL ]
 then
   # update previous entry file
-  CURRENT_TEMP=$(curl https://wttr.in/Fullerton\?format\="%l:+%C+%t+(UV:+%u)" 2>/dev/null)
+  CURRENT_TEMP=$(curl https://wttr.in/Sunnyvale\?format\="%l:+%C+%t+(UV:+%u)" 2>/dev/null)
   echo -n $CURRENT_TEMP > $PREVIOUS_ENTRY_FILE
   echo $CURRENT_TIME > $CACHE_FILE
 fi
