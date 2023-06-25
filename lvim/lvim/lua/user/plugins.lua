@@ -71,4 +71,5 @@ lvim.plugins = {
   { "Rawnly/gist.nvim" },
   { "jackMort/ChatGPT.nvim" },
   { "ThePrimeagen/harpoon" },
+  { "simrat39/rust-tools.nvim" },
 }
