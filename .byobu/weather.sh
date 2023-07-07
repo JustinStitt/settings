@@ -1,6 +1,11 @@
 CACHE_FILE=/tmp/tmux-weather-cache.tmp
 PREVIOUS_ENTRY_FILE=/tmp/tmux-weather-cache-entry.tmp
-INTERVAL=360 # fetch weather every 6 minutes
+INTERVAL=1860 # fetch weather every 31 minutes
+
+get_and_write() {
+  CURRENT_TEMP=$(curl https://wttr.in/Sunnyvale\?format\="%l:+%C+%t+(UV:+%u)🌆@%s" 2>/dev/null)
+  echo -n $CURRENT_TEMP | sed 's/...$//' > $PREVIOUS_ENTRY_FILE
+}
 
 # file doesn't exist yet, create it
 if [ ! -f $CACHE_FILE ]
@@ -10,8 +15,7 @@ fi
 
 if [ ! -f $PREVIOUS_ENTRY_FILE ]
 then
-  CURRENT_TEMP=$(curl https://wttr.in/Sunnyvale\?format\="%l:+%C+%t+(UV:+%u)" 2>/dev/null)
-  echo -n $CURRENT_TEMP > $PREVIOUS_ENTRY_FILE
+  get_and_write
 fi
 
 PREVIOUS_TIME=$(head -1 $CACHE_FILE)
@@ -20,9 +24,8 @@ DELTA=$(($CURRENT_TIME - $PREVIOUS_TIME))
 
 if [ $DELTA -gt $INTERVAL ]
 then
+  get_and_write
   # update previous entry file
-  CURRENT_TEMP=$(curl https://wttr.in/Sunnyvale\?format\="%l:+%C+%t+(UV:+%u)" 2>/dev/null)
-  echo -n $CURRENT_TEMP > $PREVIOUS_ENTRY_FILE
   echo $CURRENT_TIME > $CACHE_FILE
 fi
 
