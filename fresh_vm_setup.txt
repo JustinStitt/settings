@@ -24,6 +24,7 @@
   - LunarVim pre-reqs (node, npm, cargo, pip, make, git, python)
     -`bash <(curl -s https://raw.githubusercontent.com/lunarvim/lunarvim/master/utils/installer/install.sh)`
     - Note: may need to `sudo -s` then run the command
+    - Note: may need to install nvm and install node through it.
 13) install fzf `git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf`
                `~/.fzf/install`
 14) enable low-level ports `sudo setcap CAP_NET_BIND_SERVICE=+eip $(which caddy)`
