@@ -10,3 +10,5 @@ gr then <leader>le to see references of symbol under cursor
 Alt-] and Alt-\ to cycle suggestions and accept them
 
 add a ".clangd" file to home directory to support c++20 stuff
+
+add keybinding for <Space> to Open in /usr/local/google/home/justinstitt/.local/share/lunarvim/site/pack/lazy/opt/nvim-tree.lua/lua/nvim-tree/keymap.lua + 40ish
