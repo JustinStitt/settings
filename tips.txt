@@ -73,3 +73,10 @@ I did this with Nim and here are my steps...
 3) clone repo of lsp (like this one https://github.com/aMOPel/tree-sitter-nim)
 4) read this from a git issue https://github.com/aMOPel/tree-sitter-nim/issues/20#issuecomment-1495060326
 5) profit$!
+
+
+GitHub neovim interface (https://github.com/pwntester/octo.nvim#%EF%B8%8F-configuration)
+:Octo
+
+example:
+:Octo pr search

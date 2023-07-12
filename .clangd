@@ -1,0 +1,12 @@
+# Fragment common to C and C++ source files
+CompileFlags:
+    Add:
+        - "-Wall"
+---
+# Fragment specific to C++ source files
+If:
+    PathExclude: [.*\.c, .*\.h]
+CompileFlags:
+    Add:
+        - "-std=c++20"
+    Compiler: clang++
