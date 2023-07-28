@@ -72,4 +72,10 @@ lvim.plugins = {
   { "jackMort/ChatGPT.nvim" },
   { "ThePrimeagen/harpoon" },
   { "simrat39/rust-tools.nvim" },
+  { "ravenxrz/DAPInstall.nvim" },
+  { "tenxsoydev/karen-yank.nvim" },
+  { "petertriho/nvim-scrollbar" },
+  { "kevinhwang91/nvim-hlslens" },
+  { "gbprod/cutlass.nvim" },
+  { "pocco81/high-str.nvim" },
 }

@@ -4,10 +4,6 @@ require('copilot').setup({
       accept = "<M-\\>"
     }
   },
-  openai_params = {
-    max_tokens = 600
-
-  }
 })
 require("chatgpt").setup({
   -- NOTE: modify ~/.local/share/lunarvim/site/pack/lazy/opt/ChatGPT.nvim/lua/chatgpt/api.lua + 98 and hardcode API KEY
@@ -15,7 +11,13 @@ require("chatgpt").setup({
     keymaps = {
       close = { "<C-c>", "<C-q>" }
     }
+  },
+
+  openai_params = {
+    model = "gpt-4",
+    max_tokens = 1024
   }
+
 })
 require 'nvim-web-devicons'.setup {}
 require('kanagawa').setup({
@@ -89,3 +91,20 @@ rt.setup({
     end,
   },
 })
+
+require("karen-yank").setup()
+require("scrollbar").setup()
+
+require("cutlass").setup({
+  cut_key = "d",
+  override_del = nil,
+  exclude = {},
+  registers = {
+    select = "s",
+    delete = "d",
+    change = "c",
+  },
+})
+
+require("scrollbar.handlers.gitsigns").setup()
+require("high-str").setup()

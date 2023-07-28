@@ -3,6 +3,8 @@ vim.keymap.set("n", "S", "/<Space><BS>")
 vim.keymap.set("n", "g!", ":.!<Space><BS>")
 vim.keymap.set("n", ",S", ":%s/\\v")
 vim.keymap.set("n", "q]]", "F{a<CR><Esc>$i<CR><up><CR><up><Tab>")
+vim.keymap.set({ "n" }, "gr", "<cmd>lua vim.lsp.buf.references()<CR>",
+  { desc = "Get References under cursor" })
 vim.keymap.set({ "n", "o", "x" }, "w", "<cmd>lua require('spider').motion('w')<CR>", { desc = "Spider-w" })
 vim.keymap.set({ "n", "o", "x" }, "e", "<cmd>lua require('spider').motion('e')<CR>", { desc = "Spider-e" })
 vim.keymap.set({ "n", "o", "x" }, "b", "<cmd>lua require('spider').motion('b')<CR>", { desc = "Spider-b" })
@@ -15,14 +17,20 @@ vim.keymap.set({ "n" }, "<C-_>", "gcc", { remap = true })
 vim.keymap.set({ "i" }, "<C-_>", "<Esc>,/A", { remap = true })
 vim.keymap.set({ "v" }, "<C-_>", "gcc", { remap = true })
 vim.keymap.set({ "i" }, "<M-c>", "/**/<left><left>  <left>", { remap = true })
-
+vim.keymap.set({ "n" }, ",lz",
+  "<cmd>:hi TAB guibg=#333333<cr><cmd>:LvimToggleFormatOnSave<cr><cmd>:set noexpandtab<cr><cmd>:set shiftwidth=2<cr><cmd>:set tabstop=2<cr><cmd>:set list<cr>",
+  { desc = "Enable Kernel-Dev Mode" })
+-- <cmd>:hi TAB guibg=yellow ctermbg=yellow<cr>
 -- Move lines up and down
 vim.keymap.set("n", "K", "$<left> :m .-2<CR>==", { silent = true })
 vim.keymap.set("n", "J", "$<left> :m .+1<CR>==", { silent = true })
 
-vim.keymap.set({ "x", "v" }, "J", " :m '>+<CR>gv=gv<left>")
+vim.keymap.set({ "x", "v" }, "J", " :m '>+<cr>gv=gv<left>")
 vim.keymap.set({ "x", "v" }, "K", " :m '<-2<CR>gv=gv<left>")
-
+vim.keymap.set({ "n" }, "zF", "zMzOzz", { noremap = true })
+vim.keymap.set('v', '/', '<esc>/\\%V') -- search within selection
+vim.keymap.set({ "n" }, ",mk", "AKees Cook <keescook@chromium.org>")
+vim.keymap.set({ "n" }, ",mn", "ANick Desaulniers <ndesaulniers@google.com>")
 
 -- lvim.keys.normal_mode["S"] = "/<Space><BS>"
 lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
@@ -104,3 +112,29 @@ lvim.lsp.buffer_mappings.normal_mode['K'] = nil
 -- c0 — choose none
 -- ]x — move to previous conflict
 -- [x — move to next conflict
+--
+-- janky
+vim.cmd [[
+  nnoremap * #
+  nnoremap # *
+]]
+
+vim.api.nvim_set_keymap(
+  "v",
+  ",n",
+  ":<c-u>HSHighlight 1<CR>",
+  {
+    noremap = true,
+    silent = true
+  }
+)
+
+vim.api.nvim_set_keymap(
+  "v",
+  ",N",
+  ":<c-u>HSRmHighlight<CR>",
+  {
+    noremap = true,
+    silent = true
+  }
+)

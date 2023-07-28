@@ -1,9 +1,10 @@
 local dap = require('dap')
 
+
 dap.adapters.lldb = {
   type = 'executable',
   -- absolute path is important here, otherwise the argument in the `runInTerminal` request will default to $CWD/lldb-vscode
-  command = '/usr/bin/lldb-vscode-15', -- can install lldb-vscode-14 with https://github.com/xbc5/DAPInstall.nvim#configuration
+  command = '/usr/bin/lldb-vscode-14',
   name = "lldb"
 }
 
@@ -22,6 +23,7 @@ dap.configurations.cpp = {
   },
 }
 
+
 dap.configurations.c = {
   {
     name = "Launch",
@@ -36,6 +38,3 @@ dap.configurations.c = {
     runInTerminal = true,
   },
 }
-
--- run this as per: https://github.com/mfussenegger/nvim-dap/issues/210
--- echo 0 | sudo tee /proc/sys/kernel/yama/ptrace_scope
