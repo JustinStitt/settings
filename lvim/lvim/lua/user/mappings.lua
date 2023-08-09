@@ -29,8 +29,8 @@ vim.keymap.set({ "x", "v" }, "J", " :m '>+<cr>gv=gv<left>")
 vim.keymap.set({ "x", "v" }, "K", " :m '<-2<CR>gv=gv<left>")
 vim.keymap.set({ "n" }, "zF", "zMzOzz", { noremap = true })
 vim.keymap.set('v', '/', '<esc>/\\%V') -- search within selection
-vim.keymap.set({ "n" }, ",mk", "AKees Cook <keescook@chromium.org>")
-vim.keymap.set({ "n" }, ",mn", "ANick Desaulniers <ndesaulniers@google.com>")
+vim.keymap.set({ "n" }, ",mk", "oCc: Kees Cook <keescook@chromium.org>")
+vim.keymap.set({ "n" }, ",mn", "oCc: Nick Desaulniers <ndesaulniers@google.com>")
 
 -- lvim.keys.normal_mode["S"] = "/<Space><BS>"
 lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
