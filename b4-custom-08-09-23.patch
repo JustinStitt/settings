@@ -1,0 +1,2277 @@
+diff --color -Naur '--exclude=.git' '--exclude=__pycache__' /usr/local/google/home/justinstitt/repos/b4/b4/0001-add-lorelinks-md-format.patch ./0001-add-lorelinks-md-format.patch
+--- /usr/local/google/home/justinstitt/repos/b4/b4/0001-add-lorelinks-md-format.patch	2023-08-09 22:44:29.490927360 +0000
++++ ./0001-add-lorelinks-md-format.patch	1970-01-01 00:00:00.000000000 +0000
+@@ -1,28 +0,0 @@
+-From 554a786e710fba217c55762ef457e2f059f510b5 Mon Sep 17 00:00:00 2001
+-From: Justin Stitt <justinstitt@google.com>
+-Date: Wed, 9 Aug 2023 22:38:35 +0000
+-Subject: [PATCH - PERSONAL] add lorelinks md format
+-
+-Signed-off-by: Justin Stitt <justinstitt@google.com>
+----
+- b4/ez.py | 5 +++++
+- 1 file changed, 5 insertions(+)
+-
+-diff --git a/b4/ez.py b/b4/ez.py
+-index bbaa807..185681b 100644
+---- a/b4/ez.py
+-+++ b/b4/ez.py
+-@@ -1555,6 +1555,11 @@ def cmd_send(cmdargs: argparse.Namespace) -> None:
+-         if not cl_msgid:
+-             cl_msgid = b4.LoreMessage.get_clean_msgid(msg)
+-
+-+        # markdown format lorelink for each patch in series
+-+        lore_link = config.get('linkmask') % b4.LoreMessage.get_clean_msgid(msg)
+-+        logger.info(f"[{msg.get('subject')}]({lore_link})")
+-+
+-+
+-         myto = list(allto)
+-         mycc = list(allcc)
+-         if msg['To']:
+---
+-2.41.0.640.ga95def55d0-goog
+diff --color -Naur '--exclude=.git' '--exclude=__pycache__' /usr/local/google/home/justinstitt/repos/b4/b4/0001-fix-sendgmr-from-header.patch ./0001-fix-sendgmr-from-header.patch
+--- /usr/local/google/home/justinstitt/repos/b4/b4/0001-fix-sendgmr-from-header.patch	2023-08-01 22:44:57.517599032 +0000
++++ ./0001-fix-sendgmr-from-header.patch	1970-01-01 00:00:00.000000000 +0000
+@@ -1,26 +0,0 @@
+-From e7b7615d505367c4f129849adfdac4648be924d6 Mon Sep 17 00:00:00 2001
+-From: Justin Stitt <justinstitt@google.com>
+-Date: Tue, 1 Aug 2023 22:44:51 +0000
+-Subject: [PATCH] fix sendgmr from header
+-
+-Signed-off-by: Justin Stitt <justinstitt@google.com>
+----
+- b4/__init__.py | 2 +-
+- 1 file changed, 1 insertion(+), 1 deletion(-)
+-
+-diff --git a/b4/__init__.py b/b4/__init__.py
+-index b974642..993d6f6 100644
+---- a/b4/__init__.py
+-+++ b/b4/__init__.py
+-@@ -3259,7 +3259,7 @@ def get_smtp(dryrun: bool = False) -> Tuple[Union[smtplib.SMTP, smtplib.SMTP_SSL
+-         else:
+-             envpair = email.utils.parseaddr(fromaddr)
+-         if envpair[1]:
+--            smtp += ['-f', envpair[1]]
+-+            smtp += ['-t']
+-         return smtp, fromaddr
+- 
+-     encryption = sconfig.get('smtpencryption')
+--- 
+-2.41.0.585.gd2178a4bd4-goog
+-
+diff --color -Naur '--exclude=.git' '--exclude=__pycache__' /usr/local/google/home/justinstitt/repos/b4/b4/b4-custom-08-09-23.patch ./b4-custom-08-09-23.patch
+--- /usr/local/google/home/justinstitt/repos/b4/b4/b4-custom-08-09-23.patch	1970-01-01 00:00:00.000000000 +0000
++++ ./b4-custom-08-09-23.patch	2023-08-09 23:04:44.465085654 +0000
+@@ -0,0 +1,62 @@
++diff --color -Naur '--exclude=.git' '--exclude=__pycache__' /usr/local/google/home/justinstitt/repos/b4/b4/0001-add-lorelinks-md-format.patch ./0001-add-lorelinks-md-format.patch
++--- /usr/local/google/home/justinstitt/repos/b4/b4/0001-add-lorelinks-md-format.patch	2023-08-09 22:44:29.490927360 +0000
+++++ ./0001-add-lorelinks-md-format.patch	1970-01-01 00:00:00.000000000 +0000
++@@ -1,28 +0,0 @@
++-From 554a786e710fba217c55762ef457e2f059f510b5 Mon Sep 17 00:00:00 2001
++-From: Justin Stitt <justinstitt@google.com>
++-Date: Wed, 9 Aug 2023 22:38:35 +0000
++-Subject: [PATCH - PERSONAL] add lorelinks md format
++-
++-Signed-off-by: Justin Stitt <justinstitt@google.com>
++----
++- b4/ez.py | 5 +++++
++- 1 file changed, 5 insertions(+)
++-
++-diff --git a/b4/ez.py b/b4/ez.py
++-index bbaa807..185681b 100644
++---- a/b4/ez.py
++-+++ b/b4/ez.py
++-@@ -1555,6 +1555,11 @@ def cmd_send(cmdargs: argparse.Namespace) -> None:
++-         if not cl_msgid:
++-             cl_msgid = b4.LoreMessage.get_clean_msgid(msg)
++-
++-+        # markdown format lorelink for each patch in series
++-+        lore_link = config.get('linkmask') % b4.LoreMessage.get_clean_msgid(msg)
++-+        logger.info(f"[{msg.get('subject')}]({lore_link})")
++-+
++-+
++-         myto = list(allto)
++-         mycc = list(allcc)
++-         if msg['To']:
++---
++-2.41.0.640.ga95def55d0-goog
++diff --color -Naur '--exclude=.git' '--exclude=__pycache__' /usr/local/google/home/justinstitt/repos/b4/b4/0001-fix-sendgmr-from-header.patch ./0001-fix-sendgmr-from-header.patch
++--- /usr/local/google/home/justinstitt/repos/b4/b4/0001-fix-sendgmr-from-header.patch	2023-08-01 22:44:57.517599032 +0000
+++++ ./0001-fix-sendgmr-from-header.patch	1970-01-01 00:00:00.000000000 +0000
++@@ -1,26 +0,0 @@
++-From e7b7615d505367c4f129849adfdac4648be924d6 Mon Sep 17 00:00:00 2001
++-From: Justin Stitt <justinstitt@google.com>
++-Date: Tue, 1 Aug 2023 22:44:51 +0000
++-Subject: [PATCH] fix sendgmr from header
++-
++-Signed-off-by: Justin Stitt <justinstitt@google.com>
++----
++- b4/__init__.py | 2 +-
++- 1 file changed, 1 insertion(+), 1 deletion(-)
++-
++-diff --git a/b4/__init__.py b/b4/__init__.py
++-index b974642..993d6f6 100644
++---- a/b4/__init__.py
++-+++ b/b4/__init__.py
++-@@ -3259,7 +3259,7 @@ def get_smtp(dryrun: bool = False) -> Tuple[Union[smtplib.SMTP, smtplib.SMTP_SSL
++-         else:
++-             envpair = email.utils.parseaddr(fromaddr)
++-         if envpair[1]:
++--            smtp += ['-f', envpair[1]]
++-+            smtp += ['-t']
++-         return smtp, fromaddr
++- 
++-     encryption = sconfig.get('smtpencryption')
++--- 
++-2.41.0.585.gd2178a4bd4-goog
++-
+diff --color -Naur '--exclude=.git' '--exclude=__pycache__' /usr/local/google/home/justinstitt/repos/b4/b4/command.py ./command.py
+--- /usr/local/google/home/justinstitt/repos/b4/b4/command.py	2023-08-09 22:37:48.547478818 +0000
++++ ./command.py	2023-08-03 22:10:47.035710194 +0000
+@@ -3,7 +3,7 @@
+ # SPDX-License-Identifier: GPL-2.0-or-later
+ # Copyright (C) 2020 by the Linux Foundation
+ #
+-__author__ = 'Konstantin Ryabitsev <konstantin@linuxfoundation.org>'
++__author__ = "Konstantin Ryabitsev <konstantin@linuxfoundation.org>"
+ 
+ import argparse
+ import logging
+@@ -14,324 +14,794 @@
+ 
+ 
+ def cmd_retrieval_common_opts(sp):
+-    sp.add_argument('msgid', nargs='?',
+-                    help='Message ID to process, or pipe a raw message')
+-    sp.add_argument('-m', '--use-local-mbox', dest='localmbox', default=None,
+-                    help='Instead of grabbing a thread from lore, process this mbox file (or - for stdin)')
+-    sp.add_argument('--stdin-pipe-sep',
+-                    help='When accepting messages on stdin, split using this pipe separator string')
+-    sp.add_argument('-C', '--no-cache', dest='nocache', action='store_true', default=False,
+-                    help='Do not use local cache')
++    sp.add_argument(
++        "msgid", nargs="?", help="Message ID to process, or pipe a raw message"
++    )
++    sp.add_argument(
++        "-m",
++        "--use-local-mbox",
++        dest="localmbox",
++        default=None,
++        help="Instead of grabbing a thread from lore, process this mbox file (or - for stdin)",
++    )
++    sp.add_argument(
++        "--stdin-pipe-sep",
++        help="When accepting messages on stdin, split using this pipe separator string",
++    )
++    sp.add_argument(
++        "-C",
++        "--no-cache",
++        dest="nocache",
++        action="store_true",
++        default=False,
++        help="Do not use local cache",
++    )
+ 
+ 
+ def cmd_mbox_common_opts(sp):
+     cmd_retrieval_common_opts(sp)
+-    sp.add_argument('-o', '--outdir', default='.',
+-                    help='Output into this directory (or use - to output mailbox contents to stdout)')
+-    sp.add_argument('-c', '--check-newer-revisions', dest='checknewer', action='store_true', default=False,
+-                    help='Check if newer patch revisions exist')
+-    sp.add_argument('-n', '--mbox-name', dest='wantname', default=None,
+-                    help='Filename to name the mbox destination')
+-    sp.add_argument('-M', '--save-as-maildir', dest='maildir', action='store_true', default=False,
+-                    help='Save as maildir (avoids mbox format ambiguities)')
++    sp.add_argument(
++        "-o",
++        "--outdir",
++        default=".",
++        help="Output into this directory (or use - to output mailbox contents to stdout)",
++    )
++    sp.add_argument(
++        "-c",
++        "--check-newer-revisions",
++        dest="checknewer",
++        action="store_true",
++        default=False,
++        help="Check if newer patch revisions exist",
++    )
++    sp.add_argument(
++        "-n",
++        "--mbox-name",
++        dest="wantname",
++        default=None,
++        help="Filename to name the mbox destination",
++    )
++    sp.add_argument(
++        "-M",
++        "--save-as-maildir",
++        dest="maildir",
++        action="store_true",
++        default=False,
++        help="Save as maildir (avoids mbox format ambiguities)",
++    )
+ 
+ 
+ def cmd_am_common_opts(sp):
+-    sp.add_argument('-v', '--use-version', dest='wantver', type=int, default=None,
+-                    help='Get a specific version of the patch/series')
+-    sp.add_argument('-t', '--apply-cover-trailers', dest='covertrailers', action='store_true', default=False,
+-                    help='Apply trailers sent to the cover letter to all patches')
+-    sp.add_argument('-S', '--sloppy-trailers', dest='sloppytrailers', action='store_true', default=False,
+-                    help='Apply trailers without email address match checking')
+-    sp.add_argument('-T', '--no-add-trailers', dest='noaddtrailers', action='store_true', default=False,
+-                    help='Do not add any trailers from follow-up messages')
+-    sp.add_argument('-s', '--add-my-sob', dest='addmysob', action='store_true', default=False,
+-                    help='Add your own signed-off-by to every patch')
+-    sp.add_argument('-l', '--add-link', dest='addlink', action='store_true', default=False,
+-                    help='Add a Link: with message-id lookup URL to every patch')
+-    sp.add_argument('-P', '--cherry-pick', dest='cherrypick', default=None,
+-                    help='Cherry-pick a subset of patches (e.g. "-P 1-2,4,6-", '
+-                         '"-P _" to use just the msgid specified, or '
+-                         '"-P *globbing*" to match on commit subject)')
+-    sp.add_argument('--cc-trailers', dest='copyccs', action='store_true', default=False,
+-                    help='Copy all Cc\'d addresses into Cc: trailers')
+-    sp.add_argument('--no-parent', dest='noparent', action='store_true', default=False,
+-                    help='Break thread at the msgid specified and ignore any parent messages')
+-    sp.add_argument('--allow-unicode-control-chars', dest='allowbadchars', action='store_true', default=False,
+-                    help='Allow unicode control characters (very rarely legitimate)')
++    sp.add_argument(
++        "-v",
++        "--use-version",
++        dest="wantver",
++        type=int,
++        default=None,
++        help="Get a specific version of the patch/series",
++    )
++    sp.add_argument(
++        "-t",
++        "--apply-cover-trailers",
++        dest="covertrailers",
++        action="store_true",
++        default=False,
++        help="Apply trailers sent to the cover letter to all patches",
++    )
++    sp.add_argument(
++        "-S",
++        "--sloppy-trailers",
++        dest="sloppytrailers",
++        action="store_true",
++        default=False,
++        help="Apply trailers without email address match checking",
++    )
++    sp.add_argument(
++        "-T",
++        "--no-add-trailers",
++        dest="noaddtrailers",
++        action="store_true",
++        default=False,
++        help="Do not add any trailers from follow-up messages",
++    )
++    sp.add_argument(
++        "-s",
++        "--add-my-sob",
++        dest="addmysob",
++        action="store_true",
++        default=False,
++        help="Add your own signed-off-by to every patch",
++    )
++    sp.add_argument(
++        "-l",
++        "--add-link",
++        dest="addlink",
++        action="store_true",
++        default=False,
++        help="Add a Link: with message-id lookup URL to every patch",
++    )
++    sp.add_argument(
++        "-P",
++        "--cherry-pick",
++        dest="cherrypick",
++        default=None,
++        help='Cherry-pick a subset of patches (e.g. "-P 1-2,4,6-", '
++        '"-P _" to use just the msgid specified, or '
++        '"-P *globbing*" to match on commit subject)',
++    )
++    sp.add_argument(
++        "--cc-trailers",
++        dest="copyccs",
++        action="store_true",
++        default=False,
++        help="Copy all Cc'd addresses into Cc: trailers",
++    )
++    sp.add_argument(
++        "--no-parent",
++        dest="noparent",
++        action="store_true",
++        default=False,
++        help="Break thread at the msgid specified and ignore any parent messages",
++    )
++    sp.add_argument(
++        "--allow-unicode-control-chars",
++        dest="allowbadchars",
++        action="store_true",
++        default=False,
++        help="Allow unicode control characters (very rarely legitimate)",
++    )
+ 
+ 
+ def cmd_mbox(cmdargs):
+     import b4.mbox
++
+     b4.mbox.main(cmdargs)
+ 
+ 
+ def cmd_kr(cmdargs):
+     import b4.kr
++
+     b4.kr.main(cmdargs)
+ 
+ 
+ def cmd_prep(cmdargs):
+     import b4.ez
++
+     b4.ez.cmd_prep(cmdargs)
+ 
+ 
+ def cmd_trailers(cmdargs):
+     import b4.ez
++
+     b4.ez.cmd_trailers(cmdargs)
+ 
+ 
+ def cmd_send(cmdargs):
+     import b4.ez
++
+     b4.ez.cmd_send(cmdargs)
+ 
+ 
+ def cmd_am(cmdargs):
+     import b4.mbox
++
+     b4.mbox.main(cmdargs)
+ 
+ 
+ def cmd_shazam(cmdargs):
+     import b4.mbox
++
+     b4.mbox.main(cmdargs)
+ 
+ 
+ def cmd_pr(cmdargs):
+     import b4.pr
++
+     b4.pr.main(cmdargs)
+ 
+ 
+ def cmd_ty(cmdargs):
+     import b4.ty
++
+     b4.ty.main(cmdargs)
+ 
+ 
+ def cmd_diff(cmdargs):
+     import b4.diff
++
+     b4.diff.main(cmdargs)
+ 
+ 
+ def setup_parser() -> argparse.ArgumentParser:
+     # noinspection PyTypeChecker
+     parser = argparse.ArgumentParser(
+-        prog='b4',
+-        description='A tool to work with patches in public-inbox archives',
+-        epilog='Online docs available at https://b4.docs.kernel.org',
++        prog="b4",
++        description="A tool to work with patches in public-inbox archives",
++        epilog="Online docs available at https://b4.docs.kernel.org",
+         formatter_class=argparse.ArgumentDefaultsHelpFormatter,
+     )
+-    parser.add_argument('--version', action='version', version=b4.__VERSION__)
+-    parser.add_argument('-d', '--debug', action='store_true', default=False,
+-                        help='Add more debugging info to the output')
+-    parser.add_argument('-q', '--quiet', action='store_true', default=False,
+-                        help='Output critical information only')
+-    parser.add_argument('-n', '--no-interactive', action='store_true', default=False,
+-                        help='Do not ask any interactive questions')
+-    parser.add_argument('--offline-mode', action='store_true', default=False,
+-                        help='Do not perform any network queries')
+-    parser.add_argument('--no-stdin', action='store_true', default=False,
+-                        help='Disable TTY detection for stdin')
+-    parser.add_argument('--use-web-endpoint', dest='send_web', action='store_true', default=False,
+-                        help="Force going through the web endpoint")
++    parser.add_argument("--version", action="version", version=b4.__VERSION__)
++    parser.add_argument(
++        "-d",
++        "--debug",
++        action="store_true",
++        default=False,
++        help="Add more debugging info to the output",
++    )
++    parser.add_argument(
++        "-q",
++        "--quiet",
++        action="store_true",
++        default=False,
++        help="Output critical information only",
++    )
++    parser.add_argument(
++        "-n",
++        "--no-interactive",
++        action="store_true",
++        default=False,
++        help="Do not ask any interactive questions",
++    )
++    parser.add_argument(
++        "--offline-mode",
++        action="store_true",
++        default=False,
++        help="Do not perform any network queries",
++    )
++    parser.add_argument(
++        "--no-stdin",
++        action="store_true",
++        default=False,
++        help="Disable TTY detection for stdin",
++    )
+ 
+-    subparsers = parser.add_subparsers(help='sub-command help', dest='subcmd')
++    subparsers = parser.add_subparsers(help="sub-command help", dest="subcmd")
+ 
+     # b4 mbox
+-    sp_mbox = subparsers.add_parser('mbox', help='Download a thread as an mbox file')
++    sp_mbox = subparsers.add_parser("mbox", help="Download a thread as an mbox file")
+     cmd_mbox_common_opts(sp_mbox)
+-    sp_mbox.add_argument('-f', '--filter-dupes', dest='filterdupes', action='store_true', default=False,
+-                         help='When adding messages to existing maildir, filter out duplicates')
+-    sp_mbox.add_argument('-r', '--refetch', dest='refetch', metavar='MBOX', default=False,
+-                         help='Refetch all messages in specified mbox with their original headers')
++    sp_mbox.add_argument(
++        "-f",
++        "--filter-dupes",
++        dest="filterdupes",
++        action="store_true",
++        default=False,
++        help="When adding messages to existing maildir, filter out duplicates",
++    )
++    sp_mbox.add_argument(
++        "-r",
++        "--refetch",
++        dest="refetch",
++        metavar="MBOX",
++        default=False,
++        help="Refetch all messages in specified mbox with their original headers",
++    )
+     sp_mbox.set_defaults(func=cmd_mbox)
+ 
+     # b4 am
+-    sp_am = subparsers.add_parser('am', help='Create an mbox file that is ready to git-am')
++    sp_am = subparsers.add_parser(
++        "am", help="Create an mbox file that is ready to git-am"
++    )
+     cmd_mbox_common_opts(sp_am)
+     cmd_am_common_opts(sp_am)
+-    sp_am.add_argument('-Q', '--quilt-ready', dest='quiltready', action='store_true', default=False,
+-                       help='Save patches in a quilt-ready folder')
+-    sp_am.add_argument('-g', '--guess-base', dest='guessbase', action='store_true', default=False,
+-                       help='Try to guess the base of the series (if not specified)')
+-    sp_am.add_argument('-b', '--guess-branch', dest='guessbranch', nargs='+', action='extend', type=str, default=None,
+-                       help='When guessing base, restrict to this branch (use with -g)')
+-    sp_am.add_argument('--guess-lookback', dest='guessdays', type=int, default=21,
+-                       help='When guessing base, go back this many days from the patch date (default: 2 weeks)')
+-    sp_am.add_argument('-3', '--prep-3way', dest='threeway', action='store_true', default=False,
+-                       help='Prepare for a 3-way merge '
+-                            '(tries to ensure that all index blobs exist by making a fake commit range)')
+-    sp_am.add_argument('--no-cover', dest='nocover', action='store_true', default=False,
+-                       help='Do not save the cover letter (on by default when using -o -)')
+-    sp_am.add_argument('--no-partial-reroll', dest='nopartialreroll', action='store_true', default=False,
+-                       help='Do not reroll partial series when detected')
++    sp_am.add_argument(
++        "-Q",
++        "--quilt-ready",
++        dest="quiltready",
++        action="store_true",
++        default=False,
++        help="Save patches in a quilt-ready folder",
++    )
++    sp_am.add_argument(
++        "-g",
++        "--guess-base",
++        dest="guessbase",
++        action="store_true",
++        default=False,
++        help="Try to guess the base of the series (if not specified)",
++    )
++    sp_am.add_argument(
++        "-b",
++        "--guess-branch",
++        dest="guessbranch",
++        nargs="+",
++        action="extend",
++        type=str,
++        default=None,
++        help="When guessing base, restrict to this branch (use with -g)",
++    )
++    sp_am.add_argument(
++        "--guess-lookback",
++        dest="guessdays",
++        type=int,
++        default=21,
++        help="When guessing base, go back this many days from the patch date (default: 2 weeks)",
++    )
++    sp_am.add_argument(
++        "-3",
++        "--prep-3way",
++        dest="threeway",
++        action="store_true",
++        default=False,
++        help="Prepare for a 3-way merge "
++        "(tries to ensure that all index blobs exist by making a fake commit range)",
++    )
++    sp_am.add_argument(
++        "--no-cover",
++        dest="nocover",
++        action="store_true",
++        default=False,
++        help="Do not save the cover letter (on by default when using -o -)",
++    )
++    sp_am.add_argument(
++        "--no-partial-reroll",
++        dest="nopartialreroll",
++        action="store_true",
++        default=False,
++        help="Do not reroll partial series when detected",
++    )
+     sp_am.set_defaults(func=cmd_am)
+ 
+     # b4 shazam
+-    sp_sh = subparsers.add_parser('shazam', help='Like b4 am, but applies the series to your tree')
++    sp_sh = subparsers.add_parser(
++        "shazam", help="Like b4 am, but applies the series to your tree"
++    )
+     cmd_retrieval_common_opts(sp_sh)
+     cmd_am_common_opts(sp_sh)
+     sh_g = sp_sh.add_mutually_exclusive_group()
+-    sh_g.add_argument('-H', '--make-fetch-head', dest='makefetchhead', action='store_true', default=False,
+-                      help='Attempt to treat series as a pull request and fetch it into FETCH_HEAD')
+-    sh_g.add_argument('-M', '--merge', dest='merge', action='store_true', default=False,
+-                      help='Attempt to merge series as if it were a pull request (execs git-merge)')
+-    sp_sh.add_argument('--guess-lookback', dest='guessdays', type=int, default=21,
+-                       help=('(use with -H or -M) When guessing base, go back this many days from the patch date '
+-                             '(default: 3 weeks)'))
+-    sp_sh.add_argument('--merge-base', dest='mergebase', type=str, default=None,
+-                       help='(use with -H or -M) Force this base when merging')
++    sh_g.add_argument(
++        "-H",
++        "--make-fetch-head",
++        dest="makefetchhead",
++        action="store_true",
++        default=False,
++        help="Attempt to treat series as a pull request and fetch it into FETCH_HEAD",
++    )
++    sh_g.add_argument(
++        "-M",
++        "--merge",
++        dest="merge",
++        action="store_true",
++        default=False,
++        help="Attempt to merge series as if it were a pull request (execs git-merge)",
++    )
++    sp_sh.add_argument(
++        "--guess-lookback",
++        dest="guessdays",
++        type=int,
++        default=21,
++        help=(
++            "(use with -H or -M) When guessing base, go back this many days from the patch date "
++            "(default: 3 weeks)"
++        ),
++    )
+     sp_sh.set_defaults(func=cmd_shazam)
+ 
+     # b4 pr
+-    sp_pr = subparsers.add_parser('pr', help='Fetch a pull request found in a message ID')
+-    sp_pr.add_argument('-g', '--gitdir', default=None,
+-                       help='Operate on this git tree instead of current dir')
+-    sp_pr.add_argument('-b', '--branch', default=None,
+-                       help='Check out FETCH_HEAD into this branch after fetching')
+-    sp_pr.add_argument('-c', '--check', action='store_true', default=False,
+-                       help='Check if pull request has already been applied')
+-    sp_pr.add_argument('-e', '--explode', action='store_true', default=False,
+-                       help='Convert a pull request into an mbox full of patches')
+-    sp_pr.add_argument('-o', '--output-mbox', dest='outmbox', default=None,
+-                       help='Save exploded messages into this mailbox (default: msgid.mbx)')
+-    sp_pr.add_argument('-l', '--retrieve-links', action='store_true', dest='getlinks', default=False,
+-                       help='Attempt to retrieve any Link: URLs (use with -e)')
+-    sp_pr.add_argument('-f', '--from-addr', dest='mailfrom', default=None,
+-                       help='Use this From: in exploded messages (use with -e)')
+-    sp_pr.add_argument('-s', '--send-as-identity', dest='sendidentity', default=None,
+-                       help=('Use git-send-email to send exploded series (use with -e);'
+-                             'the identity must match a [sendemail "identity"] config section'))
+-    sp_pr.add_argument('--dry-run', dest='dryrun', action='store_true', default=False,
+-                       help='Force a --dry-run on git-send-email invocation (use with -s)')
+-    sp_pr.add_argument('msgid', nargs='?',
+-                       help='Message ID to process, or pipe a raw message')
++    sp_pr = subparsers.add_parser(
++        "pr", help="Fetch a pull request found in a message ID"
++    )
++    sp_pr.add_argument(
++        "-g",
++        "--gitdir",
++        default=None,
++        help="Operate on this git tree instead of current dir",
++    )
++    sp_pr.add_argument(
++        "-b",
++        "--branch",
++        default=None,
++        help="Check out FETCH_HEAD into this branch after fetching",
++    )
++    sp_pr.add_argument(
++        "-c",
++        "--check",
++        action="store_true",
++        default=False,
++        help="Check if pull request has already been applied",
++    )
++    sp_pr.add_argument(
++        "-e",
++        "--explode",
++        action="store_true",
++        default=False,
++        help="Convert a pull request into an mbox full of patches",
++    )
++    sp_pr.add_argument(
++        "-o",
++        "--output-mbox",
++        dest="outmbox",
++        default=None,
++        help="Save exploded messages into this mailbox (default: msgid.mbx)",
++    )
++    sp_pr.add_argument(
++        "-l",
++        "--retrieve-links",
++        action="store_true",
++        dest="getlinks",
++        default=False,
++        help="Attempt to retrieve any Link: URLs (use with -e)",
++    )
++    sp_pr.add_argument(
++        "-f",
++        "--from-addr",
++        dest="mailfrom",
++        default=None,
++        help="Use this From: in exploded messages (use with -e)",
++    )
++    sp_pr.add_argument(
++        "-s",
++        "--send-as-identity",
++        dest="sendidentity",
++        default=None,
++        help=(
++            "Use git-send-email to send exploded series (use with -e);"
++            'the identity must match a [sendemail "identity"] config section'
++        ),
++    )
++    sp_pr.add_argument(
++        "--dry-run",
++        dest="dryrun",
++        action="store_true",
++        default=False,
++        help="Force a --dry-run on git-send-email invocation (use with -s)",
++    )
++    sp_pr.add_argument(
++        "msgid", nargs="?", help="Message ID to process, or pipe a raw message"
++    )
+     sp_pr.set_defaults(func=cmd_pr)
+ 
+     # b4 ty
+-    sp_ty = subparsers.add_parser('ty', help='Generate thanks email when something gets merged/applied')
+-    sp_ty.add_argument('-g', '--gitdir', default=None,
+-                       help='Operate on this git tree instead of current dir')
+-    sp_ty.add_argument('-o', '--outdir', default='.',
+-                       help='Write thanks files into this dir (default=.)')
+-    sp_ty.add_argument('-l', '--list', action='store_true', default=False,
+-                       help='List pull requests and patch series you have retrieved')
+-    sp_ty.add_argument('-t', '--thank-for', dest='thankfor', default=None,
+-                       help='Generate thankyous for specific entries from -l (e.g.: 1,3-5,7-; or "all")')
+-    sp_ty.add_argument('-d', '--discard', default=None,
+-                       help='Discard specific messages from -l (e.g.: 1,3-5,7-; or "all")')
+-    sp_ty.add_argument('-a', '--auto', action='store_true', default=False,
+-                       help='Use the Auto-Thankanator to figure out what got applied/merged')
+-    sp_ty.add_argument('-b', '--branch', default=None,
+-                       help='The branch to check against, instead of current')
+-    sp_ty.add_argument('--since', default='1.week',
+-                       help='The --since option to use when auto-matching patches (default=1.week)')
+-    sp_ty.add_argument('-S', '--send-email', action='store_true', dest='sendemail', default=False,
+-                       help='Send email instead of writing out .thanks files')
+-    sp_ty.add_argument('--dry-run', action='store_true', dest='dryrun', default=False,
+-                       help='Print out emails instead of sending them')
+-    sp_ty.add_argument('--pw-set-state', default=None,
+-                       help='Set this patchwork state instead of default (use with -a, -t or -d)')
++    sp_ty = subparsers.add_parser(
++        "ty", help="Generate thanks email when something gets merged/applied"
++    )
++    sp_ty.add_argument(
++        "-g",
++        "--gitdir",
++        default=None,
++        help="Operate on this git tree instead of current dir",
++    )
++    sp_ty.add_argument(
++        "-o",
++        "--outdir",
++        default=".",
++        help="Write thanks files into this dir (default=.)",
++    )
++    sp_ty.add_argument(
++        "-l",
++        "--list",
++        action="store_true",
++        default=False,
++        help="List pull requests and patch series you have retrieved",
++    )
++    sp_ty.add_argument(
++        "-t",
++        "--thank-for",
++        dest="thankfor",
++        default=None,
++        help='Generate thankyous for specific entries from -l (e.g.: 1,3-5,7-; or "all")',
++    )
++    sp_ty.add_argument(
++        "-d",
++        "--discard",
++        default=None,
++        help='Discard specific messages from -l (e.g.: 1,3-5,7-; or "all")',
++    )
++    sp_ty.add_argument(
++        "-a",
++        "--auto",
++        action="store_true",
++        default=False,
++        help="Use the Auto-Thankanator to figure out what got applied/merged",
++    )
++    sp_ty.add_argument(
++        "-b",
++        "--branch",
++        default=None,
++        help="The branch to check against, instead of current",
++    )
++    sp_ty.add_argument(
++        "--since",
++        default="1.week",
++        help="The --since option to use when auto-matching patches (default=1.week)",
++    )
++    sp_ty.add_argument(
++        "-S",
++        "--send-email",
++        action="store_true",
++        dest="sendemail",
++        default=False,
++        help="Send email instead of writing out .thanks files",
++    )
++    sp_ty.add_argument(
++        "--dry-run",
++        action="store_true",
++        dest="dryrun",
++        default=False,
++        help="Print out emails instead of sending them",
++    )
++    sp_ty.add_argument(
++        "--pw-set-state",
++        default=None,
++        help="Set this patchwork state instead of default (use with -a, -t or -d)",
++    )
+     sp_ty.set_defaults(func=cmd_ty)
+ 
+     # b4 diff
+-    sp_diff = subparsers.add_parser('diff', help='Show a range-diff to previous series revision')
+-    sp_diff.add_argument('msgid', nargs='?',
+-                         help='Message ID to process, or pipe a raw message')
+-    sp_diff.add_argument('-g', '--gitdir', default=None,
+-                         help='Operate on this git tree instead of current dir')
+-    sp_diff.add_argument('-C', '--no-cache', dest='nocache', action='store_true', default=False,
+-                         help='Do not use local cache')
+-    sp_diff.add_argument('-v', '--compare-versions', dest='wantvers', type=int, default=None, nargs='+',
+-                         help='Compare specific versions instead of latest and one before that, e.g. -v 3 5')
+-    sp_diff.add_argument('-n', '--no-diff', dest='nodiff', action='store_true', default=False,
+-                         help='Do not generate a diff, just show the command to do it')
+-    sp_diff.add_argument('-o', '--output-diff', dest='outdiff', default=None,
+-                         help='Save diff into this file instead of outputting to stdout')
+-    sp_diff.add_argument('-c', '--color', dest='color', action='store_true', default=False,
+-                         help='Force color output even when writing to file')
+-    sp_diff.add_argument('-m', '--compare-am-mboxes', dest='ambox', nargs=2, default=None,
+-                         help='Compare two mbx files prepared with "b4 am"')
++    sp_diff = subparsers.add_parser(
++        "diff", help="Show a range-diff to previous series revision"
++    )
++    sp_diff.add_argument(
++        "msgid", nargs="?", help="Message ID to process, or pipe a raw message"
++    )
++    sp_diff.add_argument(
++        "-g",
++        "--gitdir",
++        default=None,
++        help="Operate on this git tree instead of current dir",
++    )
++    sp_diff.add_argument(
++        "-C",
++        "--no-cache",
++        dest="nocache",
++        action="store_true",
++        default=False,
++        help="Do not use local cache",
++    )
++    sp_diff.add_argument(
++        "-v",
++        "--compare-versions",
++        dest="wantvers",
++        type=int,
++        default=None,
++        nargs="+",
++        help="Compare specific versions instead of latest and one before that, e.g. -v 3 5",
++    )
++    sp_diff.add_argument(
++        "-n",
++        "--no-diff",
++        dest="nodiff",
++        action="store_true",
++        default=False,
++        help="Do not generate a diff, just show the command to do it",
++    )
++    sp_diff.add_argument(
++        "-o",
++        "--output-diff",
++        dest="outdiff",
++        default=None,
++        help="Save diff into this file instead of outputting to stdout",
++    )
++    sp_diff.add_argument(
++        "-c",
++        "--color",
++        dest="color",
++        action="store_true",
++        default=False,
++        help="Force color output even when writing to file",
++    )
++    sp_diff.add_argument(
++        "-m",
++        "--compare-am-mboxes",
++        dest="ambox",
++        nargs=2,
++        default=None,
++        help='Compare two mbx files prepared with "b4 am"',
++    )
+     sp_diff.set_defaults(func=cmd_diff)
+ 
+     # b4 kr
+-    sp_kr = subparsers.add_parser('kr', help='Keyring operations')
++    sp_kr = subparsers.add_parser("kr", help="Keyring operations")
+     cmd_retrieval_common_opts(sp_kr)
+-    sp_kr.add_argument('--show-keys', dest='showkeys', action='store_true', default=False,
+-                       help='Show all developer keys found in a thread')
++    sp_kr.add_argument(
++        "--show-keys",
++        dest="showkeys",
++        action="store_true",
++        default=False,
++        help="Show all developer keys found in a thread",
++    )
+     sp_kr.set_defaults(func=cmd_kr)
+ 
+     # b4 prep
+-    sp_prep = subparsers.add_parser('prep', help='Work on patch series to submit for mailing list review')
+-    sp_prep.add_argument('-c', '--auto-to-cc', action='store_true', default=False,
+-                         help='Automatically populate cover letter trailers with To and Cc addresses')
+-    sp_prep.add_argument('--force-revision', metavar='N', type=int,
+-                         help='Force revision to be this number instead')
+-    sp_prep.add_argument('--set-prefixes', metavar='PREFIX', nargs='+',
+-                         help='Extra prefixes to add to [PATCH] (e.g.: RFC mydrv)')
++    sp_prep = subparsers.add_parser(
++        "prep", help="Work on patch series to submit for mailing list review"
++    )
++    sp_prep.add_argument(
++        "-c",
++        "--auto-to-cc",
++        action="store_true",
++        default=False,
++        help="Automatically populate cover letter trailers with To and Cc addresses",
++    )
++    sp_prep.add_argument(
++        "--force-revision",
++        metavar="N",
++        type=int,
++        help="Force revision to be this number instead",
++    )
++    sp_prep.add_argument(
++        "--set-prefixes",
++        metavar="PREFIX",
++        nargs="+",
++        help="Extra prefixes to add to [PATCH] (e.g.: RFC mydrv)",
++    )
+ 
+     spp_g = sp_prep.add_mutually_exclusive_group()
+-    spp_g.add_argument('-p', '--format-patch', metavar='OUTPUT_DIR',
+-                       help='Output prep-tracked commits as patches')
+-    spp_g.add_argument('--edit-cover', action='store_true', default=False,
+-                       help='Edit the cover letter in your defined $EDITOR (or core.editor)')
+-    spp_g.add_argument('--show-revision', action='store_true', default=False,
+-                       help='Show current series revision number')
+-    spp_g.add_argument('--compare-to', metavar='vN',
+-                       help='Display a range-diff to previously sent revision N')
+-    spp_g.add_argument('--manual-reroll', dest='reroll', default=None, metavar='COVER_MSGID',
+-                       help='Mark current revision as sent and reroll (requires cover letter msgid)')
+-    spp_g.add_argument('--show-info', metavar='PARAM', nargs='?', const=':_all',
+-                       help='Show series info in a format that can be passed to other commands.')
+-    spp_g.add_argument('--cleanup', metavar='BRANCHNAME', nargs='?', const='_show',
+-                       help='Archive and remove a prep-tracked branch and all its sent/ tags')
+-
+-    ag_prepn = sp_prep.add_argument_group('Create new branch', 'Create a new branch for working on patch series')
+-    ag_prepn.add_argument('-n', '--new', dest='new_series_name',
+-                          help='Create a new branch for working on a patch series')
+-    ag_prepn.add_argument('-f', '--fork-point', dest='fork_point',
+-                          help='When creating a new branch, use this fork point instead of HEAD')
+-    ag_prepn.add_argument('-F', '--from-thread', metavar='MSGID', dest='msgid',
+-                          help='When creating a new branch, use this thread')
+-    ag_prepe = sp_prep.add_argument_group('Enroll existing branch', 'Enroll existing branch for prep work')
+-    ag_prepe.add_argument('-e', '--enroll', dest='enroll_base', nargs='?', const='@{upstream}',
+-                          help='Enroll current branch, using its configured upstream branch as fork base, or the passed tag, branch, or commit')
++    spp_g.add_argument(
++        "-p",
++        "--format-patch",
++        metavar="OUTPUT_DIR",
++        help="Output prep-tracked commits as patches",
++    )
++    spp_g.add_argument(
++        "--edit-cover",
++        action="store_true",
++        default=False,
++        help="Edit the cover letter in your defined $EDITOR (or core.editor)",
++    )
++    spp_g.add_argument(
++        "--show-revision",
++        action="store_true",
++        default=False,
++        help="Show current series revision number",
++    )
++    spp_g.add_argument(
++        "--compare-to",
++        metavar="vN",
++        help="Display a range-diff to previously sent revision N",
++    )
++    spp_g.add_argument(
++        "--manual-reroll",
++        dest="reroll",
++        default=None,
++        metavar="COVER_MSGID",
++        help="Mark current revision as sent and reroll (requires cover letter msgid)",
++    )
++    spp_g.add_argument(
++        "--show-info",
++        action="store_true",
++        default=False,
++        help="Show current series info in a column-parseable format",
++    )
++    spp_g.add_argument(
++        "--check",
++        action="store_true",
++        default=False,
++        help="Run ./scripts/checkpatch.pl on your entire patch series",
++    )
++
++    ag_prepn = sp_prep.add_argument_group(
++        "Create new branch", "Create a new branch for working on patch series"
++    )
++    ag_prepn.add_argument(
++        "-n",
++        "--new",
++        dest="new_series_name",
++        help="Create a new branch for working on a patch series",
++    )
++    ag_prepn.add_argument(
++        "-f",
++        "--fork-point",
++        dest="fork_point",
++        help="When creating a new branch, use this fork point instead of HEAD",
++    )
++    ag_prepn.add_argument(
++        "-F",
++        "--from-thread",
++        metavar="MSGID",
++        dest="msgid",
++        help="When creating a new branch, use this thread",
++    )
++    ag_prepe = sp_prep.add_argument_group(
++        "Enroll existing branch", "Enroll existing branch for prep work"
++    )
++    ag_prepe.add_argument(
++        "-e",
++        "--enroll",
++        dest="enroll_base",
++        help="Enroll current branch, using the passed tag, branch, or commit as fork base",
++    )
+     sp_prep.set_defaults(func=cmd_prep)
+ 
+     # b4 trailers
+-    sp_trl = subparsers.add_parser('trailers', help='Operate on trailers received for mailing list reviews')
+-    sp_trl.add_argument('-u', '--update', action='store_true', default=False,
+-                        help='Update branch commits with latest received trailers')
+-    sp_trl.add_argument('-S', '--sloppy-trailers', dest='sloppytrailers', action='store_true', default=False,
+-                        help='Apply trailers without email address match checking')
+-    sp_trl.add_argument('-F', '--trailers-from', dest='trailers_from',
+-                        help='Look for trailers in the thread with this msgid instead of using the series change-id')
+-    sp_trl.add_argument('--since', default='1.month',
+-                        help='The --since option to use with -F when auto-matching patches (default=1.month)')
++    sp_trl = subparsers.add_parser(
++        "trailers", help="Operate on trailers received for mailing list reviews"
++    )
++    sp_trl.add_argument(
++        "-u",
++        "--update",
++        action="store_true",
++        default=False,
++        help="Update branch commits with latest received trailers",
++    )
++    sp_trl.add_argument(
++        "-S",
++        "--sloppy-trailers",
++        dest="sloppytrailers",
++        action="store_true",
++        default=False,
++        help="Apply trailers without email address match checking",
++    )
++    sp_trl.add_argument(
++        "-F",
++        "--trailers-from",
++        dest="trailers_from",
++        help="Look for trailers in the thread with this msgid instead of using the series change-id",
++    )
++    sp_trl.add_argument(
++        "--since",
++        default="1.month",
++        help="The --since option to use with -F when auto-matching patches (default=1.month)",
++    )
+     cmd_retrieval_common_opts(sp_trl)
+     sp_trl.set_defaults(func=cmd_trailers)
+ 
+     # b4 send
+-    sp_send = subparsers.add_parser('send', help='Submit your work for review on the mailing lists')
+-    sp_send.add_argument('-d', '--dry-run', dest='dryrun', action='store_true', default=False,
+-                         help='Do not send, just dump out raw smtp messages to the stdout')
+-    sp_send.add_argument('-o', '--output-dir',
+-                         help='Do not send, write raw messages to this directory (forces --dry-run)')
+-    sp_send.add_argument('--reflect', action='store_true', default=False,
+-                         help='Send everything to yourself instead of the actual recipients')
+-    sp_send.add_argument('--no-trailer-to-cc', action='store_true', default=False,
+-                         help='Do not add any addresses found in the cover or patch trailers to To: or Cc:')
+-    sp_send.add_argument('--to', nargs='+', help='Addresses to add to the To: list')
+-    sp_send.add_argument('--cc', nargs='+', help='Addresses to add to the Cc: list')
+-    sp_send.add_argument('--not-me-too', action='store_true', default=False,
+-                         help='Remove yourself from the To: or Cc: list')
+-    sp_send.add_argument('--resend', metavar='vN', nargs='?', const='latest',
+-                         help='Resend a previously sent version of the series')
+-    sp_send.add_argument('--no-sign', action='store_true', default=False,
+-                         help='Do not add the cryptographic attestation signature header')
+-    ag_sendh = sp_send.add_argument_group('Web submission', 'Authenticate with the web submission endpoint')
+-    ag_sendh.add_argument('--web-auth-new', dest='auth_new', action='store_true', default=False,
+-                          help='Initiate a new web authentication request')
+-    ag_sendh.add_argument('--web-auth-verify', dest='auth_verify', metavar='VERIFY_TOKEN',
+-                          help='Submit the token received via verification email')
++    sp_send = subparsers.add_parser(
++        "send", help="Submit your work for review on the mailing lists"
++    )
++    sp_send.add_argument(
++        "-d",
++        "--dry-run",
++        dest="dryrun",
++        action="store_true",
++        default=False,
++        help="Do not send, just dump out raw smtp messages to the stdout",
++    )
++    sp_send.add_argument(
++        "-o",
++        "--output-dir",
++        help="Do not send, write raw messages to this directory (forces --dry-run)",
++    )
++    sp_send.add_argument(
++        "--reflect",
++        action="store_true",
++        default=False,
++        help="Send everything to yourself instead of the actual recipients",
++    )
++    sp_send.add_argument(
++        "--no-trailer-to-cc",
++        action="store_true",
++        default=False,
++        help="Do not add any addresses found in the cover or patch trailers to To: or Cc:",
++    )
++    sp_send.add_argument("--to", nargs="+", help="Addresses to add to the To: list")
++    sp_send.add_argument("--cc", nargs="+", help="Addresses to add to the Cc: list")
++    sp_send.add_argument(
++        "--not-me-too",
++        action="store_true",
++        default=False,
++        help="Remove yourself from the To: or Cc: list",
++    )
++    sp_send.add_argument(
++        "--resend",
++        metavar="vN",
++        nargs="?",
++        const="latest",
++        help="Resend a previously sent version of the series",
++    )
++    sp_send.add_argument(
++        "--no-sign",
++        action="store_true",
++        default=False,
++        help="Do not add the cryptographic attestation signature header",
++    )
++    ag_sendh = sp_send.add_argument_group(
++        "Web submission", "Authenticate with the web submission endpoint"
++    )
++    ag_sendh.add_argument(
++        "--web-auth-new",
++        dest="auth_new",
++        action="store_true",
++        default=False,
++        help="Initiate a new web authentication request",
++    )
++    ag_sendh.add_argument(
++        "--web-auth-verify",
++        dest="auth_verify",
++        metavar="VERIFY_TOKEN",
++        help="Submit the token received via verification email",
++    )
+     sp_send.set_defaults(func=cmd_send)
+ 
+     return parser
+@@ -343,7 +813,7 @@
+     logger.setLevel(logging.DEBUG)
+ 
+     ch = logging.StreamHandler()
+-    formatter = logging.Formatter('%(message)s')
++    formatter = logging.Formatter("%(message)s")
+     ch.setFormatter(formatter)
+ 
+     if cmdargs.quiet:
+@@ -355,28 +825,29 @@
+ 
+     logger.addHandler(ch)
+ 
+-    if 'func' not in cmdargs:
++    if "func" not in cmdargs:
+         parser.print_help()
+         sys.exit(1)
+ 
+     if cmdargs.offline_mode:
+-        logger.info('Running in OFFLINE mode')
++        logger.info("Running in OFFLINE mode")
+         b4.can_network = False
+ 
+     cmdargs.func(cmdargs)
+ 
+ 
+-if __name__ == '__main__':
++if __name__ == "__main__":
+     # We're running from a checkout, so reflect git commit in the version
+     import os
++
+     # noinspection PyBroadException
+     try:
+-        if b4.__VERSION__.find('-dev') > 0:
++        if b4.__VERSION__.find("-dev") > 0:
+             base = os.path.dirname(os.path.dirname(os.path.realpath(__file__)))
+-            dotgit = os.path.join(base, '.git')
+-            ecode, short = b4.git_run_command(dotgit, ['rev-parse', '--short', 'HEAD'])
++            dotgit = os.path.join(base, ".git")
++            ecode, short = b4.git_run_command(dotgit, ["rev-parse", "--short", "HEAD"])
+             if ecode == 0:
+-                b4.__VERSION__ = '%s-%.5s' % (b4.__VERSION__, short.strip())
++                b4.__VERSION__ = "%s-%.5s" % (b4.__VERSION__, short.strip())
+     except Exception as ex:
+         # Any failures above are non-fatal
+         pass
+diff --color -Naur '--exclude=.git' '--exclude=__pycache__' /usr/local/google/home/justinstitt/repos/b4/b4/ez.py ./ez.py
+--- /usr/local/google/home/justinstitt/repos/b4/b4/ez.py	2023-08-09 22:39:19.415353964 +0000
++++ ./ez.py	2023-08-09 22:37:39.007491922 +0000
+@@ -24,11 +24,11 @@
+ import textwrap
+ import gzip
+ import io
+-import tarfile
+ 
+ from typing import Optional, Tuple, List, Union
+ from email import utils
+ from string import Template
++from pathlib import Path
+ 
+ try:
+     import patatt
+@@ -62,7 +62,7 @@
+ change-id: ${change_id}
+ 
+ Best regards,
+--- 
++--
+ ${signature}
+ """
+ 
+@@ -373,23 +373,14 @@
+         seriesname = branchname
+         slug = re.sub(r'\W+', '-', branchname).strip('-').lower()
+         enroll_base = cmdargs.enroll_base
+-        # Convert @{upstream}, @{push} to an abbreviated ref
+-        gitargs = ['rev-parse', '--abbrev-ref', '--verify', enroll_base]
+-        ecode, out = b4.git_run_command(None, gitargs)
+-        if ecode > 0:
+-            if enroll_base == '@{upstream}' or enroll_base == '@{u}':
+-                logger.critical('CRITICAL: current branch has no configured upstream')
+-                sys.exit(1)
+-        elif out:
+-            enroll_base = out.strip()
+         # Is it a branch?
+-        gitargs = ['show-ref', f'refs/heads/{enroll_base}', f'refs/remotes/{enroll_base}']
++        gitargs = ['show-ref', '--heads', enroll_base]
+         lines = b4.git_get_command_lines(None, gitargs)
+         if lines:
+             try:
+                 forkpoint = get_base_forkpoint(enroll_base, mybranch)
+             except RuntimeError as ex:
+-                logger.critical('CRITICAL: could not use %s as enrollment base:', enroll_base)
++                logger.critical('CRITICAL: could not use %s as enrollment base:')
+                 logger.critical('          %s', ex)
+                 sys.exit(1)
+             basebranch = enroll_base
+@@ -402,7 +393,7 @@
+                 raise RuntimeError('Object %s not found' % enroll_base)
+             forkpoint = out.strip()
+             # check branches where this object lives
+-            heads = b4.git_branch_contains(None, forkpoint, checkall=True)
++            heads = b4.git_branch_contains(None, forkpoint)
+             if mybranch not in heads:
+                 logger.critical('CRITICAL: object %s does not exist on current branch', enroll_base)
+                 sys.exit(1)
+@@ -545,10 +536,10 @@
+     return mj + json.dumps(data, indent=2)
+ 
+ 
+-def load_cover(strip_comments: bool = False, usebranch: Optional[str] = None) -> Tuple[str, dict]:
+-    strategy = get_cover_strategy(usebranch)
++def load_cover(strip_comments: bool = False) -> Tuple[str, dict]:
++    strategy = get_cover_strategy()
+     if strategy in {'commit', 'tip-commit'}:
+-        cover_commit = find_cover_commit(usebranch=usebranch)
++        cover_commit = find_cover_commit()
+         if not cover_commit:
+             cover = ''
+             tracking = dict()
+@@ -626,10 +617,8 @@
+ # 'tip-merge': in an empty merge commit at the tip of the branch : TODO
+ #              (once/if git upstream properly supports it)
+ 
+-def get_cover_strategy(usebranch: Optional[str] = None) -> str:
+-    if usebranch:
+-        branch = usebranch
+-    else:
++def get_cover_strategy(branch: Optional[str] = None) -> str:
++    if branch is None:
+         branch = b4.git_get_current_branch()
+     # Check local branch config for the strategy
+     bconfig = b4.get_config_from_git(rf'branch\.{branch}\..*')
+@@ -647,15 +636,12 @@
+     sys.exit(1)
+ 
+ 
+-def is_prep_branch(mustbe: bool = False, usebranch: Optional[str] = None) -> bool:
++def is_prep_branch(mustbe: bool = False) -> bool:
+     mustmsg = 'CRITICAL: This is not a prep-managed branch.'
+-    if usebranch:
+-        mybranch = usebranch
+-    else:
+-        mybranch = b4.git_get_current_branch()
++    mybranch = b4.git_get_current_branch()
+     strategy = get_cover_strategy(mybranch)
+     if strategy in {'commit', 'tip-commit'}:
+-        if find_cover_commit(usebranch=mybranch) is None:
++        if find_cover_commit() is None:
+             if mustbe:
+                 logger.critical(mustmsg)
+                 sys.exit(1)
+@@ -675,14 +661,11 @@
+     sys.exit(1)
+ 
+ 
+-def find_cover_commit(usebranch: Optional[str] = None) -> Optional[str]:
++def find_cover_commit() -> Optional[str]:
+     # Walk back commits until we find the cover letter
+     # Our covers always contain the MAGIC_MARKER line
+     logger.debug('Looking for the cover letter commit with magic marker "%s"', MAGIC_MARKER)
+-    if not usebranch:
+-        usebranch = b4.git_get_current_branch()
+-    gitargs = ['log', '--grep', MAGIC_MARKER, '-F', '--pretty=oneline', '--max-count=1', '--since=1.year',
+-               usebranch]
++    gitargs = ['log', '--grep', MAGIC_MARKER, '-F', '--pretty=oneline', '--max-count=1', '--since=1.year']
+     lines = b4.git_get_command_lines(None, gitargs)
+     if not lines:
+         return None
+@@ -709,16 +692,27 @@
+ 
+ 
+ def edit_cover() -> None:
++    from re import sub
+     cover, tracking = load_cover()
+     # What's our editor? And yes, the default is vi, bite me.
+     corecfg = b4.get_config_from_git(r'core\..*', {'editor': os.environ.get('EDITOR', 'vi')})
+     editor = corecfg.get('editor')
+     logger.debug('editor=%s', editor)
++    previous_revision = tracking['series']['revision'] - 1
++    diff_prev_revision = ""
++    if previous_revision > 0:
++        diff_prev_revision = compare(compareto=str(previous_revision), get_output=True).split('\n')
++    diff_prev_revision = '\n'.join(['# ' + line for line in diff_prev_revision])
++    diff_revision_sep = '######'
++    diff_revision_patt = r'######(.|\n)*'
+     # Use COMMIT_EDITMSG name in hopes that editors autoload git commit rules
+     with tempfile.TemporaryDirectory(prefix='b4-') as temp_dir:
+         temp_fpath = os.path.join(temp_dir, 'COMMIT_EDITMSG')
+-        with open(temp_fpath, 'xb') as temp_cover:
++        with open(temp_fpath, 'ab') as temp_cover:
+             temp_cover.write(cover.encode())
++            temp_cover.write(b'\n' + diff_revision_sep.encode())
++            # temp_cover.write(b'\n')
++            temp_cover.write(diff_prev_revision.encode())
+ 
+         sp = shlex.shlex(editor, posix=True)
+         sp.whitespace_split = True
+@@ -729,6 +723,7 @@
+ 
+         with open(temp_fpath, 'rb') as temp_cover:
+             new_cover = temp_cover.read().decode(errors='replace').strip()
++            new_cover = sub(diff_revision_patt, '', new_cover)[:-1]
+ 
+     if new_cover == cover:
+         logger.info('Cover letter unchanged.')
+@@ -741,17 +736,14 @@
+     logger.info('Cover letter updated.')
+ 
+ 
+-def get_series_start(usebranch: Optional[str] = None) -> str:
+-    if usebranch:
+-        mybranch = usebranch
+-    else:
+-        mybranch = b4.git_get_current_branch()
+-    strategy = get_cover_strategy(usebranch=mybranch)
++def get_series_start() -> str:
++    strategy = get_cover_strategy()
+     forkpoint = None
+     if strategy == 'commit':
+         # Easy, we start at the cover letter commit
+-        return find_cover_commit(usebranch=mybranch)
++        return find_cover_commit()
+     if strategy == 'branch-description':
++        mybranch = b4.git_get_current_branch()
+         bcfg = b4.get_config_from_git(rf'branch\.{mybranch}\..*')
+         tracking = bcfg.get('b4-tracking')
+         if not tracking:
+@@ -766,7 +758,7 @@
+             sys.exit(1)
+         logger.debug('series_start: %s, commitcount=%s', forkpoint, commitcount)
+     if strategy == 'tip-commit':
+-        cover, tracking = load_cover(usebranch=mybranch)
++        cover, tracking = load_cover()
+         basebranch = tracking['series']['base-branch']
+         try:
+             forkpoint = get_base_forkpoint(basebranch)
+@@ -964,23 +956,18 @@
+     ecode, out, err = b4._run_command(cmdargs, stdin=msgbytes, rundir=topdir)  # noqa
+     if ecode > 0:
+         logger.critical('CRITICAL: Running %s failed:', ' '.join(cmdargs))
+-        logger.critical(err.decode(errors='ignore'))
++        logger.critical(err.decode())
+         raise RuntimeError('Running command failed: %s' % ' '.join(cmdargs))
+-    addrs = out.strip().decode(errors='ignore')
++    addrs = out.strip().decode()
+     if not addrs:
+         return list()
+     return utils.getaddresses(addrs.split('\n'))
+ 
+ 
+-def get_series_details(start_commit: Optional[str] = None, usebranch: Optional[str] = None
+-                       ) -> Tuple[str, str, str, List[str], str, str]:
+-    if usebranch:
+-        mybranch = usebranch
+-    else:
+-        mybranch = b4.git_get_current_branch()
++def get_series_details(start_commit: Optional[str] = None) -> Tuple[str, str, str, List[str], str, str]:
+     if not start_commit:
+-        start_commit = get_series_start(usebranch=mybranch)
+-    strategy = get_cover_strategy(usebranch=mybranch)
++        start_commit = get_series_start()
++    strategy = get_cover_strategy()
+     if strategy == 'commit':
+         gitargs = ['rev-parse', f'{start_commit}~1']
+         lines = b4.git_get_command_lines(None, gitargs)
+@@ -988,10 +975,10 @@
+     else:
+         base_commit = start_commit
+     if strategy == 'tip-commit':
+-        cover_commit = find_cover_commit(usebranch=mybranch)
++        cover_commit = find_cover_commit()
+         endrange = b4.git_revparse_obj(f'{cover_commit}~1')
+     else:
+-        endrange = b4.git_revparse_obj(mybranch)
++        endrange = b4.git_revparse_obj('HEAD')
+     gitargs = ['shortlog', f'{start_commit}..{endrange}']
+     ecode, shortlog = b4.git_run_command(None, gitargs)
+     gitargs = ['diff', '--stat', f'{start_commit}..{endrange}']
+@@ -1152,7 +1139,7 @@
+ 
+ 
+ def rethread(patches: List[Tuple[str, email.message.Message]]):
+-    refto = patches[0][1].get('message-id')
++    refto  = patches[0][1].get('message-id')
+     for commit, msg in patches[1:]:
+         msg.add_header('References', refto)
+         msg.add_header('In-Reply-To', refto)
+@@ -1242,21 +1229,11 @@
+     if addtracking:
+         patches[0][1].add_header('X-B4-Tracking', thdata)
+ 
+-    samethread = config.get('send-same-thread', '').lower() in {'yes', 'true', 'y'}
+-    if samethread and revision > 1:
+-        oldrev = revision - 1
+-        voldrev = f'v{oldrev}'
+-        try:
+-            oldmsgid = tracking['series']['history'][voldrev][-1]
+-            patches[0][1].add_header('In-Reply-To', f'<{oldmsgid}>')
+-            patches[0][1].add_header('References', f'<{oldmsgid}>')
+-        except (KeyError, IndexError):
+-            logger.debug('Could not find previous series msgid, skipping %s', voldrev)
+-
+     header = csubject.full_subject
+     if prefixes:
+         header = '[' + ', '.join(prefixes) + f'] {header}'
+     tag_msg = f'{header}\n\n{cover_letter}'
++
+     return alltos, allccs, tag_msg, patches
+ 
+ 
+@@ -1321,24 +1298,19 @@
+ 
+     tag_msg = None
+     cl_msgid = None
+-    cover, tracking = load_cover(strip_comments=True)
+     if cmdargs.resend:
+         if cmdargs.resend == 'latest':
++            cover, tracking = load_cover()
+             revstr = tracking['series']['revision'] - 1
+         else:
+             revstr = cmdargs.resend
+ 
+-        # Start with full change-id based tag name
+-        tagname, revision = get_sent_tagname(tracking['series']['change-id'], SENT_TAG_PREFIX, revstr)
++        tagname, revision = get_sent_tagname(mybranch, SENT_TAG_PREFIX, revstr)
+ 
+         if revision is None:
+             logger.critical('Could not figure out revision from %s', revstr)
+             sys.exit(1)
+ 
+-        if not b4.git_revparse_tag(None, tagname):
+-            # Try initial branch-name only based version
+-            tagname, revision = get_sent_tagname(mybranch, SENT_TAG_PREFIX, revstr)
+-
+         try:
+             todests, ccdests, patches = get_sent_tag_as_patches(tagname, revision=revision)
+         except RuntimeError as ex:
+@@ -1348,6 +1320,7 @@
+         logger.info('Converted the tag to %s messages', len(patches))
+ 
+     else:
++        cover, tracking = load_cover(strip_comments=True)
+         status = b4.git_get_repo_status()
+         if len(status):
+             logger.critical('CRITICAL: Repository contains uncommitted changes.')
+@@ -1459,8 +1432,10 @@
+         pathlib.Path(cmdargs.output_dir).mkdir(parents=True, exist_ok=True)
+ 
+     sconfig = b4.get_sendemail_config()
++    # If we have an smtp server defined, always use that instead of the endpoint
++    # we may make this configurable in the future, but this almost always makes sense
+     endpoint = None
+-    if not sconfig.get('smtpserver') or cmdargs.send_web:
++    if not sconfig.get('smtpserver'):
+         endpoint = config.get('send-endpoint-web', '')
+         if not re.search(r'^https?://', endpoint):
+             logger.debug('Endpoint does not start with https, ignoring: %s', endpoint)
+@@ -1599,7 +1574,7 @@
+                 msg.add_header('Cc', b4.format_addrs(pcc))
+ 
+         send_msgs.append(msg)
+-
++    subj='dummy'
+     if endpoint:
+         # Web endpoint always requires signing
+         if not sign:
+@@ -1633,6 +1608,8 @@
+     logger.info('---')
+     if cmdargs.dryrun:
+         logger.info('DRYRUN: Would have sent %s messages', len(send_msgs))
++        cover, tracking = load_cover(strip_comments=True)
++
+         return
+     if not sent:
+         logger.critical('CRITICAL: Was not able to send messages.')
+@@ -1652,7 +1629,7 @@
+     reroll(mybranch, tag_msg, cl_msgid)
+ 
+ 
+-def get_sent_tagname(tagbase: str, tagprefix: str, revstr: Union[str, int]) -> Tuple[str, Optional[int]]:
++def get_sent_tagname(branch: str, tagprefix: str, revstr: Union[str, int]) -> Tuple[str, Optional[int]]:
+     revision = None
+     try:
+         revision = int(revstr)
+@@ -1666,9 +1643,9 @@
+             return revstr.replace('refs/tags/', ''), revision
+         revision = int(matches.groups()[0])
+ 
+-    if tagbase.startswith('b4/'):
+-        return f'{tagprefix}{tagbase[3:]}-v{revision}', revision
+-    return f'{tagprefix}{tagbase}-v{revision}', revision
++    if branch.startswith('b4/'):
++        return f'{tagprefix}{branch[3:]}-v{revision}', revision
++    return f'{tagprefix}{branch}-v{revision}', revision
+ 
+ 
+ def reroll(mybranch: str, tag_msg: str, msgid: str, tagprefix: str = SENT_TAG_PREFIX):
+@@ -1679,11 +1656,11 @@
+ 
+     cover, tracking = load_cover(strip_comments=True)
+     revision = tracking['series']['revision']
+-    change_id = tracking['series']['change-id']
+-
+-    tagname, revision = get_sent_tagname(change_id, tagprefix, revision)
++    tagname, revision = get_sent_tagname(mybranch, tagprefix, revision)
+     logger.debug('checking if we already have %s', tagname)
+-    if not b4.git_revparse_tag(None, tagname):
++    gitargs = ['rev-parse', f'refs/tags/{tagname}']
++    ecode, out = b4.git_run_command(None, gitargs)
++    if ecode > 0:
+         try:
+             strategy = get_cover_strategy()
+             if strategy == 'commit':
+@@ -1758,6 +1735,7 @@
+         'newrev': newrev,
+         'oldrev_link': oldrev_link,
+     }
++
+     prepend = Template(DEFAULT_CHANGELOG_TEMPLATE.lstrip()).safe_substitute(tptvals)
+     found = False
+     new_sections = list()
+@@ -1798,221 +1776,38 @@
+                 logger.info('  %s: %s', rn, config['linkmask'] % link)
+ 
+ 
+-def write_to_tar(bio_tar: tarfile.TarFile, name, mtime, bio_file: io.BytesIO):
+-    tifo = tarfile.TarInfo(name)
+-    tuser = os.getlogin()
+-    tuid = os.getuid()
+-    tgid = os.getgid()
+-    tifo.uid = tuid
+-    tifo.gid = tgid
+-    tifo.uname = tuser
+-    tifo.gname = tuser
+-    tifo.mtime = mtime
+-    tifo.size = bio_file.tell()
+-    bio_file.seek(0)
+-    bio_tar.addfile(tifo, bio_file)
+-
+-
+-def cleanup(param: str) -> None:
+-    if param == '_show':
+-        # Show all b4-tracked branches
+-        lines = b4.git_get_command_lines(None, ['show-ref', '--heads'])
+-        if not lines:
+-            logger.critical('Git show-ref returned no heads')
+-            sys.exit(1)
+-        mybranches = list()
+-        for line in lines:
+-            parts = line.split(maxsplit=1)
+-            if parts[1].startswith('refs/heads/b4/'):
+-                mybranches.append(parts[1].replace('refs/heads/', ''))
+-        if not len(mybranches):
+-            logger.info('No b4-tracked branches found')
+-            sys.exit(0)
+-
+-        logger.info('Please specify branch:')
+-        for branch in mybranches:
+-            logger.info(' %s', branch)
+-        return
+-
+-    mybranch = param
+-    if not b4.git_branch_exists(None, mybranch):
+-        logger.critical('Not a known branch: %s', mybranch)
+-        sys.exit(1)
+-    is_prep_branch(mustbe=True, usebranch=mybranch)
+-    base_commit, start_commit, end_commit, oneline, shortlog, diffstat = get_series_details(usebranch=mybranch)
+-    # start commit and end commit can't be the same
+-    if start_commit == end_commit:
+-        logger.critical('CRITICAL: %s appears to be an empty branch', mybranch)
+-        sys.exit(1)
+-    # Refuse to clean up the currently checked out branch
+-    curbranch = b4.git_get_current_branch()
+-    if curbranch == mybranch:
+-        logger.critical('CRITICAL: %s is currently checked out, cannot cleanup', mybranch)
+-        sys.exit(1)
+-    cover, tracking = load_cover(usebranch=mybranch)
+-    # Find all tags
+-    ts = tracking['series']
+-    tags = list()
+-    logger.info('Will archive and delete all of the following:')
+-    logger.info('---')
+-    logger.info('branch: %s', mybranch)
+-    if 'history' in ts:
+-        for rn, links in ts['history'].items():
+-            tagname, revision = get_sent_tagname(ts.get('change-id'), SENT_TAG_PREFIX, rn)
+-            tag_commit = b4.git_revparse_tag(None, tagname)
+-            if not tag_commit:
+-                tagname, revision = get_sent_tagname(mybranch, SENT_TAG_PREFIX, rn)
+-                tag_commit = b4.git_revparse_tag(None, tagname)
+-            if not tag_commit:
+-                logger.debug('No tag matching revision %s', revision)
+-                continue
+-            try:
+-                cover, base_commit, change_id = get_base_changeid_from_tag(tagname)
+-            except RuntimeError as ex:
+-                logger.debug('Could not get base-commit info from %s: %s', tagname, ex)
+-                continue
+-
+-            logger.info(' tag: %s', tagname)
+-            tags.append((tagname, base_commit, tag_commit, revision, cover))
+-    logger.info('---')
+-    try:
+-        input('Press Enter to confirm or Ctrl-C to abort')
+-    except KeyboardInterrupt:
+-        logger.info('')
+-        sys.exit(130)
+-
+-    tio = io.BytesIO()
+-    change_id = ts.get('change-id')
+-    deletes = list()
+-
+-    with tarfile.open(fileobj=tio, mode='w:gz') as tfh:
+-        mnow = int(time.time())
+-        # Add cover
+-        ifh = io.BytesIO()
+-        ifh.write(cover.encode())
+-        write_to_tar(tfh, f'{change_id}/cover.txt', mnow, ifh)
+-        ifh.close()
+-        # Add tracking
+-        ifh = io.BytesIO()
+-        ifh.write(make_magic_json(tracking).encode())
+-        write_to_tar(tfh, f'{change_id}/tracking.js', mnow, ifh)
+-        ifh.close()
+-        # Add the current series
+-        logger.info('Archiving branch %s', mybranch)
+-        patches = b4.git_range_to_patches(None, start_commit, end_commit)
+-        ifh = io.BytesIO()
+-        b4.save_git_am_mbox([patch[1] for patch in patches], ifh)
+-        write_to_tar(tfh, f'{change_id}/patches.mbx', mnow, ifh)
+-        ifh.close()
+-        deletes.append(['branch', '--delete', '--force', mybranch])
+-
+-        for tagname, base_commit, tag_commit, revision, cover in tags:
+-            logger.info('Archiving %s', tagname)
+-            # use tag date as mtime
+-            lines = b4.git_get_command_lines(None, ['log', '-1', '--format=%ct', tagname])
+-            if not lines:
+-                logger.critical('Could not get tag date for %s', tagname)
+-                sys.exit(1)
+-            mtime = int(lines[0])
+-            ifh = io.BytesIO()
+-            ifh.write(cover.encode())
+-            write_to_tar(tfh, f'{change_id}/{SENT_TAG_PREFIX}patches-v{revision}.cover', mtime, ifh)
+-            ifh.close()
+-            patches = b4.git_range_to_patches(None, base_commit, tag_commit)
+-            ifh = io.BytesIO()
+-            b4.save_git_am_mbox([patch[1] for patch in patches], ifh)
+-            write_to_tar(tfh, f'{change_id}/{SENT_TAG_PREFIX}patches-v{revision}.mbx', mtime, ifh)
+-            deletes.append(['tag', '--delete', tagname])
+-
+-    # Write in data_dir
+-    datadir = b4.get_data_dir()
+-    archpath = os.path.join(datadir, 'prep-archived')
+-    pathlib.Path(archpath).mkdir(parents=True, exist_ok=True)
+-    tarpath = os.path.join(archpath, f'{change_id}.tar.gz')
+-    logger.info('Writing %s', tarpath)
+-    with open(tarpath, mode='wb') as tout:
+-        tout.write(tio.getvalue())
+-    logger.info('Cleaning up git refs')
+-    for gitargs in deletes:
+-        b4.git_run_command(None, gitargs)
+-    logger.info('---')
+-    logger.info('Wrote: %s', tarpath)
+-
+-
+-def show_info(param: str) -> None:
+-    # is param a name of the branch?
+-    if ':' in param:
+-        chunks = param.split(':')
+-        if len(chunks[0]):
+-            if b4.git_branch_exists(None, chunks[0]):
+-                mybranch = chunks[0]
+-            elif b4.git_branch_exists(None, f'b4/{chunks[0]}'):
+-                mybranch = f'b4/{chunks[0]}'
+-            else:
+-                logger.critical('No such branch: %s', chunks[0])
+-                sys.exit(1)
+-        else:
+-            mybranch = b4.git_get_current_branch()
+-        if not len(chunks[1]):
+-            getval = '_all'
+-        else:
+-            getval = chunks[1]
+-    elif b4.git_branch_exists(None, param):
+-        mybranch = param
+-        getval = '_all'
+-    else:
+-        mybranch = b4.git_get_current_branch()
+-        getval = param
+-
+-    is_prep_branch(mustbe=True, usebranch=mybranch)
+-    info = dict()
+-    info['branch'] = mybranch
+-    cover, tracking = load_cover(usebranch=mybranch)
++def show_info() -> None:
++    is_prep_branch(mustbe=True)
++    mybranch = b4.git_get_current_branch(None)
++    print('branch: %s' % mybranch)
++    cover, tracking = load_cover()
+     csubject, cbody = get_cover_subject_body(cover)
+-    info['cover-subject'] = csubject.full_subject
++    print('cover-subject: %s' % csubject.full_subject)
+     ts = tracking['series']
+     if ts.get('prefixes'):
+-        info['prefixes'] = ' '.join(ts.get('prefixes'))
+-    info['change-id'] = ts.get('change-id')
++        print('prefixes: %s' % ' '.join(ts.get('prefixes')))
++    print('change-id: %s' % ts.get('change-id'))
+     revision = ts.get('revision')
+-    info['revision'] = revision
+-    strategy = get_cover_strategy(usebranch=mybranch)
+-    info['cover-strategy'] = strategy
++    print('revision: %s' % revision)
++    strategy = get_cover_strategy()
++    print('cover-strategy: %s' % strategy)
+     if ts.get('base-branch'):
+-        info['base-branch'] = ts['base-branch']
+-    base_commit, start_commit, end_commit, oneline, shortlog, diffstat = get_series_details(usebranch=mybranch)
+-    info['base-commit'] = base_commit
+-    info['start-commit'] = start_commit
+-    info['end-commit'] = end_commit
+-    info['series-range'] = f'{start_commit}..{end_commit}'
++        print('base-branch: %s' % ts['base-branch'])
++    base_commit, start_commit, end_commit, oneline, shortlog, diffstat = get_series_details()
++    print('base-commit: %s' % base_commit)
++    print('start-commit: %s' % start_commit)
++    print('end-commit: %s' % end_commit)
+     for line in oneline:
+         short, subject = line.split(maxsplit=1)
+-        info[f'commit-{short}'] = subject
++        print('commit-%s: %s' % (short, subject))
+     if 'history' in ts:
+         for rn, links in reversed(ts['history'].items()):
+-            tagname, revision = get_sent_tagname(ts.get('change-id'), SENT_TAG_PREFIX, rn)
+-            tag_commit = b4.git_revparse_tag(None, tagname)
+-            if not tag_commit:
+-                logger.debug('No tag %s, trying with base branch name %s', tagname, mybranch)
+-                tagname, revision = get_sent_tagname(mybranch, SENT_TAG_PREFIX, rn)
+-                tag_commit = b4.git_revparse_tag(None, tagname)
+-            if not tag_commit:
+-                logger.debug('No tag matching revision %s', revision)
+-                continue
++            tagname, revision = get_sent_tagname(mybranch, SENT_TAG_PREFIX, rn)
+             try:
+                 cover, base_commit, change_id = get_base_changeid_from_tag(tagname)
+-                info[f'series-{rn}'] = '%s..%s %s' % (base_commit[:12], tag_commit[:12], links[0])
+-            except RuntimeError as ex:
+-                logger.debug('Could not get base-commit info from %s: %s', tagname, ex)
+-
+-    if getval == '_all':
+-        for key, val in info.items():
+-            print('%s: %s' % (key, val))
+-    elif getval in info:
+-        print(info[getval])
+-    else:
+-        logger.critical('No info about %s', getval)
+-        sys.exit(1)
++                print('series-%s: %s..%s %s' % (rn, base_commit[:12], tagname, links[0]))
++            except RuntimeError:
++                logger.debug('No tag matching %s', tagname)
+ 
+ 
+ def force_revision(forceto: int) -> None:
+@@ -2022,18 +1817,15 @@
+     store_cover(cover, tracking)
+ 
+ 
+-def compare(compareto: str) -> None:
+-    cover, tracking = load_cover()
+-    # Try the new format first
+-    tagname, revision = get_sent_tagname(tracking['series']['change-id'], SENT_TAG_PREFIX, compareto)
+-    prev_end = b4.git_revparse_tag(None, tagname)
+-    if not prev_end:
+-        mybranch = b4.git_get_current_branch(None)
+-        tagname, revision = get_sent_tagname(mybranch, SENT_TAG_PREFIX, compareto)
+-        prev_end = b4.git_revparse_tag(None, tagname)
+-    if not prev_end:
++def compare(compareto: str, get_output: bool = False) -> None:
++    mybranch = b4.git_get_current_branch(None)
++    tagname, revision = get_sent_tagname(mybranch, SENT_TAG_PREFIX, compareto)
++    gitargs = ['rev-parse', tagname]
++    lines = b4.git_get_command_lines(None, gitargs)
++    if not lines:
+         logger.critical('CRITICAL: Could not rev-parse %s', tagname)
+         sys.exit(1)
++    prev_end = lines[0]
+     try:
+         cover, base_commit, change_id = get_base_changeid_from_tag(tagname)
+     except RuntimeError as ex:
+@@ -2054,7 +1846,13 @@
+     grdcmd = ['git', 'range-diff', '%.12s..%.12s' % (prev_start, prev_end), '%.12s..%.12s' % (curr_start, curr_end)]
+     # We exec range-diff and let it take over
+     logger.debug('Running %s', ' '.join(grdcmd))
+-    os.execvp(grdcmd[0], grdcmd)
++
++    if not get_output:
++        os.execvp(grdcmd[0], grdcmd)
++        return
++    proc = subprocess.Popen(grdcmd, shell=False, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
++    stdout, _ = proc.communicate()
++    return stdout.decode('utf-8')
+ 
+ 
+ def auto_to_cc() -> None:
+@@ -2162,6 +1960,31 @@
+         logger.info('No changes to extra prefixes.')
+ 
+ 
++def checkpatch() -> int:
++    """
++    Invoke ./scripts/checkpatch.pl if it is available.
++    Only consider the current working directory.
++    Return True if patch is all good, False otherwise.
++    """
++    from subprocess import run
++
++    checkpath_pl_path = Path("./scripts/checkpatch.pl")
++    if not checkpath_pl_path.exists():
++        logger.critical(f'CRITICAL: no {checkpath_pl_path} found.')
++        logger.critical(f'          Navigate to Linux source tree.')
++        sys.exit(1)
++
++    start = get_series_start()
++    end = 'HEAD'
++    cover_commit = find_cover_commit()
++    patches = b4.git_range_to_patches(None, start, end, ignore_commits=set([cover_commit]))
++    command = ['./scripts/checkpatch.pl', '--git'] + [x[0] for x in patches]
++
++    result = run(command)
++
++    return result.returncode
++
++
+ def cmd_prep(cmdargs: argparse.Namespace) -> None:
+     check_can_gfr()
+     status = b4.git_get_repo_status()
+@@ -2170,6 +1993,11 @@
+         logger.critical('          Stash or commit them first.')
+         sys.exit(1)
+ 
++    if cmdargs.check:
++        checkpatch_return_code = checkpatch()
++        logger.info(f"checkpatch return code: {checkpatch_return_code}")
++        return # nothing else needs to happen after a checkpatch call
++
+     if cmdargs.reroll:
+         msgid = cmdargs.reroll
+         msgs = b4.get_pi_thread_by_msgid(msgid, onlymsgids={msgid}, nocache=True)
+@@ -2194,10 +2022,7 @@
+         return show_revision()
+ 
+     if cmdargs.show_info:
+-        return show_info(cmdargs.show_info)
+-
+-    if cmdargs.cleanup:
+-        return cleanup(cmdargs.cleanup)
++        return show_info()
+ 
+     if cmdargs.format_patch:
+         return format_patch(cmdargs.format_patch)
+diff --color -Naur '--exclude=.git' '--exclude=__pycache__' /usr/local/google/home/justinstitt/repos/b4/b4/__init__.py ./__init__.py
+--- /usr/local/google/home/justinstitt/repos/b4/b4/__init__.py	2023-08-03 21:50:09.945332478 +0000
++++ ./__init__.py	2023-08-09 22:34:39.915737692 +0000
+@@ -60,7 +60,7 @@
+ # global setting allowing us to turn off networking
+ can_network = True
+ 
+-__VERSION__ = '0.13-dev'
++__VERSION__ = '0.12.3'
+ PW_REST_API_VERSION = '1.2'
+ 
+ 
+@@ -95,10 +95,6 @@
+     'midmask': LOREADDR + '/all/%s',
+     'linkmask': LOREADDR + '/r/%s',
+     'searchmask': LOREADDR + '/all/?x=m&t=1&q=%s',
+-    # You can override the format for the Link: trailer, e.g.
+-    # if you would rather use the Message-Id trailer. It takes the
+-    # message-id as the expansion for %s
+-    # linktrailermask = Message-Id: <%s>
+     'listid-preference': '*.feeds.kernel.org,*.linux.dev,*.kernel.org,*',
+     'save-maildirs': 'no',
+     # off: do not bother checking attestation
+@@ -122,7 +118,7 @@
+     'thanks-pr-template': None,
+     # See thanks-am-template.example
+     'thanks-am-template': None,
+-    # If this is not set, we'll use what we find in 
++    # If this is not set, we'll use what we find in
+     # git-config for gpg.program, and if that's not set,
+     # we'll use "gpg" and hope for the better
+     'gpgbin': None,
+@@ -334,9 +330,6 @@
+                     pmsg.followup_trailers += trailers
+                     break
+                 if pmsg.in_reply_to and pmsg.in_reply_to in self.msgid_map:
+-                    # Avoid bad message id causing infinite loop
+-                    if pmsg == self.msgid_map[pmsg.in_reply_to]:
+-                        break
+                     lvl += 1
+                     for pltr in pmsg.trailers:
+                         pltr.lmsg = pmsg
+@@ -527,7 +520,7 @@
+             self.add_extra_trailers(self.patches[0].followup_trailers)  # noqa
+ 
+     def get_am_ready(self, noaddtrailers=False, covertrailers=False, addmysob=False, addlink=False,
+-                     cherrypick=None, copyccs=False, allowbadchars=False) -> List[email.message.Message]:
++                     linkmask=None, cherrypick=None, copyccs=False, allowbadchars=False) -> List[email.message.Message]:
+ 
+         usercfg = get_user_config()
+         config = get_main_config()
+@@ -587,21 +580,11 @@
+             if lmsg is not None:
+                 extras = list()
+                 if addlink:
+-                    linktrailer = None
+-                    ltrmask = config.get('linktrailermask')
+-                    if ltrmask:
+-                        if ltrmask.find(':'):
+-                            lparts = ltrmask.split(':', maxsplit=1)
+-                            llname = lparts[0].strip()
+-                            llval = lparts[1].strip() % lmsg.msgid
+-                            linktrailer = LoreTrailer(name=llname, value=llval)
+-                        else:
+-                            logger.critical('linktrailermask does not look like a valid trailer, using defaults')
+-
+-                    if not linktrailer:
+-                        llval = config.get('linkmask', LOREADDR + '/r/%s') % lmsg.msgid
+-                        linktrailer = LoreTrailer(name='Link', value=llval)
+-                    extras.append(linktrailer)
++                    if linkmask is None:
++                        linkmask = config.get('linkmask')
++                    linkval = linkmask % lmsg.msgid
++                    lltr = LoreTrailer(name='Link', value=linkval)
++                    extras.append(lltr)
+ 
+                 if attsame and not attcrit:
+                     if attmark:
+@@ -1470,7 +1453,7 @@
+                     transform: Literal['encode', 'decode', 'preserve'] = 'preserve') -> bytes:
+         hname, hval = hdr
+         if hname.lower() in ('to', 'cc', 'from', 'x-original-from'):
+-            _parts = [f'{hname}: ']
++            _parts = [f'{hname}: ',]
+             first = True
+             for addr in email.utils.getaddresses([hval]):
+                 if transform == 'encode' and not addr[0].isascii():
+@@ -1525,7 +1508,7 @@
+         return f'{nl} '.join(_parts).encode()
+ 
+     @staticmethod
+-    def get_msg_as_bytes(msg: email.message.Message, nl: str = '\n',
++    def get_msg_as_bytes(msg: email.message.Message, nl: str ='\n',
+                          headers: Literal['encode', 'decode', 'preserve'] = 'preserve') -> bytes:
+         bdata = b''
+         for hname, hval in msg.items():
+@@ -2589,8 +2572,6 @@
+         if 'name' not in USER_CONFIG:
+             udata = pwd.getpwuid(os.getuid())
+             USER_CONFIG['name'] = udata.pw_gecos
+-        if 'email' not in USER_CONFIG:
+-            USER_CONFIG['email'] = os.environ['EMAIL']
+     return USER_CONFIG
+ 
+ 
+@@ -2978,34 +2959,14 @@
+     return patches
+ 
+ 
+-def git_commit_exists(gitdir: Optional[str], commit_id: str) -> bool:
++def git_commit_exists(gitdir, commit_id):
+     gitargs = ['cat-file', '-e', commit_id]
+     ecode, out = git_run_command(gitdir, gitargs)
+     return ecode == 0
+ 
+ 
+-def git_branch_exists(gitdir: Optional[str], branch_name: str):
+-    gitargs = ['rev-parse', branch_name]
+-    ecode, out = git_run_command(gitdir, gitargs)
+-    return ecode == 0
+-
+-
+-def git_revparse_tag(gitdir: Optional[str], tagname: str) -> Optional[str]:
+-    if not tagname.startswith('refs/tags/'):
+-        fulltag = f'refs/tags/{tagname}'
+-    else:
+-        fulltag = tagname
+-    gitargs = ['rev-parse', fulltag]
+-    ecode, out = git_run_command(gitdir, gitargs)
+-    if ecode > 0:
+-        return None
+-    return out.strip()
+-
+-
+-def git_branch_contains(gitdir: Optional[str], commit_id: str, checkall: bool = False) -> List[str]:
++def git_branch_contains(gitdir, commit_id):
+     gitargs = ['branch', '--format=%(refname:short)', '--contains', commit_id]
+-    if checkall:
+-        gitargs.append('--all')
+     lines = git_get_command_lines(gitdir, gitargs)
+     return lines
+ 
+@@ -3229,7 +3190,9 @@
+     sconfig = get_sendemail_config()
+     # Limited support for smtp settings to begin with, but should cover the vast majority of cases
+     fromaddr = sconfig.get('from')
++    print(f"{fromaddr=}")
+     if not fromaddr:
++        print(f"{fromaddr=} 2")
+         # We fall back to user.email
+         usercfg = get_user_config()
+         fromaddr = usercfg['email']
+@@ -3247,18 +3210,22 @@
+         sp = shlex.shlex(server, posix=True)
+         sp.whitespace_split = True
+         smtp = list(sp)
++
+         if '-i' not in smtp:
+             smtp.append('-i')
++
+         # Do we have the envelopesender defined?
+-        env_sender = sconfig.get('envelopesender', '')
+-        if env_sender:
+-            if env_sender == 'auto':
+-                envpair = email.utils.parseaddr(fromaddr)
+-            else:
+-                envpair = email.utils.parseaddr(env_sender)
+-            if envpair[1]:
+-                smtp += ['-f', envpair[1]]
+-        logger.debug('sendmail command: %s', ' '.join(smtp))
++        env_sender = sconfig.get('envelopesender')
++        if not env_sender or env_sender == "auto":
++            envpair = email.utils.parseaddr(fromaddr)
++        else:
++            envpair = email.utils.parseaddr(env_sender)
++
++        # envpair is ('', '') if email.utils.parseaddr fails to parse
++        # if envpair != ('', ''):
++            # smtp += ['-t'] if 'sendgmr' in server else ['-f', envpair[1]]
++            # smtp += ['f']
++
+         return smtp, fromaddr
+ 
+     encryption = sconfig.get('smtpencryption')
+@@ -3380,6 +3347,7 @@
+               reflect: bool = False) -> Optional[int]:
+ 
+     tosend = list()
++
+     if output_dir is not None:
+         dryrun = True
+ 
+@@ -3431,7 +3399,7 @@
+         tosend.append((myaddrs, bdata, ls))
+ 
+     if not len(tosend):
+-        return 0
++        return 0, 0
+ 
+     logger.info('---')
+     if web_endpoint:
+@@ -3457,18 +3425,21 @@
+ 
+         if rdata.get('result') == 'error':
+             logger.critical('Error from endpoint: %s', rdata.get('message'))
+-            return 0
++            return 0, 0
+ 
+     sent = 0
+     envpair = email.utils.parseaddr(fromaddr)
++
+     if isinstance(smtp, list):
+         # This is a local command
++
+         if reflect:
+             logger.info('Reflecting via "%s"', ' '.join(smtp))
+         else:
+             logger.info('Sending via "%s"', ' '.join(smtp))
+         for destaddrs, bdata, lsubject in tosend:
+             logger.info('  %s', lsubject.full_subject)
++            subj = lsubject.full_subject
+             if reflect:
+                 cmdargs = list(smtp) + [envpair[1]]
+             else:
+@@ -3483,12 +3454,12 @@
+             # Force compliant eols
+             bdata = re.sub(rb'\r\n|\n|\r(?!\n)', b'\r\n', bdata)
+             logger.info('  %s', lsubject.full_subject)
++            subj = lsubject.full_subject
+             if reflect:
+                 smtp.sendmail(fromaddr, [envpair[1]], bdata)
+             else:
+                 smtp.sendmail(fromaddr, destaddrs, bdata)
+             sent += 1
+-
+     return sent
+ 
+ 
+@@ -3623,7 +3594,6 @@
+ 
+     return msgid, msgs
+ 
+-
+ def git_revparse_obj(gitobj: str) -> str:
+     ecode, out = git_run_command(None, ['rev-parse', gitobj])
+     if ecode > 0:
+diff --color -Naur '--exclude=.git' '--exclude=__pycache__' /usr/local/google/home/justinstitt/repos/b4/b4/mbox.py ./mbox.py
+--- /usr/local/google/home/justinstitt/repos/b4/b4/mbox.py	2023-07-17 22:13:41.942073527 +0000
++++ ./mbox.py	2023-07-17 20:22:03.168602190 +0000
+@@ -106,7 +106,7 @@
+     try:
+         am_msgs = lser.get_am_ready(noaddtrailers=cmdargs.noaddtrailers,
+                                     covertrailers=covertrailers, addmysob=cmdargs.addmysob,
+-                                    addlink=cmdargs.addlink, cherrypick=cherrypick,
++                                    addlink=cmdargs.addlink, linkmask=config['linkmask'], cherrypick=cherrypick,
+                                     copyccs=cmdargs.copyccs, allowbadchars=cmdargs.allowbadchars)
+     except KeyError:
+         sys.exit(1)
+@@ -218,7 +218,6 @@
+         logger.critical(' Link: %s', linkurl)
+ 
+     base_commit = None
+-
+     matches = re.search(r'base-commit: .*?([\da-f]+)', first_body, re.MULTILINE)
+     if matches:
+         base_commit = matches.groups()[0]
+@@ -233,7 +232,7 @@
+         if not b4.git_commit_exists(topdir, base_commit):
+             logger.info(' Base: base-commit %s not known, ignoring', base_commit)
+             base_commit = None
+-        elif not cmdargs.mergebase:
++        else:
+             logger.info(' Base: using specified base-commit %s', base_commit)
+ 
+     if not base_commit and topdir and cmdargs.guessbase:
+@@ -251,12 +250,6 @@
+         except IndexError:
+             logger.critical(' Base: failed to guess base')
+ 
+-    if cmdargs.mergebase:
+-        if base_commit:
+-            logger.warn(' Base: overriding submitter provided base-commit %s', base_commit)
+-        base_commit = cmdargs.mergebase
+-        logger.info(' Base: using CLI provided base-commit %s', base_commit)
+-
+     if cmdargs.subcmd == 'shazam':
+         if not topdir:
+             logger.critical('Could not figure out where your git dir is, cannot shazam.')
+@@ -362,7 +355,6 @@
+                 'authorname': cmsg.fromname,
+                 'authoremail': cmsg.fromemail,
+                 'covermessage': covermessage,
+-                'mid': top_msgid,
+                 'midurl': linkurl,
+             }
+             if len(am_msgs) > 1:
+@@ -684,8 +676,8 @@
+ 
+ 
+ def main(cmdargs: argparse.Namespace) -> None:
+-    # We force some settings
+     if cmdargs.subcmd == 'shazam':
++        # We force some settings
+         cmdargs.checknewer = True
+         cmdargs.threeway = False
+         cmdargs.nopartialreroll = False
+@@ -697,8 +689,6 @@
+             cmdargs.guessbase = True
+         else:
+             cmdargs.guessbase = False
+-    else:
+-        cmdargs.mergebase = False
+ 
+     if cmdargs.checknewer:
+         # Force nocache mode
+diff --color -Naur '--exclude=.git' '--exclude=__pycache__' /usr/local/google/home/justinstitt/repos/b4/b4/pr.py ./pr.py
+--- /usr/local/google/home/justinstitt/repos/b4/b4/pr.py	2023-07-17 22:13:41.942073527 +0000
++++ ./pr.py	2023-07-17 20:22:03.168602190 +0000
+@@ -19,7 +19,7 @@
+ import urllib.parse
+ import requests
+ 
+-from datetime import datetime
++from datetime import datetime, timedelta
+ 
+ from email import utils, charset
+ from email.mime.text import MIMEText
+@@ -358,7 +358,7 @@
+             msg.add_header('X-Original-List-Id', b4.LoreMessage.clean_header(lmsg.msg['List-Id']))
+ 
+         msgs.append(msg)
+-        logger.info('  %s', re.sub(r'\n\s*', ' ', msg.get('Subject')))
++        logger.info('  %s', re.sub(r'\n\s*', ' ' , msg.get('Subject')))
+ 
+     logger.info('Exploded %s messages', len(msgs))
+     if retrieve_links and linked_ids:
+diff --color -Naur '--exclude=.git' '--exclude=__pycache__' /usr/local/google/home/justinstitt/repos/b4/b4/ty.py ./ty.py
+--- /usr/local/google/home/justinstitt/repos/b4/b4/ty.py	2023-07-17 22:13:41.942073527 +0000
++++ ./ty.py	2023-07-17 20:22:03.168602190 +0000
+@@ -404,16 +404,13 @@
+             os.mkdir(cmdargs.outdir)
+ 
+     usercfg = b4.get_user_config()
+-    config = b4.get_main_config()
+-    user_name = config.get('thanks-from-name', usercfg['name'])
+-    user_email = config.get('thanks-from-email', usercfg['email'])
+     signature = b4.get_email_signature()
+ 
+     outgoing = 0
+     msgids = list()
+     for jsondata in listing:
+-        jsondata['myname'] = user_name
+-        jsondata['myemail'] = user_email
++        jsondata['myname'] = usercfg['name']
++        jsondata['myemail'] = usercfg['email']
+         jsondata['signature'] = signature
+         if 'pr_commit_id' in jsondata:
+             # This is a pull request
+@@ -456,6 +453,7 @@
+         logger.info('No thanks necessary.')
+         return
+ 
++    config = b4.get_main_config()
+     pwstate = cmdargs.pw_set_state
+     if not pwstate:
+         pwstate = config.get('pw-accept-state')
