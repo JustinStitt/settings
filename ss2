@@ -1,0 +1,70 @@
+#!/usr/bin/env python
+import subprocess
+from pathlib import Path
+
+if __name__ == "__main__":
+    print("👉 Adding To's and CC's with b4 prep --auto-to-cc")
+    subprocess.run(["b4", "prep", "--auto-to-cc"])
+
+    print("👉 Checking changed files build properly, one by one.")
+
+    # check git log for currently modified files
+    result = subprocess.run(
+        ["git", "diff-tree", "--no-commit-id", "--name-only", "HEAD", "-r"],
+        stdout=subprocess.PIPE,
+    )
+
+    files = result.stdout.decode().split("\n")
+    print(files)
+
+    non_empty_files = [x for x in files if len(x)]
+    for idx, file in enumerate(non_empty_files):
+        path = Path(file)
+        raw = path.read_text()
+        if "strncpy" in raw:
+            print(f"\n👉 !!!  strncpy spotted in {path}!!!\n")
+        make_result = subprocess.run(
+            ["make", "-j128", "LLVM=1", path.with_suffix(".o")]
+        )
+        if make_result.returncode != 0:
+            print(f"❌ Failed to make {file}")
+            exit(1)
+        print(f"✅ {file} - Success. ({idx+1}/{len(non_empty_files)})")
+
+    print("\n✅ Made all files successfully\n")
+
+    print("👉 Running b4 prep --check")
+    check_result = subprocess.run(
+        ["b4", "prep", "--check"], stdout=subprocess.PIPE, stderr=subprocess.STDOUT
+    )
+
+    check_result_out = check_result.stdout.decode()
+    print(check_result.stdout)
+    check_patch_pass = False
+    if "checkpatch return code: 1" in check_result_out:
+        print("\n❌ checkpatch failed! (check warnings)\n")
+    if "0 errors" in check_result_out and "0 warnings" in check_result_out:
+        print("\n✅ checkpath passed\n")
+        check_patch_pass = True
+    if check_result.returncode != 0:
+        print("❌ checkpatch failed!")
+        exit(1)
+
+    print("👉 Creating a presend email")
+    presend_result = subprocess.run(
+        ["b4", "send", "-o", "presend"],
+        stdout=subprocess.PIPE,
+        stderr=subprocess.STDOUT,
+    )
+
+    presend_result_out = presend_result.stdout.decode()
+
+    if "CRITICAL" in presend_result_out:
+        print(f"❌ b4 presend failed, check output:\n{presend_result_out}")
+        exit(1)
+
+    if check_patch_pass:
+        print("✅ Done, all is good! Run $ b4 send")
+    else:
+        print("👉 Done, but checkpatch failed, check that")
+    exit(0)
