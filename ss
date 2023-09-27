@@ -36,7 +36,10 @@ if __name__ == "__main__":
     print("Getting prefix...")
     prefix = get_prefixes("unknown", [str(args.path)])
     assert prefix and len(prefix) > 2, "Couldn't find a valid prefix, check manually"
-    prefix = prefix + " replace deprecated strncpy"
+    suffix = " replace deprecated strncpy"
+    suffix_for_commit = " with EDITME"
+    commit_prefix = prefix + suffix + suffix_for_commit
+    cover_letter_prefix = prefix + suffix
 
     print("Modifying cover letter")
     # subprocess.run(["git", "commit", "--amend", "--allow-empty"])
@@ -45,7 +48,7 @@ if __name__ == "__main__":
     raw_cover_letter = raw_cover_letter_fd.read()
     idx_of_fold = raw_cover_letter.index("Signed")
     rest = raw_cover_letter[idx_of_fold:]
-    new_msg = f"{prefix}\n\n{rest}"
+    new_msg = f"{cover_letter_prefix}\n\n{rest}"
 
     subprocess.run(["git", "commit", "--allow-empty", "--amend", "-m", new_msg])
     print("Done modifying cover letter")
@@ -54,7 +57,7 @@ if __name__ == "__main__":
 
     strncpy_blurb = open("strncpy-blurb.txt", "r").read()
     subprocess.run(
-        ["git", "commit", "--allow-empty", "-m", f"{prefix}\n\n{strncpy_blurb}"]
+        ["git", "commit", "--allow-empty", "-m", f"{commit_prefix}\n\n{strncpy_blurb}"]
     )
 
     # print("Done. Happy Coding ｡◕‿◕｡")
