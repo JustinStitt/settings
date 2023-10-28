@@ -5,20 +5,20 @@ require('copilot').setup({
     }
   },
 })
-require("chatgpt").setup({
-  -- NOTE: modify ~/.local/share/lunarvim/site/pack/lazy/opt/ChatGPT.nvim/lua/chatgpt/api.lua + 98 and hardcode API KEY
-  chat = {
-    keymaps = {
-      close = { "<C-c>", "<C-q>" }
-    }
-  },
+-- require("chatgpt").setup({
+--   -- NOTE: modify ~/.local/share/lunarvim/site/pack/lazy/opt/ChatGPT.nvim/lua/chatgpt/api.lua + 98 and hardcode API KEY
+--   chat = {
+--     keymaps = {
+--       close = { "<C-c>", "<C-q>" }
+--     }
+--   },
 
-  openai_params = {
-    model = "gpt-4",
-    max_tokens = 1024
-  }
+--   openai_params = {
+--     model = "gpt-4",
+--     max_tokens = 1024
+--   }
 
-})
+-- })
 require 'nvim-web-devicons'.setup {}
 require('kanagawa').setup({
   compile = true,
@@ -44,7 +44,15 @@ require('kanagawa').setup({
 require('todo-comments').setup()
 require('marks').setup {}
 require('hop').setup()
-require('neoscroll').setup {}
+require('neoscroll').setup {
+  easing_function = "sine",
+  performance_mode = true,
+}
+local t = {}
+t['<C-u>'] = { 'scroll', { '-vim.wo.scroll', 'true', '120', [['sine']] } }
+t['<C-d>'] = { 'scroll', { 'vim.wo.scroll', 'true', '120', [['sine']] } }
+require('neoscroll.config').set_mappings(t)
+
 require('nvim-surround').setup()
 require('tidy').setup()
 require("symbols-outline").setup({
@@ -92,19 +100,19 @@ rt.setup({
   },
 })
 
-require("karen-yank").setup()
+-- require("karen-yank").setup()
 require("scrollbar").setup()
 
-require("cutlass").setup({
-  cut_key = "d",
-  override_del = nil,
-  exclude = {},
-  registers = {
-    select = "s",
-    delete = "d",
-    change = "c",
-  },
-})
+-- require("cutlass").setup({
+--   cut_key = "d",
+--   override_del = nil,
+--   exclude = {},
+--   registers = {
+--     select = "s",
+--     delete = "d",
+--     change = "c",
+--   },
+-- })
 
 require("scrollbar.handlers.gitsigns").setup()
 require("high-str").setup()

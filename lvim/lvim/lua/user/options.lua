@@ -5,8 +5,9 @@ vim.opt.shiftwidth                                  = 2
 vim.opt.colorcolumn                                 = '81'
 vim.opt.scrolloff                                   = 1
 vim.opt.foldlevel                                   = 99
-vim.wo.foldmethod                                   = "expr"
-vim.wo.foldexpr                                     = "nvim_treesitter#foldexpr()"
+-- causes LAG!
+-- vim.wo.foldmethod                                   = "expr"
+-- vim.wo.foldexpr                                     = "nvim_treesitter#foldexpr()"
 vim.o.updatetime                                    = 250
 vim.g.mkdp_theme                                    = "dark"
 vim.g.mkdp_auto_close                               = 0
@@ -33,9 +34,9 @@ lvim.builtin.treesitter.auto_install                = true
 lvim.builtin.which_key.mappings['q']                = {}
 
 -- neoscroll speed adjustments
-local t                                             = {}
-t['<C-u>']                                          = { 'scroll', { '-vim.wo.scroll', 'true', '100' } }
-t['<C-d>']                                          = { 'scroll', { 'vim.wo.scroll', 'true', '100' } }
-require('neoscroll.config').set_mappings(t)
+-- local t                                             = {}
+-- t['<C-u>']                                          = { 'scroll', { '-vim.wo.scroll', 'true', '10' } }
+-- t['<C-d>']                                          = { 'scroll', { 'vim.wo.scroll', 'true', '10' } }
+-- require('neoscroll.config').set_mappings(t)
 
-vim.g.leetcode_browser = 'firefox'
+vim.g.leetcode_browser                              = 'firefox'

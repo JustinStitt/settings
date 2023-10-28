@@ -21,7 +21,7 @@ parser_config.nim = {
 
 
 -- add `pyright` to `skipped_servers` list
--- vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers, { "pyright" })
+-- vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers, { "lifeline" })
 --
 vim.cmd([[au BufNewFile,BufRead *.v set filetype=vlang]])
 require('lspconfig').vls.setup {}
@@ -60,3 +60,11 @@ linters.setup {
 --     end,
 --   },
 -- }
+--
+-- vim.cmd [[ source /usr/local/google/home/justinstitt/playground/learning-to-build/llvm-project/llvm/utils/vim/syntax/llvm.vim ]]
+-- vim.cmd [[
+--   augroup testing_llvmir
+--   autocmd!
+--     autocmd BufReadPost *.ll set filetype=llvm
+--   augroup END
+-- ]]

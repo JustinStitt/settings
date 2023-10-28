@@ -9,14 +9,19 @@ vim.api.nvim_command [[
 ]]
 
 vim.api.nvim_command [[
+  autocmd ColorScheme * hi TreesitterContextBottom gui=underline guisp=Red
+]]
+
+
+vim.api.nvim_command [[
   autocmd ColorScheme * highlight SpellBad guifg=red
   autocmd FileType gitcommit setlocal spell
   set listchars=tab:>\ ,trail:-,nbsp:+,eol:$
 ]]
 
-vim.cmd [[
-  match Space /\s/
-]]
+-- vim.cmd [[
+--   match Space /\s/
+-- ]]
 
 vim.cmd [[
   function! HiTabs()
@@ -43,12 +48,12 @@ vim.cmd [[
 
 --  "<cmd>:hi TAB guibget shiftwidth=2<cr><cmd>:set tabstop=2<cr><cmd>:set list<cr>",
 function EnterLinuxMode()
-  vim.cmd [[ hi TAB guibg=#333333 ]]
+  vim.cmd [[ hi TAB guibg=#23232f ]]
   disable_format_on_save()
   vim.cmd [[ set noexpandtab ]]
-  vim.cmd [[ set shiftwidth=2 ]]
-  vim.cmd [[ set tabstop=2 ]]
-  vim.cmd [[ set list ]]
+  vim.cmd [[ set shiftwidth=8 ]]
+  vim.cmd [[ set tabstop=8 ]]
+  vim.cmd [[ set nolist ]]
 end
 
 vim.api.nvim_create_autocmd(
@@ -56,16 +61,35 @@ vim.api.nvim_create_autocmd(
   { pattern = "*.c", command = "lua EnterLinuxMode()" }
 )
 
-function disable_format_on_save()
-  local exists, autocmds = pcall(vim.api.nvim_get_autocmds, {
-    group = "lsp_format_on_save",
-    event = "BufWritePre",
-  })
-  if not exists or #autocmds == 0 then
-  else
-    disable_format_on_save()
-  end
-end
+vim.api.nvim_create_autocmd(
+  "BufRead",
+  { pattern = "*.h", command = "lua EnterLinuxMode()" }
+)
+
+
+vim.api.nvim_create_autocmd(
+  "BufRead",
+  { pattern = "Makefile", command = "lua EnterLinuxMode()" }
+)
+
+vim.api.nvim_create_autocmd(
+  "BufRead",
+  { pattern = "*.eml", command = "lua EnterLinuxMode()" }
+)
+
+
+
+
+-- function disable_format_on_save()
+--   local exists, autocmds = pcall(vim.api.nvim_get_autocmds, {
+--     group = "lsp_format_on_save",
+--     event = "BufWritePre",
+--   })
+--   if not exists or #autocmds == 0 then
+--   else
+--     disable_format_on_save()
+--   end
+-- end
 
 function disable_format_on_save()
   clear_augroup "lsp_format_on_save"

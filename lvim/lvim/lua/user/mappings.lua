@@ -18,12 +18,13 @@ vim.keymap.set({ "i" }, "<C-_>", "<Esc>,/A", { remap = true })
 vim.keymap.set({ "v" }, "<C-_>", "gcc", { remap = true })
 vim.keymap.set({ "i" }, "<M-c>", "/**/<left><left>  <left>", { remap = true })
 vim.keymap.set({ "n" }, ",lz",
-  "<cmd>:hi TAB guibg=#333333<cr><cmd>:LvimToggleFormatOnSave<cr><cmd>:set noexpandtab<cr><cmd>:set shiftwidth=2<cr><cmd>:set tabstop=2<cr><cmd>:set list<cr>",
+  "<cmd>lua EnterLinuxMode()<cr>",
   { desc = "Enable Kernel-Dev Mode" })
 -- <cmd>:hi TAB guibg=yellow ctermbg=yellow<cr>
 -- Move lines up and down
 vim.keymap.set("n", "K", "$<left> :m .-2<CR>==", { silent = true })
 vim.keymap.set("n", "J", "$<left> :m .+1<CR>==", { silent = true })
+vim.keymap.set("n", "P", "\"0p", { silent = true })
 
 vim.keymap.set({ "x", "v" }, "J", " :m '>+<cr>gv=gv<left>")
 vim.keymap.set({ "x", "v" }, "K", " :m '<-2<CR>gv=gv<left>")
@@ -31,7 +32,9 @@ vim.keymap.set({ "n" }, "zF", "zMzOzz", { noremap = true })
 vim.keymap.set('v', '/', '<esc>/\\%V') -- search within selection
 vim.keymap.set({ "n" }, ",mk", "oCc: Kees Cook <keescook@chromium.org>")
 vim.keymap.set({ "n" }, ",mn", "oCc: Nick Desaulniers <ndesaulniers@google.com>")
-
+vim.keymap.set({ "n" }, ",mj", "oReviewed-by: Justin Stitt <justinstitt@google.com>")
+vim.keymap.set({ "n" }, ",mN", "oCc: Nathan Chancellor <nathan@kernel.org>")
+vim.keymap.set({ "n" }, ",mN", "oCc: Nathan Chancellor <nathan@kernel.org>")
 -- lvim.keys.normal_mode["S"] = "/<Space><BS>"
 lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
 lvim.keys.normal_mode["qS"] = ":noh<cr><Cmd>:SnipClose<CR>"
@@ -70,6 +73,7 @@ lvim.keys.normal_mode["<leader>lx"] = "<Cmd>:LspStop<cr>"
 lvim.keys.normal_mode["<leader>lX"] = "<Cmd>:LspStart<cr>"
 lvim.keys.normal_mode["<leader>lF"] = "<Cmd>:LspRestart<cr>"
 lvim.keys.normal_mode["<leader>gB"] = "<Cmd>:Git blame<cr>"
+lvim.keys.normal_mode["<leader>gi"] = "<Cmd>:Git commit -s -m 's'<cr>"
 lvim.keys.normal_mode["<leader><leader>r"] = "<Cmd>:RunCode<cr>"
 lvim.keys.normal_mode["<leader>A"] = "<Cmd>:lua require('harpoon.mark').add_file()<CR>"
 -- lvim.keys.normal_mode["<leader>H"] = ":lua require('harpoon.ui').toggle_quick_menu()<CR>"
