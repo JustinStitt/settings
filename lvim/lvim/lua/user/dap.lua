@@ -19,7 +19,7 @@ dap.configurations.cpp = {
     cwd = '${workspaceFolder}',
     stopOnEntry = false,
     args = {},
-    runInTerminal = true,
+    runInTerminal = false,
   },
 }
 
@@ -35,6 +35,6 @@ dap.configurations.c = {
     cwd = '${workspaceFolder}',
     stopOnEntry = false,
     args = {},
-    runInTerminal = true,
+    runInTerminal = false,
   },
 }

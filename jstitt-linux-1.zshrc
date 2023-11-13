@@ -177,10 +177,12 @@ alias lgo='git log --pretty=oneline'
 alias lgos='git log --pretty=oneline --stat'
 alias gce='git commit --allow-empty -s -m "p"'
 alias gcae='git commit --amend --allow-empty'
-alias sto='git status -uno'
+alias sto='git status -uno && echo "Skipped in worktree: (Use git update-index --no-skip-worktree <file> to undo)" && git ls-files -v | grep "^s"'
 alias b4c='b4 prep --check'
 alias b4ps='b4 send -o presend'
 first_tag () {
         tag=$1
         git describe --match 'v*' --contains "$tag" | sed 's/~.*//'
 }
+alias include-cleaner="/google/bin/releases/lpt-c-tools/include-cleaner/include_cleaner"
+source ~/autovenv

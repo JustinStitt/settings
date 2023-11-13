@@ -14,7 +14,7 @@ lvim.plugins = {
   { "ray-x/lsp_signature.nvim" },
   { "ray-x/guihua.lua" },
   { "tyru/capture.vim" },
-  { "brenoprata10/nvim-highlight-colors" },
+  -- { "brenoprata10/nvim-highlight-colors" },
   { "airblade/vim-matchquote" },
   { "folke/noice.nvim" },
   { "MunifTanjim/nui.nvim" },
@@ -31,7 +31,7 @@ lvim.plugins = {
   { "windwp/nvim-ts-autotag" },
   { "leafOfTree/vim-svelte-plugin" },
   { "adelarsq/vim-matchit" },
-  { "ap/vim-css-color" },
+  -- { "ap/vim-css-color" },
   { "iamcco/markdown-preview.nvim",           build = function() vim.fn["mkdp#util#install"]() end },
   { "smzm/hydrovim" },
   { "jcorbin/vim-lobster" },
@@ -79,6 +79,13 @@ lvim.plugins = {
   { "pocco81/high-str.nvim" },
   { "jabirali/vim-tmux-yank" },
   { "hiphish/rainbow-delimiters.nvim" },
-  { "mg979/vim-visual-multi" },
+  -- { "mg979/vim-visual-multi" },
   { "declancm/cinnamon.nvim" },
+  { "tpope/vim-sleuth" },
+  {
+    "carbon-steel/detour.nvim",
+    config = function()
+      vim.keymap.set('n', '<c-w><enter>', ":Detour<cr>")
+    end
+  },
 }

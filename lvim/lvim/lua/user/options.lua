@@ -5,6 +5,8 @@ vim.opt.shiftwidth                                  = 2
 vim.opt.colorcolumn                                 = '81'
 vim.opt.scrolloff                                   = 1
 vim.opt.foldlevel                                   = 99
+vim.opt.signcolumn                                  = 'yes'
+vim.opt.completeopt                                 = 'menuone,noselect'
 -- causes LAG!
 -- vim.wo.foldmethod                                   = "expr"
 -- vim.wo.foldexpr                                     = "nvim_treesitter#foldexpr()"

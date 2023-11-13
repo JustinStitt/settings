@@ -19,9 +19,9 @@ vim.api.nvim_command [[
   set listchars=tab:>\ ,trail:-,nbsp:+,eol:$
 ]]
 
--- vim.cmd [[
---   match Space /\s/
--- ]]
+vim.cmd [[
+  match Space /\s/
+]]
 
 vim.cmd [[
   function! HiTabs()
@@ -65,7 +65,6 @@ vim.api.nvim_create_autocmd(
   "BufRead",
   { pattern = "*.h", command = "lua EnterLinuxMode()" }
 )
-
 
 vim.api.nvim_create_autocmd(
   "BufRead",

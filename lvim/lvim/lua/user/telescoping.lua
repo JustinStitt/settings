@@ -41,8 +41,11 @@ lvim.builtin.telescope = {
     initial_mode = "insert",
     selection_strategy = "reset",
     sorting_strategy = nil,
-    layout_strategy = nil,
-    layout_config = {},
+    layout_strategy = 'vertical',
+    layout_config = {
+      vertical = { width = 0.8, height = 0.8 },
+      horizontal = { width = 0.8 },
+    },
     vimgrep_arguments = {
       "rg",
       "--color=never",
@@ -57,7 +60,7 @@ lvim.builtin.telescope = {
     ---@usage Mappings are fully customizable. Many familiar mapping patterns are setup as defaults.
     mappings = {
       i = {
-        ["<Space>"] = actions.select_default,
+        -- ["<Space>"] = actions.select_default,
         ["<ESC>"] = actions.close,
         ["<C-q>"] = actions.close,
         ["<C-j>"] = actions.move_selection_next,
@@ -137,10 +140,10 @@ lvim.builtin.telescope = {
   },
   extensions = {
     fzf = {
-      fuzzy = true, -- false will only do exact matching
+      fuzzy = true,                   -- false will only do exact matching
       override_generic_sorter = true, -- override the generic sorter
-      override_file_sorter = true, -- override the file sorter
-      case_mode = "smart_case", -- or "ignore_case" or "respect_case"
+      override_file_sorter = true,    -- override the file sorter
+      case_mode = "smart_case",       -- or "ignore_case" or "respect_case"
     },
   },
 }
