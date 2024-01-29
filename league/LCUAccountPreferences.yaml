@@ -1,0 +1,568 @@
+career-stats-settings:
+    data:
+        initialVisited: true
+        recentlyComparedSummoners:
+        - 65651153
+        - 19807385
+        welcomedSeason: 13
+    schemaVersion: 1
+champ-select:
+    data:
+        skins:
+            1: 1010
+            10: 10000
+            101: 101000
+            102: 102003
+            103: 103028
+            104: 104000
+            105: 105002
+            106: 106001
+            107: 107000
+            11: 11002
+            110: 110017
+            113: 113000
+            114: 114022
+            115: 115000
+            117: 117000
+            119: 119002
+            12: 12007
+            120: 120000
+            121: 121000
+            122: 122000
+            126: 126024
+            127: 127000
+            13: 13007
+            131: 131000
+            133: 133000
+            134: 134025
+            136: 136001
+            14: 14000
+            141: 141001
+            142: 142000
+            143: 143007
+            145: 145016
+            147: 147000
+            15: 15000
+            150: 150000
+            154: 154000
+            157: 157057
+            16: 16006
+            161: 161000
+            163: 163000
+            166: 166000
+            17: 17000
+            18: 18010
+            19: 19008
+            2: 2000
+            20: 20007
+            200: 200000
+            201: 201010
+            202: 202014
+            203: 203003
+            21: 21003
+            22: 22003
+            221: 221000
+            222: 222002
+            223: 223000
+            23: 23000
+            234: 234000
+            235: 235016
+            236: 236025
+            238: 238010
+            24: 24013
+            240: 240000
+            246: 246021
+            25: 25000
+            26: 26003
+            266: 266009
+            268: 268003
+            27: 27003
+            28: 28003
+            29: 29036
+            30: 30000
+            31: 31000
+            32: 32002
+            33: 33000
+            34: 34050
+            35: 35000
+            350: 350001
+            36: 36007
+            360: 360000
+            37: 37006
+            38: 38005
+            39: 39018
+            4: 4007
+            40: 40005
+            412: 412000
+            42: 42018
+            420: 420000
+            421: 421000
+            427: 427020
+            429: 429001
+            43: 43004
+            432: 432006
+            44: 44000
+            48: 48000
+            497: 497000
+            498: 498036
+            5: 5003
+            50: 50000
+            51: 51000
+            516: 516000
+            517: 517001
+            518: 518001
+            523: 523009
+            526: 526000
+            53: 53021
+            54: 54000
+            55: 55029
+            555: 555016
+            56: 56000
+            57: 57003
+            58: 58000
+            59: 59000
+            6: 6000
+            61: 61008
+            64: 64005
+            67: 67003
+            7: 7033
+            711: 711001
+            72: 72000
+            74: 74000
+            75: 75000
+            76: 76007
+            77: 77000
+            777: 777001
+            78: 78002
+            79: 79000
+            8: 8005
+            80: 80005
+            81: 81005
+            82: 82002
+            83: 83000
+            84: 84032
+            85: 85007
+            86: 86000
+            875: 875001
+            876: 876000
+            887: 887000
+            888: 888020
+            89: 89000
+            895: 895000
+            897: 897000
+            9: 9000
+            90: 90004
+            902: 902000
+            91: 91003
+            92: 92019
+            950: 950001
+            96: 96046
+            98: 98000
+            99: 99008
+        spells:
+            1020:
+            - 4
+            - 7
+            1300:
+            - 4
+            - 11
+            1400:
+            - 4
+            - 54
+            1700:
+            - 2202
+            - 2201
+            1900:
+            - 4
+            - 3
+            400:
+            - 4
+            - 14
+            420:
+            - 12
+            - 14
+            440:
+            - 4
+            - 6
+            450:
+            - 4
+            - 32
+            700:
+            - 4
+            - 14
+            900:
+            - 4
+            - 3
+    schemaVersion: 1
+clash-tutorial:
+    data:
+        captainInviteStep: true
+        captainLockinStep: true
+        captainRewardStep: true
+        captainRoleStep: true
+        captainTicketStep: true
+        initialized: true
+        memberJoinTeamStep: true
+        memberLockinStep: true
+        memberRewardStep: true
+        memberRoleStep: true
+        memberTicketStep: true
+        rosterDetailsModalLogoStep: true
+        rosterDetailsModalNameTagStep: true
+        smsButtonStep: true
+        version: 1
+    schemaVersion: 1
+cosmetics-last-viewed-date:
+    data:
+        typeToLastOpenedDate:
+            COMPANION: 1664254412
+            TFT_DAMAGE_SKIN: 1656893928
+            TFT_MAP_SKIN: 1656893920
+    schemaVersion: 1
+cosmetics-settings:
+    data:
+        tft_damage_skins:
+            hideUnowned: true
+    schemaVersion: 1
+custom-spell-selections:
+    data:
+        custom-spell-selections:
+            spell1: 4
+            spell2: 14
+    schemaVersion: 0
+emotes:
+    data:
+        newEmotes:
+        - 3136
+        - 998
+        - 3859
+        - 3860
+        - 3013
+        - 3176
+        - 4394
+        - 4393
+        - 4390
+        - 1474
+        - 4391
+        - 3228
+        - 4353
+        - 4357
+        - 4358
+        - 4259
+        - 3201
+        - 3125
+        - 4223
+        - 4225
+        - 3147
+        - 3120
+        - 3133
+        - 4214
+        - 4076
+        - 3586
+        - 3435
+        - 3008
+        - 3623
+        - 3622
+        - 3172
+        - 3209
+        - 3355
+        - 3456
+        - 3006
+    schemaVersion: 1
+eos-2020-bell-notification_SR_1:
+    data:
+        notificationShown: true
+    schemaVersion: 1
+eos-2020-bell-notification_SR_2:
+    data:
+        notificationShown: true
+    schemaVersion: 1
+eos-2020-bell-notification_SR_3:
+    data:
+        notificationShown: true
+    schemaVersion: 1
+event-shop:
+    data:
+        lastSeenTokenBalance: 0
+        lastSeenTokenShopOffersVersion: 3807461346
+        lastTimeSeen: "2024-01-09T04:44:17.146Z"
+    schemaVersion: 1
+lol-challenges:
+    data:
+        introModalShown: true
+    schemaVersion: 1
+lol-challenges-latest-level-up:
+    data:
+        lastLevelUpTime: 1706506960284
+    schemaVersion: 1
+lol-champ-select:
+    data:
+        championFilterPreferenceKey: "favorite"
+        championTradeToggleTooltipSeen: true
+        favorites: null
+        lftPlayerToggleTooltip: true
+        positionSwapToggleTooltipSeen: true
+        reportAndMutingTooltipShown: true
+        runeRecommenderTutorialTipSeen: true
+    schemaVersion: 0
+lol-chat:
+    data:
+        chatFilterDisabled: true
+        groupByProductShown: true
+        linkClickWarningEnabled: false
+    schemaVersion: 1
+lol-clash:
+    data:
+        clash-eos-celebration-2022-seen: true
+        clash-eos-celebration-2023-seen: true
+        clash-login-modal-seen: true
+        clash-start-modal-seen: true
+        lftPlayerToggleTooltipSeen: true
+        openTeamToggleTooltipSeen: true
+    schemaVersion: 1
+lol-collection-champions:
+    data:
+        groupingDropdownKey: "allChampions"
+        lastVisitTime: 1706495590833
+        sortingDropdownKey: "championMastery"
+        unownedFilter: "owned"
+    schemaVersion: 1
+lol-collection-chromas:
+    data:
+        groupingDropdownKey: "myCollection"
+        lastVisitTime: 1657678225901
+        sortingDropdownKey: "acquisitionDate"
+        unavailableFilter: false
+        unownedFilter: false
+    schemaVersion: 2
+lol-customizer-icons:
+    data:
+        lastVisitTime: 1700702190214
+    schemaVersion: 1
+lol-customizer-titles:
+    data:
+        lastVisitTime: 1697432178496
+    schemaVersion: 1
+lol-customizer-tokens:
+    data:
+        lastVisitTime: 1697432192688
+    schemaVersion: 1
+lol-general:
+    data:
+        uploadCrashReports: true
+    schemaVersion: 0
+lol-home-hubs:
+    data:
+        anima-squad-hub-2022:
+            userChampResult: "sylas"
+            watchedIntro: true
+        arcane-lac-2021:
+            watchedIntro: true
+        arcane-lexp-hub-2021:
+            motionDisabled: true
+        lunar-beast-hub-2021:
+            watchedIntro: true
+        lunar-revel-embed-2023:
+            introThemeSelectWatched: "true"
+            introWatched: "true"
+        lunar-revel-hub-2022:
+            currentTheme: "porc"
+        msi-embed-2023:
+            introWatched: "true"
+            showSpoilersSchedule: "false"
+        msi-hub-2022:
+            showSpoilersBracketGroup: true
+        mundo-hub-2021:
+            watchedIntro: true
+        preseason-2021:
+            motionDisabled: true
+            watchedRuinedKingIntro: true
+        project-hub-2021:
+            watchedIntro: true
+        season-start-2021:
+            lolViewed: true
+            motionDisabled: true
+            s21Viewed: true
+            watchedIntro: true
+        season-start-hub-2022:
+            watchedIntro: true
+        sentinels-hub-2021:
+            chapterPosterViewed: 4
+            watchedCg2: true
+            watchedIntro: true
+        space-groove-hub-2021:
+            motionDisabled: true
+            seenChooseInfoModal: true
+            watchedIntro: true
+        star-guardians-metagame-hub-2022:
+            0: "[]"
+            1: "1"
+            2: "1"
+            ambientAudioDisabled: "false"
+            fallbackSaved: "true"
+            fellback: "false"
+            introWatched: "true"
+            motionDisabled: "true"
+            tutorialWatched: "false"
+        tft-set-5-hub-2021:
+            watchedIntro: true
+        worlds-2020:
+            watchedKdaIntro: true
+        worlds-hub-2021:
+            watchedDragonmancerIntro: true
+            watchedIntro: true
+        worlds-hub-2022:
+            introSkinLineWatched: "true"
+            introWorldsEventPassWatched: "true"
+            showSpoilersSchedule: "false"
+    schemaVersion: 1
+lol-honor:
+    data:
+        recallReleaseNotified: true
+    schemaVersion: 1
+lol-leagues:
+    data:
+        FINAL_RANK_ONE_OF_SEASON-RANKED_FLEX_SR: 11
+        FINAL_RANK_ONE_OF_SEASON-RANKED_SOLO_5x5: 11
+        hasSeenFlexRestrictionModal: true
+        last-split-end-notification: 14.200000
+        last-split-start-modal: 13.100000
+        season-memorial-modal: 13
+        season-start-takeover:
+            season: 11
+    schemaVersion: 1
+lol-loot:
+    data:
+        mass-disenchant-tooltip-seen: true
+        mythicEssenceModalSeen: true
+        mythicEssenceNavigationTooltipSeen: true
+    schemaVersion: 1
+lol-notifications:
+    data:
+        rgmNotificationTimestamp: 1698295493885
+    schemaVersion: 1
+lol-npe-tutorial-path:
+    data:
+        hasSeenTutorialPath: false
+        hasSkippedTutorialPath: false
+        shouldSeeNewPlayerExperience: false
+    schemaVersion: 1
+lol-parties:
+    data:
+        hasSeenOpenPartyFirstExperience: true
+        hasSeenOpenPartyTooltip: true
+    schemaVersion: 1
+lol-perks:
+    data:
+        shouldEditAfterSelection: true
+    schemaVersion: 1
+lol-player-behavior:
+    data:
+        codeOfConductAccepted: true
+    schemaVersion: 0
+lol-premade-voice:
+    data:
+        autoJoin: false
+        inputMode: "voiceActivity"
+        muteOnConnect: true
+        pushToTalkKey: "[<Unbound>]"
+        showFirstExperienceInGame: false
+        showFirstExperienceInLCU: false
+    schemaVersion: 1
+lol-profiles:
+    data:
+        ranked-reference-modal-login-seen-for-season: 15
+    schemaVersion: 0
+lol-quick-play:
+    data:
+        slots:
+        -   championId: 950
+            perks: "{\"perkIds\":[8112,8143,8138,8135,8444,8451,5008,5008,5002],\"perkStyle\":8100,\"perkSubStyle\":8400}"
+            positionPreference: "MIDDLE"
+            skinId: 950000
+            spell1: 4
+            spell2: 14
+        -   championId: 427
+            perks: "{\"perkIds\":[8214,8275,8210,8232,8321,8347,5007,5008,5001],\"perkStyle\":8200,\"perkSubStyle\":8300}"
+            positionPreference: "JUNGLE"
+            skinId: 427020
+            spell1: 4
+            spell2: 11
+    schemaVersion: 1
+lol-skins-viewer:
+    data:
+        groupingDropdownKey: "tier"
+        lastVisitTime: 1698603417705
+        sortingDropdownKey: "tier"
+        unownedFilter: false
+    schemaVersion: 2
+lol-tft:
+    data:
+        lastTftGameQueueId: 1090
+        lastTftSetNameSeen: "TFTSet10"
+        previouslySeenSeasons: "S4_Fates-pass,S4_5_Fates,TFTBattlepass_Fates2_Series,TFTBattlepass_Reckoning1_Series,TFT5_5_Series,TFT6_Series,TFT6_Act2_Series,TFT7_Series,TFT7_5_Series,TFT8_Series,TFT8_5_Series,1686765600000,1694628000000"
+        seenOfferIds:
+            storeOfferIds:
+            - "023d915d-51e3-4252-9d29-bb68a96d4a1e"
+            - "2ba23ef0-7f80-448f-90b4-af172a213b15"
+            tacticianOfferIds:
+            - "936e1f3e-ce20-4343-beaf-4fdc90ae9986"
+        tftEmeraldModalSeen: true
+    schemaVersion: 1
+lol-tutorial:
+    data:
+        Map11_ULTBOOK_TutorialSeen: true
+        Map21_NEXUSBLITZ_TutorialSeen: true
+        Map22_TFT_TutorialSeen: true
+        Map30_CHERRY_TutorialSeen: true
+        championSelectRunesTooltipSeenCount: 9
+        perksCreateNewPageSeen: true
+        perksPresetPagesSeen: true
+        perksPrimaryPathSeen: true
+        perksStatModsSeen: true
+    schemaVersion: 1
+missions-settings:
+    data:
+        selected_series: "all_missions"
+    schemaVersion: 0
+partiesPositionPreferences:
+    data:
+        firstPreference: "MIDDLE"
+        secondPreference: "TOP"
+    schemaVersion: 0
+personalized-offers:
+    data:
+        lastViewedTimestamp: "2022-08-29T02:49:20.735Z"
+    schemaVersion: 1
+ranked-eos-notification-10-RANKED_SOLO_5x5-SEASON_ENDED:
+    data:
+        notificationShown: true
+    schemaVersion: 1
+ranked-eos-notification-11-RANKED_SOLO_5x5-SEASON_ENDED:
+    data:
+        notificationShown: true
+    schemaVersion: 1
+ranked-eos-notification-12-RANKED_SOLO_5x5-FIRST_WARNING:
+    data:
+        notificationShown: true
+    schemaVersion: 1
+ranked-eos-notification-12-RANKED_SOLO_5x5-SEASON_ENDED:
+    data:
+        notificationShown: true
+    schemaVersion: 1
+ranked-eos-notification-13-RANKED_SOLO_5x5-FIRST_WARNING:
+    data:
+        notificationShown: true
+    schemaVersion: 1
+ranked-eos-notification-13-RANKED_SOLO_5x5-SECOND_WARNING:
+    data:
+        notificationShown: true
+    schemaVersion: 1
+ranked-eos-notification-14-RANKED_SOLO_5x5-SECOND_WARNING:
+    data:
+        notificationShown: true
+    schemaVersion: 1
+yourshop:
+    data:
+        lastViewedTimestamp: "2024-01-09T04:44:01.288Z"
+    schemaVersion: 1

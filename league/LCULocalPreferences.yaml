@@ -1,0 +1,206 @@
+GeoInfo:
+    data:
+        city: "lake forest"
+        country: "usa"
+        region: "ca"
+    schemaVersion: 1
+lol-audio:
+    data:
+        ambientSfxEnabled: false
+        banChampVoEnabled: false
+        loginMusicEnabled: false
+        masterSoundEnabled: true
+        masterVolume: 29
+        musicEnabled: false
+        pickChampVoEnabled: false
+        sfxVolume: 27
+        voiceVolume: 13.500000
+    schemaVersion: 5
+lol-clash:
+    data:
+        simpleStateFlagIds:
+        - "registration_open_tournament_481"
+        - "registration_open_tournament_1241"
+        - "registration_open_tournament_581"
+        - "registration_open_tournament_1221"
+        - "lock_in_open_tournament_3981_phase_4161"
+        - "registration_open_tournament_3021"
+        - "registration_open_tournament_2541"
+        - "registration_open_tournament_561"
+        - "registration_open_tournament_2981"
+        - "registration_open_tournament_1801"
+        - "registration_open_tournament_2761"
+        - "registration_open_tournament_3781"
+        - "lock_in_open_tournament_3381_phase_3501"
+        - "registration_open_tournament_2041"
+        - "lock_in_open_tournament_581_phase_561"
+        - "registration_open_tournament_3721"
+        - "lock_in_open_tournament_1241_phase_1221"
+        - "registration_open_tournament_4303"
+        - "registration_open_tournament_3801"
+        - "registration_open_tournament_3962"
+        - "registration_open_tournament_1821"
+        - "registration_open_tournament_1861"
+        - "registration_open_tournament_4343"
+        - "lock_in_open_tournament_135001_phase_127481"
+        - "registration_open_tournament_2161"
+        - "lock_in_open_tournament_4303_phase_4483"
+        - "registration_open_tournament_3841"
+        - "registration_open_tournament_1881"
+        - "registration_open_tournament_2181"
+        - "registration_open_tournament_2001"
+        - "registration_open_tournament_3961"
+        - "lock_in_open_tournament_2001_phase_1981"
+        - "registration_open_tournament_3361"
+        - "lock_in_open_tournament_134362_phase_126602"
+        - "registration_open_tournament_2061"
+        - "lock_in_open_tournament_2781_phase_2901"
+        - "lock_in_open_tournament_2061_phase_2041"
+        - "registration_open_tournament_3561"
+        - "registration_open_tournament_2221"
+        - "registration_open_tournament_3381"
+        - "registration_open_tournament_3002"
+        - "lock_in_open_tournament_2221_phase_2201"
+        - "registration_open_tournament_3521"
+        - "registration_open_tournament_2261"
+        - "registration_open_tournament_2801"
+        - "lock_in_open_tournament_3361_phase_3481"
+        - "registration_open_tournament_2442"
+        - "registration_open_tournament_3001"
+        - "registration_open_tournament_3421"
+        - "lock_in_open_tournament_2801_phase_2921"
+        - "registration_open_tournament_2581"
+        - "registration_open_tournament_3821"
+        - "registration_open_tournament_2781"
+        - "lock_in_open_tournament_4221_phase_4401"
+        - "registration_open_tournament_2821"
+        - "lock_in_open_tournament_2821_phase_2941"
+        - "registration_open_tournament_2941"
+        - "lock_in_open_tournament_3021_phase_3141"
+        - "registration_open_tournament_3101"
+        - "registration_open_tournament_3321"
+        - "registration_open_tournament_3461"
+        - "lock_in_open_tournament_3961_phase_4141"
+        - "registration_open_tournament_3681"
+        - "lock_in_open_tournament_3681_phase_3821"
+        - "registration_open_tournament_3861"
+        - "registration_open_tournament_3981"
+        - "registration_open_tournament_4201"
+        - "lock_in_open_tournament_4201_phase_4381"
+        - "lock_in_open_tournament_4342_phase_4522"
+        - "registration_open_tournament_4221"
+        - "registration_open_tournament_4241"
+        - "registration_open_tournament_4281"
+        - "lock_in_open_tournament_4323_phase_4503"
+        - "registration_open_tournament_4301"
+        - "registration_open_tournament_4322"
+        - "lock_in_open_tournament_4322_phase_4502"
+        - "registration_open_tournament_4342"
+        - "registration_open_tournament_4441"
+        - "registration_open_tournament_4381"
+        - "registration_open_tournament_4402"
+        - "registration_open_tournament_4344"
+        - "lock_in_open_tournament_4344_phase_4524"
+        - "registration_open_tournament_4283"
+        - "registration_open_tournament_4403"
+        - "lock_in_open_tournament_4403_phase_4583"
+        - "registration_open_tournament_4521"
+        - "registration_open_tournament_4541"
+        - "lock_in_open_tournament_4541_phase_4721"
+        - "registration_open_tournament_4522"
+        - "lock_in_open_tournament_134382_phase_126622"
+        - "registration_open_tournament_134362"
+        - "registration_open_tournament_134681"
+        - "lock_in_open_tournament_134681_phase_127121"
+        - "registration_open_tournament_134701"
+        - "lock_in_open_tournament_134701_phase_127141"
+        - "registration_open_tournament_134741"
+        - "registration_open_tournament_134761"
+        - "lock_in_open_tournament_134761_phase_127201"
+        - "registration_open_tournament_134801"
+        - "registration_open_tournament_134821"
+        - "lock_in_open_tournament_134821_phase_127261"
+        - "registration_open_tournament_134981"
+        - "lock_in_open_tournament_134981_phase_127461"
+        - "registration_open_tournament_134982"
+        - "registration_open_tournament_135021"
+        - "lock_in_open_tournament_135021_phase_127501"
+        - "registration_open_tournament_135081"
+        - "registration_open_tournament_135141"
+        - "lock_in_open_tournament_135141_phase_127621"
+        - "registration_open_tournament_135161"
+        - "lock_in_open_tournament_135161_phase_127641"
+    schemaVersion: 1
+lol-collection-champions:
+    data:
+        completeSetIdMap: null
+        lastSessionId: "eyJraWQiOiJzMSIsImFsZyI6IlJTMjU2In0.eyJhdF9oYXNoIjoibFdVQTdPRkJfSERUSFdFNzl3MmN0QSIsInN1YiI6ImIyMGUzNjZiLWU2N2YtNWUwZS1iY2VkLTYwOTA1Mzg3OTllNiIsImNvdW50cnkiOiJ1c2EiLCJwbGF5ZXJfcGxvY2FsZSI6ImVuLVVTIiwiYW1yIjpbImNvb2tpZSJdLCJpc3MiOiJodHRwczpcL1wvYXV0aC5yaW90Z2FtZXMuY29tIiwibG9sIjpbeyJjdWlkIjoyMTcwMDI3MTIsImNwaWQiOiJOQTEiLCJ1aWQiOjIxNzAwMjcxMiwidW5hbWUiOiJteWtpbGxpbmdzcHJlZTIiLCJwdHJpZCI6bnVsbCwicGlkIjoiTkExIiwic3RhdGUiOiJFTkFCTEVEIn1dLCJsb2NhbGUiOiJlbl9VUyIsIm5vbmNlIjoiMDlCaU1LZHIycXk2MVRBazduWDJFdyIsImF1ZCI6ImxvbCIsImFjciI6IjAiLCJwbGF5ZXJfbG9jYWxlIjoiZW4tVVMiLCJleHAiOjE1ODA4Nzk0NjEsImlhdCI6MTU4MDc5MzA2MSwiYWNjdCI6eyJnYW1lX25hbWUiOiJsIGFtIEp1c3RpbiIsInRhZ19saW5lIjoiTkExIn0sImp0aSI6Im9PRFVURWtNNHhrIiwibG9naW5fY291bnRyeSI6InVzYSJ9.cuVK4TNHSB5B3DTimKFqoNj68dy634G3ZFpXhJkVjj4NGVi7JsdJQUxJfwnhV_Im1AbbCqzcxeH0MMY4NIbvwAiMv6n1omvjjfs1WTby9BWaK3Ldb4JnoNawpbffqEmI1GxtZdM_PudLRc6_TUww8lNnj-SoukGOPrus8OawRwI"
+        lastVisitTime: 1580012265542
+        visitedCollectibleList: []
+    schemaVersion: 1
+lol-collection-chromas:
+    data:
+        completeSetIdMap: null
+        lastSessionId: "eyJraWQiOiJzMSIsImFsZyI6IlJTMjU2In0.eyJhdF9oYXNoIjoiUmpqa2xxTEJkR2lkamlrdTVzU2VrQSIsInN1YiI6ImIyMGUzNjZiLWU2N2YtNWUwZS1iY2VkLTYwOTA1Mzg3OTllNiIsImNvdW50cnkiOiJ1c2EiLCJwbGF5ZXJfcGxvY2FsZSI6ImVuLVVTIiwiYW1yIjpbImNvb2tpZSJdLCJpc3MiOiJodHRwczpcL1wvYXV0aC5yaW90Z2FtZXMuY29tIiwibG9sIjpbeyJjdWlkIjoyMTcwMDI3MTIsImNwaWQiOiJOQTEiLCJ1aWQiOjIxNzAwMjcxMiwidW5hbWUiOiJteWtpbGxpbmdzcHJlZTIiLCJwdHJpZCI6bnVsbCwicGlkIjoiTkExIiwic3RhdGUiOiJFTkFCTEVEIn1dLCJsb2NhbGUiOiJlbl9VUyIsIm5vbmNlIjoiOHF0MmxlUlVpT2ktTEdFOUllN0lhdyIsImF1ZCI6ImxvbCIsImFjciI6IjAiLCJwbGF5ZXJfbG9jYWxlIjoiZW4tVVMiLCJleHAiOjE1ODU3ODY2NjIsImlhdCI6MTU4NTcwMDI2MiwiYWNjdCI6eyJnYW1lX25hbWUiOiJsIGFtIEp1c3RpbiIsInRhZ19saW5lIjoiTkExIn0sImp0aSI6ImwyYVZ4ZlhWYjZzIiwibG9naW5fY291bnRyeSI6InVzYSJ9.b4oG_UufMJjfnq8sipujeRN309Lv6D8qlUap_yUtVSFE54RVvpuYQhG8NaJjVZllEV6KO_oE_RGe3dgITvKRziJ1w96HkYuCZSOBqkMLUmtElKbc4g0T9WQ6IhJomHTmUqQQUcgCXbtWjpAP1CL5v9Vjp0-TWB04r9WclyiAeaM"
+        lastVisitTime: 1575243970026
+        visitedCollectibleList: []
+    schemaVersion: 1
+lol-collection-summoner-icons:
+    data:
+        completeSetIdMap: null
+        lastSessionId: "eyJraWQiOiJzMSIsImFsZyI6IlJTMjU2In0.eyJhdF9oYXNoIjoiMUwycFFQYzluamJuTjB1RWFLTmhCQSIsInN1YiI6ImIyMGUzNjZiLWU2N2YtNWUwZS1iY2VkLTYwOTA1Mzg3OTllNiIsImNvdW50cnkiOiJ1c2EiLCJwbGF5ZXJfcGxvY2FsZSI6ImVuLVVTIiwiYW1yIjpbInBhc3N3b3JkIl0sImlzcyI6Imh0dHBzOlwvXC9hdXRoLnJpb3RnYW1lcy5jb20iLCJsb2wiOlt7ImN1aWQiOjIxNzAwMjcxMiwiY3BpZCI6Ik5BMSIsInVpZCI6MjE3MDAyNzEyLCJ1bmFtZSI6Im15a2lsbGluZ3NwcmVlMiIsInB0cmlkIjpudWxsLCJwaWQiOiJOQTEiLCJzdGF0ZSI6IkVOQUJMRUQifV0sImxvY2FsZSI6ImVuX1VTIiwibm9uY2UiOiIteVF3S1llSEx6eEdrZWJYM2l1RmpRIiwiYXVkIjoibG9sIiwiYWNyIjoidXJuOnJpb3Q6YnJvbnplIiwicGxheWVyX2xvY2FsZSI6ImVuLVVTIiwiZXhwIjoxNTg2NzQwNTA1LCJpYXQiOjE1ODY2NTQxMDUsImFjY3QiOnsiZ2FtZV9uYW1lIjoibCBhbSBKdXN0aW4iLCJ0YWdfbGluZSI6Ik5BMSJ9LCJqdGkiOiI3cTVNcmY4T1B3OCIsImxvZ2luX2NvdW50cnkiOiJ1c2EifQ.J7JFqD2xKLBvJq6k5coKStQFuf-YAXYJpeh7qKKrrDnvuhPBltHa0Vgs6QuZN-tB5DX671BRtq2FMftbvZrfZPBx4YaEVe_YmILrh27TycdRzzaf3DRgqJRef9jM2goG1CklySGVN5TPxbT0FHTLq-m3DjsosKB6SnHSsGg0Pkw"
+        lastVisitTime: 1575509094863
+        visitedCollectibleList: []
+    schemaVersion: 1
+lol-collection-ward-skins:
+    data:
+        completeSetIdMap: null
+        lastSessionId: "eyJraWQiOiJzMSIsImFsZyI6IlJTMjU2In0.eyJhdF9oYXNoIjoiMUwycFFQYzluamJuTjB1RWFLTmhCQSIsInN1YiI6ImIyMGUzNjZiLWU2N2YtNWUwZS1iY2VkLTYwOTA1Mzg3OTllNiIsImNvdW50cnkiOiJ1c2EiLCJwbGF5ZXJfcGxvY2FsZSI6ImVuLVVTIiwiYW1yIjpbInBhc3N3b3JkIl0sImlzcyI6Imh0dHBzOlwvXC9hdXRoLnJpb3RnYW1lcy5jb20iLCJsb2wiOlt7ImN1aWQiOjIxNzAwMjcxMiwiY3BpZCI6Ik5BMSIsInVpZCI6MjE3MDAyNzEyLCJ1bmFtZSI6Im15a2lsbGluZ3NwcmVlMiIsInB0cmlkIjpudWxsLCJwaWQiOiJOQTEiLCJzdGF0ZSI6IkVOQUJMRUQifV0sImxvY2FsZSI6ImVuX1VTIiwibm9uY2UiOiIteVF3S1llSEx6eEdrZWJYM2l1RmpRIiwiYXVkIjoibG9sIiwiYWNyIjoidXJuOnJpb3Q6YnJvbnplIiwicGxheWVyX2xvY2FsZSI6ImVuLVVTIiwiZXhwIjoxNTg2NzQwNTA1LCJpYXQiOjE1ODY2NTQxMDUsImFjY3QiOnsiZ2FtZV9uYW1lIjoibCBhbSBKdXN0aW4iLCJ0YWdfbGluZSI6Ik5BMSJ9LCJqdGkiOiI3cTVNcmY4T1B3OCIsImxvZ2luX2NvdW50cnkiOiJ1c2EifQ.J7JFqD2xKLBvJq6k5coKStQFuf-YAXYJpeh7qKKrrDnvuhPBltHa0Vgs6QuZN-tB5DX671BRtq2FMftbvZrfZPBx4YaEVe_YmILrh27TycdRzzaf3DRgqJRef9jM2goG1CklySGVN5TPxbT0FHTLq-m3DjsosKB6SnHSsGg0Pkw"
+        lastVisitTime: 1565761959405
+        visitedCollectibleList: []
+    schemaVersion: 1
+lol-home:
+    data:
+        useTFTOverride: false
+    schemaVersion: 0
+lol-leagues:
+    data:
+        positionSwapSeen: true
+        season-start-takeover:
+            season: 9
+    schemaVersion: 1
+lol-parties:
+    data:
+        permanentHideAutofillModal: true
+    schemaVersion: 1
+lol-premade-voice:
+    data:
+        currentCaptureDeviceHandle: "Default System Device"
+        inputVolume: 0
+        vadSensitivity: 65
+    schemaVersion: 1
+lol-replays:
+    data:
+        dontShowEogUsageTip: true
+    schemaVersion: 1
+lol-skins-viewer:
+    data:
+        completeSetIdMap: null
+        lastSessionId: "eyJraWQiOiJzMSIsImFsZyI6IlJTMjU2In0.eyJhdF9oYXNoIjoiSnlwSDNHTElvSEdBSzQ0Q2VoQ0w1dyIsInN1YiI6ImIyMGUzNjZiLWU2N2YtNWUwZS1iY2VkLTYwOTA1Mzg3OTllNiIsImNvdW50cnkiOiJ1c2EiLCJwbGF5ZXJfcGxvY2FsZSI6ImVuLVVTIiwiYW1yIjpbImNvb2tpZSJdLCJpc3MiOiJodHRwczpcL1wvYXV0aC5yaW90Z2FtZXMuY29tIiwibG9sIjpbeyJjdWlkIjoyMTcwMDI3MTIsImNwaWQiOiJOQTEiLCJ1aWQiOjIxNzAwMjcxMiwidW5hbWUiOiJteWtpbGxpbmdzcHJlZTIiLCJwdHJpZCI6bnVsbCwicGlkIjoiTkExIiwic3RhdGUiOiJFTkFCTEVEIn1dLCJsb2NhbGUiOiJlbl9VUyIsIm5vbmNlIjoiZl9qU2dqUGtiZkJDY1pkNnJsazZzUSIsImF1ZCI6ImxvbCIsImFjciI6IjAiLCJwbGF5ZXJfbG9jYWxlIjoiZW4tVVMiLCJleHAiOjE2MDExNDgzNjMsImlhdCI6MTYwMTA2MTk2MywiYWNjdCI6eyJnYW1lX25hbWUiOiJsIGFtIEp1c3RpbiIsInRhZ19saW5lIjoiTkExIn0sImp0aSI6IjAybjRVek5pZ180IiwibG9naW5fY291bnRyeSI6InVzYSJ9.CUere6gzCddjcAV0P6kfdkx-bz5rlYc7jeDlz8fVJ0JlKnw5UnaiJrrwfv5fY53e2T0w1XpZAybjgs3S-iVr9FUz2gvnfryXCnmnkyMh3avzL3t_QVVzeUKrUaR9u39oG6uIcNqCCnas8WbTgJeFfCwnBI5-6ncsH1n34bgg8B8"
+        lastVisitTime: 1600310899173
+        visitedSkinList: []
+    schemaVersion: 1
+lol-user-experience:
+    data:
+        lastKnownMachineSpec: 5
+        potatoModeEnabled: false
+        unloadUxInGameEnabled: false
+    schemaVersion: 2
+personalized-offers:
+    data:
+        lastViewedTimestamp: "2019-07-08T23:33:51.507Z"
+    schemaVersion: 1
+video:
+    data:
+        ZoomScale: 1
+    schemaVersion: 1
