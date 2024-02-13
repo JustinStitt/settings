@@ -72,9 +72,9 @@ require("symbols-outline").setup({
 	}
 })
 -- require('nvim-highlight-colors').setup()
-require('treesitter-context').setup({
-	max_lines = 1,
-})
+-- require('treesitter-context').setup({
+-- 	max_lines = 10,
+-- })
 require('focus').setup({
 	autoresize = {
 		enable = false,
@@ -94,10 +94,15 @@ require('lsp_signature').setup({
 })
 -- require('wlsample.airline')
 require 'window-picker'.setup({})
-require("auto-session").setup({})
+-- require("auto-session").setup({})
 require('code_runner').setup { mode = 'toggleterm', filetype_path = vim.fn.expand('~/.config/lvim/code_runner.json'), project_path =
     vim.fn.expand('~/.config/lvim/projects.json'), }
-require "octo".setup()
+require "octo".setup({
+	default_to_projects_v2 = false,
+	suppress_missing_scope = {
+		projects_v2 = true,
+	}
+})
 require("various-textobjs").setup {}
 require 'git-conflict'.setup {}
 require('neoclip').setup {}
@@ -136,4 +141,56 @@ require('ufo').setup({
 	provider_selector = function(bufnr, filetype, buftype)
 		return { 'treesitter', 'indent' }
 	end
+})
+
+require("wrapping-paper").setup({
+	width = 80
+})
+
+require("winshift").setup({
+	highlight_moving_win = true, -- Highlight the window being moved
+	focused_hl_group = "Visual", -- The highlight group used for the moving window
+	moving_win_options = {
+		wrap = false,
+		cursorline = false,
+		cursorcolumn = false,
+		colorcolumn = "",
+	},
+	keymaps = {
+		disable_defaults = false, -- Disable the default keymaps
+		win_move_mode = {
+			["h"] = "left",
+			["j"] = "down",
+			["k"] = "up",
+			["l"] = "right",
+			["H"] = "far_left",
+			["J"] = "far_down",
+			["K"] = "far_up",
+			["L"] = "far_right",
+			["<left>"] = "left",
+			["<down>"] = "down",
+			["<up>"] = "up",
+			["<right>"] = "right",
+			["<S-left>"] = "far_left",
+			["<S-down>"] = "far_down",
+			["<S-up>"] = "far_up",
+			["<S-right>"] = "far_right",
+		},
+	},
+	window_picker = function()
+		return require("winshift.lib").pick_window({
+			-- A string of chars used as identifiers by the window picker.
+			picker_chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890",
+			filter_rules = {
+				-- This table allows you to indicate to the window picker that a window
+				-- should be ignored if its buffer matches any of the following criteria.
+				cur_win = true, -- Filter out the current window
+				floats = true, -- Filter out floating windows
+				filetype = {}, -- List of ignored file types
+				buftype = {}, -- List of ignored buftypes
+				bufname = {}, -- List of vim regex patterns matching ignored buffer names
+			},
+			filter_func = nil,
+		})
+	end,
 })

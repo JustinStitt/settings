@@ -1,10 +1,10 @@
 local _ft = vim.api.nvim_create_augroup("FileTypeSettings", { clear = true })
 vim.api.nvim_create_autocmd("FileType", {
-  pattern = "Outline",
-  callback = function()
-    vim.wo.signcolumn = "no"
-  end,
-  group = _ft,
+    pattern = "Outline",
+    callback = function()
+        vim.wo.signcolumn = "no"
+    end,
+    group = _ft,
 })
 
 vim.cmd [[
@@ -42,12 +42,12 @@ command! QuickFixOpenAll         call QuickFixOpenAll()
 -- disable clangd multiple offset warning
 local cmp_nvim_lsp = require "cmp_nvim_lsp"
 require("lspconfig").clangd.setup {
-  -- on_attach = on_attach,
-  capabilities = cmp_nvim_lsp.default_capabilities(),
-  cmd = {
-    "clangd",
-    "--offset-encoding=utf-16",
-  },
+    -- on_attach = on_attach,
+    capabilities = cmp_nvim_lsp.default_capabilities(),
+    cmd = {
+        "clangd",
+        "--offset-encoding=utf-16",
+    },
 }
 
 -- HACK: for icon duplicating/shifting text in statuscolumn (lsp)

@@ -8,7 +8,7 @@ vim.opt.foldlevel                                   = 99
 vim.opt.signcolumn                                  = 'yes'
 vim.opt.completeopt                                 = 'menuone,noselect'
 -- causes LAG!
--- vim.wo.foldmethod                                   = "nvim_treesitter#foldexpr()"
+-- vim.wo.foldmethod                                   = "syntax"
 -- vim.wo.foldexpr                                     = "nvim_treesitter#foldexpr()"
 vim.o.updatetime                                    = 250
 vim.g.mkdp_theme                                    = "dark"

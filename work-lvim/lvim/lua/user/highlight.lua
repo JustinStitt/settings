@@ -17,6 +17,20 @@ vim.api.nvim_command [[
 ]]
 
 vim.api.nvim_command [[
+  autocmd ColorScheme * hi UfoCursorFoldedLine guibg=#1f3444
+]]
+
+vim.api.nvim_command [[
+  au FileType toggleterm setl cc=300
+]]
+-- vim.api.nvim_command [[
+--     autocmd BufWinLeave *.* mkview
+--     autocmd BufWinEnter *.* silent! loadview
+-- ]]
+--
+
+
+vim.api.nvim_command [[
   autocmd ColorScheme * highlight SpellBad guifg=red
   autocmd FileType gitcommit setlocal spell
   set listchars=tab:>\ ,trail:-,nbsp:+,eol:$
@@ -78,6 +92,23 @@ vim.api.nvim_create_autocmd(
   "BufRead",
   { pattern = "*.eml", command = "lua EnterLinuxMode()" }
 )
+
+vim.api.nvim_create_autocmd(
+  "BufRead",
+  { pattern = "COMMIT_EDITMSG", command = "lua EnterLinuxMode()" }
+)
+
+vim.api.nvim_create_autocmd(
+  "BufWinLeave",
+  { pattern = "*.*", command = "mkview" }
+)
+
+vim.api.nvim_create_autocmd(
+  "BufWinEnter",
+  { pattern = "*.*", command = "silent! loadview" }
+)
+
+
 
 
 

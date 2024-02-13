@@ -14,6 +14,7 @@ vim.keymap.set({ "n", "o", "x" }, "w", "<cmd>lua require('spider').motion('w')<C
 vim.keymap.set({ "n", "o", "x" }, "e", "<cmd>lua require('spider').motion('e')<CR>", { desc = "Spider-e" })
 vim.keymap.set({ "n", "o", "x" }, "b", "<cmd>lua require('spider').motion('b')<CR>", { desc = "Spider-b" })
 vim.keymap.set({ "n", "o", "x" }, "ge", "<cmd>lua require('spider').motion('ge')<CR>", { desc = "Spider-ge" })
+vim.keymap.set({ "n" }, ",R", "<cmd>lua require('memento').toggle()<CR>")
 vim.keymap.set({ "o", "x" }, "aW", '<cmd>lua require("various-textobjs").subword(false)<CR>')
 vim.keymap.set({ "o", "x" }, "iW", '<cmd>lua require("various-textobjs").subword(true)<CR>')
 vim.keymap.set('n', '<C-Space>', vim.diagnostic.open_float, { noremap = true, silent = true })
@@ -71,8 +72,8 @@ lvim.keys.normal_mode["<leader>P"] = ":lua require('neoclip.fzf')('*')<cr>"
 -- Moving around windows (splits)
 lvim.keys.normal_mode["<C-l>"] = "<C-w>p"
 lvim.keys.normal_mode["<C-b>"] = "<Cmd>:NvimTreeToggle<cr>"
-lvim.keys.normal_mode["<C-m>"] = "<C-w>|<C-w>_"
-lvim.keys.normal_mode["<C-n>"] = "<C-w>="
+lvim.keys.normal_mode["<C-m>"] = "<cmd>:WindowsMaximize<cr>"
+lvim.keys.normal_mode["<C-n>"] = "<cmd>:WindowsEqualize<cr>"
 lvim.keys.normal_mode["<S-l>"] = "<Cmd>:FocusSplitCycle<CR>"
 lvim.keys.normal_mode["<S-h>"] = "<Cmd>:FocusSplitCycle reverse<CR>"
 lvim.keys.normal_mode["<leader>j"] = "<Cmd>:BufferLinePick<cr>"
@@ -81,6 +82,7 @@ lvim.keys.normal_mode["<leader>lX"] = "<Cmd>:LspStart<cr>"
 lvim.keys.normal_mode["<leader>lF"] = "<Cmd>:LspRestart<cr>"
 lvim.keys.normal_mode["<leader>gB"] = "<Cmd>:Git blame<cr>"
 lvim.keys.normal_mode["<leader>gi"] = "<Cmd>:Git commit -s -m 's'<cr>"
+lvim.keys.normal_mode["<leader>w"] = "<cmd>lua require('nvim-window').pick()<cr>"
 lvim.keys.normal_mode["<leader><leader>r"] = "<Cmd>:RunCode<cr>"
 lvim.keys.normal_mode["<leader>A"] = "<Cmd>:lua require('harpoon.mark').add_file()<CR>"
 -- lvim.keys.normal_mode["<leader>H"] = ":lua require('harpoon.ui').toggle_quick_menu()<CR>"
@@ -100,6 +102,7 @@ lvim.keys.visual_mode["<leader><leader>x"] = "<Cmd>:ChatGPTRun explain_code<cr>"
 lvim.keys.visual_mode["<leader><leader>f"] = "<Cmd>:ChatGPTRun fix_bugs<cr>"
 lvim.keys.visual_mode["<leader><leader>c"] = "<Cmd>:ChatGPTRun complete_code<cr>"
 lvim.keys.visual_mode["<leader><leader>o"] = "<Cmd>:ChatGPTRun optimize_code<cr>"
+lvim.keys.visual_mode['<leader>w'] = "<Cmd>::lua require('wrapping-paper').wrap_line()<cr>"
 
 -- INSERT Mode Keybindings
 lvim.keys.insert_mode["jk"] = "<Esc>"
@@ -149,3 +152,7 @@ vim.api.nvim_set_keymap(
     silent = true
   }
 )
+
+-- vim.api.nvim_set_keymap(
+--   "v", ",w", ":lua require('wrapping-paper').wrap_line()<CR>"
+-- )
