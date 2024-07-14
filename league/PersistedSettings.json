@@ -42,11 +42,11 @@
                         },
                         {
                             "name": "NativeOffsetX",
-                            "value": "0.2119"
+                            "value": "0.2131"
                         },
                         {
                             "name": "NativeOffsetY",
-                            "value": "0.7344"
+                            "value": "0.7400"
                         },
                         {
                             "name": "ReplayNativeOffsetX",
@@ -237,7 +237,7 @@
                         },
                         {
                             "name": "CfgVersion",
-                            "value": "14.2.556.3141"
+                            "value": "14.13.598.9749"
                         },
                         {
                             "name": "CursorOverride",
@@ -314,7 +314,7 @@
                         },
                         {
                             "name": "ChatChannelVisibility",
-                            "value": "0"
+                            "value": "1"
                         },
                         {
                             "name": "ChatScale",
@@ -377,6 +377,10 @@
                             "value": "1"
                         },
                         {
+                            "name": "HidePlayerNames",
+                            "value": "0"
+                        },
+                        {
                             "name": "HideReciprocityFist",
                             "value": "1"
                         },
@@ -434,7 +438,7 @@
                         },
                         {
                             "name": "MinimapScale",
-                            "value": "1.5000"
+                            "value": "1.9200"
                         },
                         {
                             "name": "MirroredScoreboard",
@@ -571,7 +575,7 @@
                         },
                         {
                             "name": "CurrentTab",
-                            "value": "0"
+                            "value": "1"
                         },
                         {
                             "name": "InventoryPanelPinned",
@@ -583,11 +587,11 @@
                         },
                         {
                             "name": "NativeOffsetX",
-                            "value": "0.0000"
+                            "value": "0.0988"
                         },
                         {
                             "name": "NativeOffsetY",
-                            "value": "0.0000"
+                            "value": "-0.0278"
                         }
                     ]
                 },
@@ -681,7 +685,7 @@
                         },
                         {
                             "name": "MasterVolume",
-                            "value": "0.8000"
+                            "value": "0.1400"
                         },
                         {
                             "name": "MusicMute",
@@ -713,7 +717,7 @@
                         },
                         {
                             "name": "VoiceVolume",
-                            "value": "0.1300"
+                            "value": "0.0600"
                         }
                     ]
                 }
