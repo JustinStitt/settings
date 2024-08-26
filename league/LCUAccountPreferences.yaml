@@ -10,16 +10,18 @@ champ-select:
     data:
         skins:
             1: 1010
-            10: 10000
+            10: 10006
             101: 101000
             102: 102003
             103: 103028
             104: 104000
-            105: 105002
+            105: 105008
             106: 106001
             107: 107000
             11: 11002
             110: 110017
+            111: 111000
+            112: 112000
             113: 113000
             114: 114022
             115: 115000
@@ -32,9 +34,9 @@ champ-select:
             126: 126024
             127: 127000
             13: 13007
-            131: 131000
-            133: 133000
-            134: 134025
+            131: 131011
+            133: 133014
+            134: 134005
             136: 136001
             14: 14000
             141: 141001
@@ -49,6 +51,7 @@ champ-select:
             16: 16006
             161: 161000
             163: 163000
+            164: 164001
             166: 166000
             17: 17000
             18: 18010
@@ -57,51 +60,56 @@ champ-select:
             20: 20007
             200: 200000
             201: 201010
-            202: 202014
+            202: 202001
             203: 203003
             21: 21003
-            22: 22003
+            22: 22017
             221: 221000
             222: 222002
             223: 223000
             23: 23000
+            233: 233000
             234: 234000
             235: 235016
-            236: 236025
+            236: 236001
             238: 238010
             24: 24013
             240: 240000
-            246: 246021
+            245: 245000
+            246: 246030
             25: 25000
-            26: 26003
-            266: 266009
-            268: 268003
+            26: 26002
+            266: 266007
+            267: 267000
+            268: 268002
             27: 27003
             28: 28003
             29: 29036
+            3: 3019
             30: 30000
             31: 31000
             32: 32002
-            33: 33000
-            34: 34050
-            35: 35000
+            33: 33004
+            34: 34027
+            35: 35006
             350: 350001
             36: 36007
             360: 360000
             37: 37006
             38: 38005
-            39: 39018
+            39: 39004
             4: 4007
             40: 40005
             412: 412000
             42: 42018
             420: 420000
             421: 421000
-            427: 427020
+            427: 427011
             429: 429001
             43: 43004
             432: 432006
             44: 44000
+            45: 45000
             48: 48000
             497: 497000
             498: 498036
@@ -109,7 +117,7 @@ champ-select:
             50: 50000
             51: 51000
             516: 516000
-            517: 517001
+            517: 517013
             518: 518001
             523: 523009
             526: 526000
@@ -122,28 +130,31 @@ champ-select:
             58: 58000
             59: 59000
             6: 6000
-            61: 61008
+            60: 60000
+            61: 61007
             64: 64005
-            67: 67003
-            7: 7033
+            67: 67010
+            68: 68000
+            69: 69000
+            7: 7003
             711: 711001
             72: 72000
             74: 74000
-            75: 75000
+            75: 75004
             76: 76007
             77: 77000
             777: 777001
             78: 78002
-            79: 79000
+            79: 79006
             8: 8005
             80: 80005
-            81: 81005
+            81: 81018
             82: 82002
             83: 83000
-            84: 84032
+            84: 84008
             85: 85007
-            86: 86000
-            875: 875001
+            86: 86003
+            875: 875000
             876: 876000
             887: 887000
             888: 888020
@@ -152,10 +163,12 @@ champ-select:
             897: 897000
             9: 9000
             90: 90004
+            901: 901000
             902: 902000
             91: 91003
-            92: 92019
-            950: 950001
+            910: 910000
+            92: 92007
+            950: 950009
             96: 96046
             98: 98000
             99: 99008
@@ -174,13 +187,13 @@ champ-select:
             - 2201
             1900:
             - 4
-            - 3
+            - 14
             400:
             - 4
-            - 14
-            420:
             - 12
-            - 14
+            420:
+            - 4
+            - 12
             440:
             - 4
             - 6
@@ -227,12 +240,32 @@ cosmetics-settings:
 custom-spell-selections:
     data:
         custom-spell-selections:
-            spell1: 4
-            spell2: 14
+            spell1: 3
+            spell2: 21
     schemaVersion: 0
 emotes:
     data:
         newEmotes:
+        - 1481
+        - 3352
+        - 3960
+        - 4515
+        - 4538
+        - 4541
+        - 4536
+        - 4539
+        - 4537
+        - 4540
+        - 3155
+        - 4219
+        - 3791
+        - 4513
+        - 4535
+        - 4453
+        - 4470
+        - 3198
+        - 3786
+        - 4433
         - 3136
         - 998
         - 3859
@@ -281,11 +314,17 @@ eos-2020-bell-notification_SR_3:
     data:
         notificationShown: true
     schemaVersion: 1
-event-shop:
+event-hub:
     data:
         lastSeenTokenBalance: 0
-        lastSeenTokenShopOffersVersion: 3807461346
-        lastTimeSeen: "2024-01-09T04:44:17.146Z"
+        lastSeenTokenShopOffersVersion: 0
+        lastTimeSeen: "2024-07-03T06:50:16.771Z"
+    schemaVersion: 1
+event-shop:
+    data:
+        lastSeenTokenBalance: 300
+        lastSeenTokenShopOffersVersion: 2783487561
+        lastTimeSeen: "2024-02-29T07:25:32.046Z"
     schemaVersion: 1
 lol-challenges:
     data:
@@ -293,7 +332,7 @@ lol-challenges:
     schemaVersion: 1
 lol-challenges-latest-level-up:
     data:
-        lastLevelUpTime: 1706506960284
+        lastLevelUpTime: 1719993218881
     schemaVersion: 1
 lol-champ-select:
     data:
@@ -313,19 +352,16 @@ lol-chat:
     schemaVersion: 1
 lol-clash:
     data:
-        clash-eos-celebration-2022-seen: true
-        clash-eos-celebration-2023-seen: true
-        clash-login-modal-seen: true
-        clash-start-modal-seen: true
+        clash-eat-tooltip-135521: true
         lftPlayerToggleTooltipSeen: true
-        openTeamToggleTooltipSeen: true
     schemaVersion: 1
 lol-collection-champions:
     data:
-        groupingDropdownKey: "allChampions"
-        lastVisitTime: 1706495590833
-        sortingDropdownKey: "championMastery"
-        unownedFilter: "owned"
+        groupingDropdownKey: "undefined"
+        lastVisitTime: 1720985631191
+        lcm-eat-seen: true
+        sortingDropdownKey: "undefined"
+        unownedFilter: "none"
     schemaVersion: 1
 lol-collection-chromas:
     data:
@@ -337,20 +373,21 @@ lol-collection-chromas:
     schemaVersion: 2
 lol-customizer-icons:
     data:
-        lastVisitTime: 1700702190214
+        lastVisitTime: 1709433838179
     schemaVersion: 1
 lol-customizer-titles:
     data:
-        lastVisitTime: 1697432178496
+        lastVisitTime: 1709097300092
     schemaVersion: 1
 lol-customizer-tokens:
     data:
-        lastVisitTime: 1697432192688
+        lastVisitTime: 1709347504948
     schemaVersion: 1
 lol-general:
     data:
+        top-nav-updates-eat-seen: true
         uploadCrashReports: true
-    schemaVersion: 0
+    schemaVersion: 1
 lol-home-hubs:
     data:
         anima-squad-hub-2022:
@@ -367,6 +404,173 @@ lol-home-hubs:
             introWatched: "true"
         lunar-revel-hub-2022:
             currentTheme: "porc"
+        mgs-sohh:
+            MuteBGM: false
+            MuteSFX: false
+            curRoom: 4
+            dataVersion: "6.23"
+            furnitureState:
+            - true
+            - true
+            - true
+            - true
+            - true
+            - true
+            - true
+            - true
+            - true
+            - true
+            - true
+            - true
+            - true
+            - true
+            - true
+            - true
+            - true
+            - true
+            - true
+            - true
+            - true
+            gameEvents:
+            - true
+            - false
+            - false
+            - false
+            - false
+            - true
+            - true
+            - true
+            - true
+            - true
+            - true
+            - true
+            - true
+            - false
+            - true
+            - false
+            - false
+            - false
+            - true
+            - true
+            - false
+            - false
+            - false
+            - false
+            - false
+            - false
+            - false
+            - false
+            - true
+            inventoryState:
+            - 15
+            - -1
+            - 11
+            - 16
+            - 18
+            - -1
+            - 22
+            - 19
+            - -1
+            - 20
+            - -1
+            - -1
+            - 26
+            - 17
+            - -1
+            - 21
+            itemsPickedUp:
+            - 2
+            - 3
+            - 4
+            itemsState:
+            - true
+            - true
+            - true
+            - true
+            - true
+            - true
+            - true
+            - true
+            - true
+            - true
+            - true
+            - true
+            - true
+            - true
+            - true
+            - true
+            - true
+            - true
+            - true
+            motionComicState:
+            - true
+            - false
+            npcStates:
+            - false
+            - false
+            puzzleCompleted:
+            - true
+            - false
+            - false
+            - false
+            - true
+            puzzleState_0:
+            - 0
+            - 1
+            - 2
+            - 3
+            - 4
+            - 5
+            - -1
+            - -1
+            puzzleState_1:
+            - 6
+            - 7
+            - 8
+            - 9
+            - 10
+            - -1
+            - 12
+            - 13
+            - 14
+            puzzleState_2:
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            - -1
+            puzzleState_3:
+            - 23
+            - 24
+            - 25
+            - 27
+            - 28
+            - 29
+            - -1
+            - 30
+            puzzleState_4:
+            - 31
+            - 32
+            - 33
+            - 34
+            - 35
+            - 36
+            - 37
+            - 38
+            resumeGameNarration: 0
+            resumePostGameNarration: 0
+            roomsVisited: 3
+            timeActive: 873.582764
+            timeOnComplete: 0
+            timeTakenForge: 554.113708
+            timeTakenInstrument: 0
+            timeTakenLissandra: 83.000397
+            timeTakenOrnn: 73.681252
+            timeTakenTools: 94.529396
+            timeTakenVolibear: 58.507561
         msi-embed-2023:
             introWatched: "true"
             showSpoilersSchedule: "false"
@@ -422,14 +626,16 @@ lol-honor:
     schemaVersion: 1
 lol-leagues:
     data:
-        FINAL_RANK_ONE_OF_SEASON-RANKED_FLEX_SR: 11
-        FINAL_RANK_ONE_OF_SEASON-RANKED_SOLO_5x5: 11
+        FINAL_RANK_ONE_OF_SEASON-RANKED_FLEX_SR: 15
+        FINAL_RANK_ONE_OF_SEASON-RANKED_SOLO_5x5: 15
+        FIRST_CHALLENGER_OF_SEASON-RANKED_FLEX_SR: 16
+        FIRST_CHALLENGER_OF_SEASON-RANKED_SOLO_5x5: 16
         hasSeenFlexRestrictionModal: true
         last-split-end-notification: 14.200000
         last-split-start-modal: 13.100000
-        season-memorial-modal: 13
+        season-memorial-modal: 15
         season-start-takeover:
-            season: 11
+            season: 16
     schemaVersion: 1
 lol-loot:
     data:
@@ -439,7 +645,7 @@ lol-loot:
     schemaVersion: 1
 lol-notifications:
     data:
-        rgmNotificationTimestamp: 1698295493885
+        rgmNotificationTimestamp: 1710993260261
     schemaVersion: 1
 lol-npe-tutorial-path:
     data:
@@ -454,7 +660,9 @@ lol-parties:
     schemaVersion: 1
 lol-perks:
     data:
+        playerFlashOnFPreference: false
         shouldEditAfterSelection: true
+        shouldIncludeSummonerSpells: false
     schemaVersion: 1
 lol-player-behavior:
     data:
@@ -471,42 +679,42 @@ lol-premade-voice:
     schemaVersion: 1
 lol-profiles:
     data:
-        ranked-reference-modal-login-seen-for-season: 15
+        ranked-reference-modal-login-seen-for-season: 16
     schemaVersion: 0
 lol-quick-play:
     data:
         slots:
-        -   championId: 950
-            perks: "{\"perkIds\":[8112,8143,8138,8135,8444,8451,5008,5008,5002],\"perkStyle\":8100,\"perkSubStyle\":8400}"
-            positionPreference: "MIDDLE"
-            skinId: 950000
+        -   championId: 133
+            perks: "{\"perkIds\":[8112,8143,8138,8105,8234,8236,5005,5008,5001],\"perkStyle\":8100,\"perkSubStyle\":8200}"
+            positionPreference: "TOP"
+            skinId: 133000
             spell1: 4
-            spell2: 14
-        -   championId: 427
-            perks: "{\"perkIds\":[8214,8275,8210,8232,8321,8347,5007,5008,5001],\"perkStyle\":8200,\"perkSubStyle\":8300}"
+            spell2: 12
+        -   championId: 154
+            perks: "{\"perkIds\":[8439,8463,8429,8453,8126,8106,5007,5001,5001],\"perkStyle\":8400,\"perkSubStyle\":8100}"
             positionPreference: "JUNGLE"
-            skinId: 427020
+            skinId: 154000
             spell1: 4
             spell2: 11
     schemaVersion: 1
 lol-skins-viewer:
     data:
-        groupingDropdownKey: "tier"
-        lastVisitTime: 1698603417705
-        sortingDropdownKey: "tier"
+        groupingDropdownKey: "myCollection"
+        lastVisitTime: 1719119891162
+        sortingDropdownKey: "acquisitionDate"
         unownedFilter: false
     schemaVersion: 2
 lol-tft:
     data:
         lastTftGameQueueId: 1090
-        lastTftSetNameSeen: "TFTSet10"
-        previouslySeenSeasons: "S4_Fates-pass,S4_5_Fates,TFTBattlepass_Fates2_Series,TFTBattlepass_Reckoning1_Series,TFT5_5_Series,TFT6_Series,TFT6_Act2_Series,TFT7_Series,TFT7_5_Series,TFT8_Series,TFT8_5_Series,1686765600000,1694628000000"
+        lastTftSetNameSeen: "TFTSet11"
+        previouslySeenSeasons: "S4_Fates-pass,S4_5_Fates,TFTBattlepass_Fates2_Series,TFTBattlepass_Reckoning1_Series,TFT5_5_Series,TFT6_Series,TFT6_Act2_Series,TFT7_Series,TFT7_5_Series,TFT8_Series,TFT8_5_Series,1686765600000,1694628000000,1706130000000"
         seenOfferIds:
             storeOfferIds:
-            - "023d915d-51e3-4252-9d29-bb68a96d4a1e"
-            - "2ba23ef0-7f80-448f-90b4-af172a213b15"
+            - "29782c0d-c3f6-4374-8b29-43da99a06b24"
+            - "e5d3eecb-a76d-49d1-b6e3-6a3bd315f2a5"
             tacticianOfferIds:
-            - "936e1f3e-ce20-4343-beaf-4fdc90ae9986"
+            - "b48dd8e4-0ca6-48bb-b6fb-a46afccaf144"
         tftEmeraldModalSeen: true
     schemaVersion: 1
 lol-tutorial:
@@ -514,6 +722,7 @@ lol-tutorial:
         Map11_ULTBOOK_TutorialSeen: true
         Map21_NEXUSBLITZ_TutorialSeen: true
         Map22_TFT_TutorialSeen: true
+        Map30_CHERRY_2024_05_TutorialSeen: true
         Map30_CHERRY_TutorialSeen: true
         championSelectRunesTooltipSeenCount: 9
         perksCreateNewPageSeen: true
@@ -564,5 +773,5 @@ ranked-eos-notification-14-RANKED_SOLO_5x5-SECOND_WARNING:
     schemaVersion: 1
 yourshop:
     data:
-        lastViewedTimestamp: "2024-01-09T04:44:01.288Z"
+        lastViewedTimestamp: "2024-06-04T05:28:57.019Z"
     schemaVersion: 1
