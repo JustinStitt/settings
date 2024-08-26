@@ -1,16 +1,13 @@
-# Fig pre block. Keep at the top of this file.
-[[ -f "$HOME/.fig/shell/zshrc.pre.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.pre.zsh"
-zmodload zsh/zprof
-DISABLE_AUTO_UPDATE="true"
-stty -ixon
-
-
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
-# if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-#   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-# fi
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
+export HISTSIZE=1000000000
+export SAVEHIST=$HISTSIZE
+setopt EXTENDED_HISTORY
 
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
@@ -22,9 +19,6 @@ export ZSH="$HOME/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-#ZSH_THEME="robbyrussell"
-#ZSH_THEME="half-life"
-#ZSH_THEME="powerlevel10k"
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # Set list of themes to pick from when loading at random
@@ -116,176 +110,44 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+alias v=nvim
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-alias r='ra'
-# cros ssh wallpaper
-# https://i.ibb.co/Gd8jmVm/windows-terminal-background-fox.png
-
-
-alias cat='/bin/bat --color=always'
-alias bat='/bin/bat --color=always'
-export FZF_DEFAULT_OPTS="--ansi --preview-window 'bottom:40%' --preview 'batcat --color=always --style=header,grid --line-range :300 {}' --bind='ctrl-t:toggle-preview'"
-
-# export FZF_DEFAULT_COMMAND='find . \! \( -type d -path ./.git -prune \) \! -type d \! -name '\'*.tags'\'' -printf '\''%P\n'\'
-export FZF_DEFAULT_COMMAND="rg --files --ignore-case --hidden -g '!{.git,node_modules,vendor}/*'"
-export BAT_THEME="Dracula"
-
-# PATH magic
-export PATH=~/llvm-project/llvm/build/bin:$PATH
-# export PATH=~/llvm-project/llvm/build_test_one_entry_cache/bin:$PATH
-# export PATH=~/llvm-project/llvm/build_chrono_cache_vs_slow/bin:$PATH
-# export PATH=~/llvm-project/llvm/build_CheckICE_freq_map/bin:$PATH
-# export PATH=~/llvm-project/llvm/build_CheckICE_cache_test/bin:$PATH
-# export PATH=~/llvm-project/llvm/build_lhs_short_circuit/bin:$PATH
-# export PATH=~/llvm-project/llvm/build_print_expr_literal/bin:$PATH
-# export PATH=~/llvm-project/llvm/build_binary_case_freq/bin:$PATH
-# export PATH=~/llvm-project/llvm/build_just_return_bool/bin:$PATH
-# export PATH=~/llvm-project/llvm/build_nodiag_sentinel/bin:$PATH
-# export PATH=~/llvm-project/llvm/build_caching_literals/bin:$PATH
-export PATH=~/llvm-project/llvm/build_cppdiagonly/bin:$PATH
-#
-export PATH="$HOME/.local/bin:$PATH"
-export PATH="$PATH:/usr/local/google/home/justinstitt/repos/arcanist/bin/" # arc
-if [[ $- == *i* ]]; then
-
-# CTRL-T - Paste the selected file path(s) into the command line
-__fsel() {
-  local cmd="${FZF_CTRL_T_COMMAND:-"command find -L . -mindepth 1 \\( -path '*/\\.*' -o -fstype 'sysfs' -o -fstype 'devfs' -o -fstype 'devtmpfs' -o -fstype 'proc' \\) -prune \
-    -o -type f -print \
-    -o -type d -print \
-    -o -type l -print 2> /dev/null | cut -b3-"}"
-  setopt localoptions pipefail no_aliases 2> /dev/null
-  eval "$cmd" | FZF_DEFAULT_OPTS="--height ${FZF_TMUX_HEIGHT:-40%} --reverse $FZF_DEFAULT_OPTS $FZF_CTRL_T_OPTS" $(__fzfcmd) -m "$@" | while read item; do
-    echo -n "${(q)item} "
-  done
-  local ret=$?
-  echo
-  return $ret
-}
-
-__fzf_use_tmux__() {
-  [ -n "$TMUX_PANE" ] && [ "${FZF_TMUX:-0}" != 0 ] && [ ${LINES:-40} -gt 15 ]
-}
-
-__fzfcmd() {
-  __fzf_use_tmux__ &&
-    echo "fzf-tmux -d${FZF_TMUX_HEIGHT:-40%}" || echo "fzf"
-}
-
-fzf-file-widget() {
-  LBUFFER="${LBUFFER}$(__fsel)"
-  local ret=$?
-  zle reset-prompt
-  return $ret
-}
-zle     -N   fzf-file-widget
-bindkey '^T' fzf-file-widget
-
-# Ensure precmds are run after cd
-fzf-redraw-prompt() {
-  local precmd
-  for precmd in $precmd_functions; do
-    $precmd
-  done
-  zle reset-prompt
-}
-zle -N fzf-redraw-prompt
-
-# ALT-C - cd into the selected directory
-fzf-cd-widget() {
-  local cmd="${FZF_ALT_C_COMMAND:-"command find -L . -mindepth 1 \\( -path '*/\\.*' -o -fstype 'sysfs' -o -fstype 'devfs' -o -fstype 'devtmpfs' -o -fstype 'proc' \\) -prune \
-    -o -type d -print 2> /dev/null | cut -b3-"}"
-  setopt localoptions pipefail no_aliases 2> /dev/null
-  local dir="$(eval "$cmd" | FZF_DEFAULT_OPTS="--height ${FZF_TMUX_HEIGHT:-40%} --reverse $FZF_DEFAULT_OPTS $FZF_ALT_C_OPTS" $(__fzfcmd) +m)"
-  if [[ -z "$dir" ]]; then
-    zle redisplay
-    return 0
-  fi
-  cd "$dir"
-  unset dir # ensure this doesn't end up appearing in prompt expansion
-  local ret=$?
-  zle fzf-redraw-prompt
-  return $ret
-}
-zle     -N    fzf-cd-widget
-bindkey '\ec' fzf-cd-widget
-
-# CTRL-R - Paste the selected command from history into the command line
-fzf-history-widget() {
-  local selected num
-  setopt localoptions noglobsubst noposixbuiltins pipefail no_aliases 2> /dev/null
-  selected=( $(fc -rl 1 |
-    FZF_DEFAULT_OPTS="--height ${FZF_TMUX_HEIGHT:-40%} $FZF_DEFAULT_OPTS -n2..,.. --tiebreak=index --bind=ctrl-r:toggle-sort $FZF_CTRL_R_OPTS --query=${(qqq)LBUFFER} +m" $(__fzfcmd)) )
-  local ret=$?
-  if [ -n "$selected" ]; then
-    num=$selected[1]
-    if [ -n "$num" ]; then
-      zle vi-fetch-history -n $num
-    fi
-  fi
-  zle reset-prompt
-  return $ret
-}
-zle     -N   fzf-history-widget
-bindkey '^R' fzf-history-widget
-
-fi
-alias cat='bat --theme=TwoDark'
-dropbox="/mnt/d/Dropbox (CSU Fullerton)"
-alias r="ranger"
-f22="/mnt/d/Dropbox (CSU Fullerton)/Fall-2022-Courses"
-alias pp="ptpython"
-export DISPLAY="`grep nameserver /etc/resolv.conf | sed 's/nameserver //'`:0"
-plugins=(virtualenv)
-# POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status virtualenv)
-alias python='python3'
-# alias v='vim'
-# alias v='sudo /home/jstitt/.local/bin/lvim'
-alias v="lvim"
-# Load pyenv automatically by appending
-# the following to
-# ~/.bash_profile if it exists, otherwise ~/.profile (for login shells)
-# and ~/.bashrc (for interactive shells) :
-
+source /usr/share/doc/fzf/examples/key-bindings.zsh
+source /usr/share/doc/fzf/examples/completion.zsh
+alias lz=lazygit
+alias python=python3
 export PYENV_ROOT="$HOME/.pyenv"
 command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
-# export PYENV_ROOT=/usr/local/var/pyenv
-if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
-if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
 
 # Restart your shell for the changes to take effect.
 
 # Load pyenv-virtualenv automatically by adding
 # the following to ~/.bashrc:
 
-# eval "$(pyenv virtualenv-init -)"
-alias explorer="explorer.exe"
-alias vrc="vim ~/.vimrc"
-alias codehere="code -r ."
-alias dropbox="/mnt/d/Dropbox (CSU Fullerton)"
+eval "$(pyenv virtualenv-init -)"
+zstyle ':completion:*' menu yes select
+zstyle ':completion::complete:*' use-cache 1        #enables completion caching
+zstyle ':completion::complete:*' cache-path ~/.zsh/cache
+zstyle ':completion:*' users root $USER             #fix lag in google3
+autoload -Uz compinit && compinit -i
+alias pp=ptpython
 
-
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-# comment out the below code because of zsh taking so long to open as evident by `$ zprof`
-# if we have conda problems, reinstate this code
-# __conda_setup="$('/home/jstitt/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-# if [ $? -eq 0 ]; then
-#     eval "$__conda_setup"
-# else
-#     if [ -f "/home/jstitt/miniconda3/etc/profile.d/conda.sh" ]; then
-#         . "/home/jstitt/miniconda3/etc/profile.d/conda.sh"
-#     else
-#         export PATH="/home/jstitt/miniconda3/bin:$PATH"
-#     fi
-# fi
-# unset __conda_setup
-# # <<< conda initialize <<<
-# conda config --set auto_activate_base false
-
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+export PATH=/usr/local/google/home/justinstitt/.local/bin:$PATH
+alias r=ranger
+alias st='git status'
+alias lg='git log --stat'
+alias gcm='git commit -s -m'
+alias push='git push'
+alias add="git add"
+alias b='byobu'
+alias xo='xdg-open'
+alias rg='rg -i'
 ranger() {
     if [ -z "$RANGER_LEVEL" ]; then
         /usr/bin/ranger "$@"
@@ -293,64 +155,57 @@ ranger() {
         exit
     fi
 }
-
-alias st='git status'
-alias lg='git log'
-alias gcm='git commit -m'
-alias push='git push'
-alias add="git add"
-alias b='byobu'
-alias xo='xdg-open'
-alias rg='rg -i'
-export TRASH_DIR="/home/jstitt/.local/share/Trash"
-
-timezsh() {
-  shell=${1-$SHELL}
-  for i in $(seq 1 10); do /usr/bin/time $shell -i -c exit; done
-}
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-# plugins
-# plugins+=(zsh-vi-mode)
-# ZVM_VI_ESCAPE_BINDKEY=jk
-# ZVM_NORMAL_MODE_CURSOR=$ZVM_CURSOR_BLINKING_BLOCKA
-# ZVM_LINE_INIT_MODE=$ZVM_MODE_INSERT
-# source $HOME/repos/.zsh-vi-mode/zsh-vi-mode.plugin.zsh
-# bindkey -v
-# bindkey -r "^R"
-# Use ESC to edit the current command line:
 export KEYTIMEOUT=1
 autoload -U edit-command-line
 zle -N edit-command-line
 bindkey '^ ' edit-command-line
-export PROMPT_COMMAND='echo -e -n "\x1b[\x35 q"'
 bindkey -r "^b"
-alias gist="gist-paste"
-LS_COLORS+=':ow=01;33'
-export EDITOR="lvim"
-# export TERM=xterm-256color
-# export TERM=tmux-256color
-alias vim="lvim"
-alias opera="/mnt/c/Users/Justin/AppData/Local/Programs/Opera\ GX/opera.exe"
-alias github="/mnt/c/Users/Justin/AppData/Local/Programs/Opera\ GX/opera.exe https://github.com/JustinStitt\?tab=repositories"
-alias lz="lazygit"
-alias downloads="/mnt/c/Users/Justin/Downloads"
-
-source ~/autovenv
-export PATH=/home/jstitt/.nimble/bin:$PATH
-alias ls='lsd'
-alias l='ls -l'
-alias la='ls -a'
-alias lla='ls -la'
-alias lt='ls --tree'
-source ~/.env
+export EDITOR="nvim"
 OPENAI_API_KEY=$(cat ~/.env | grep --color=never -E 'OPENAI_API_KEY.*' | cut -d '=' -f2 | tr -d '"')
 PALM_API_KEY=$(cat ~/.env | grep --color=never -E 'PALM_API_KEY.*' | cut -d '=' -f2 | tr -d '"')
+# alias gdb='gdb -tui'
+alias gca='git commit --amend'
+HISTSIZE=1000000
+alias cat='batcat'
+alias b4e='b4 prep --edit-cover'
+alias created="stat -c '%w'"
+# alias gri='git rebase -i'
+export LINUX='/usr/local/google/home/justinstitt/playground/learning-to-build/linux/'
 
-# bun completions
-[ -s "/home/jstitt/.bun/_bun" ] && source "/home/jstitt/.bun/_bun"
+# export PATH=/usr/local/google/home/justinstitt/repos/tc-build/build/llvm/final/bin:$PATH
+export PATH=/usr/local/google/home/justinstitt/repos/tc-build/1382-build/final/bin:$PATH
+# export PATH=/usr/local/google/home/justinstitt/playground/learning-to-build/llvm-project/build-test/bin:$PATH
+# export PATH=/usr/local/google/home/justinstitt/playground/learning-to-build/llvm-project/build-wraps/bin:$PATH
+# export PATH=/usr/local/google/home/justinstitt/playground/learning-to-build/llvm-project/build-wraps2/bin:$PATH
 
-# bun
-export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
-alias pd="pyenv deactivate && cd .. && cd -"
+alias gdm='git diff master'
+alias b4a='b4 prep --auto-to-cc'
+alias lgo='git log --pretty=oneline'
+alias lgos='git log --pretty=oneline --stat'
+alias gce='git commit --allow-empty -s -m "p"'
+alias gcae='git commit --amend --allow-empty'
+alias sto='git status -uno && echo "Skipped in worktree: (Use git update-index --no-skip-worktree <file> to undo)" && git ls-files -v | grep "^s"'
+alias b4c='b4 prep --check'
+alias b4ps='b4 send -o presend'
+first_tag () {
+        tag=$1
+        git describe --match 'v*' --contains "$tag" | sed 's/~.*//'
+}
+alias include-cleaner="/google/bin/releases/lpt-c-tools/include-cleaner/include_cleaner"
+source ~/autovenv
+alias venv="python -m virtualenv .venv && cd .. && cd -"
+alias t="todo.sh"
+export TODOTXT_AUTO_ARCHIVE=0
+typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
+alias capture="tmux capture-pane -pS -10000 | sed '/^/d' |  python -c \"import sys;import os;i=sys.stdin.read();idx=i.rindex('❯');i=i[:idx];idx=i.rindex('❯');i=i[idx:];print(os.getcwd(), '\n',  i[:-1])\" | v -"
+alias propdef="make LLVM=1 -j128 ARCH=x86_64 mrproper defconfig && make LLVM=1 -j128 ARCH=x86_64"
+export PATH=/usr/local/google/home/justinstitt/repos/riscv-gnu-toolchain/opt/bin:$PATH
+alias gi='git rebase -i'
+export PATH=/usr/local/google/home/justinstitt/.local/share/bob/nvim-bin:$PATH
+alias gdh='git diff HEAD~'
+source /usr/local/google/home/justinstitt/.bob.zsh
+alias nmf="neomutt -f"
+alias b4m="b4 mbox -o mail"
+alias conflicts="git diff --name-only --diff-filter=U --relative | tr '\n' ' ' | v"
+TZ='America/Los_Angeles'; export TZ
+export BAT_THEME="ansi" # looks good in light mode
