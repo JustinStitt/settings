@@ -1,3 +1,4 @@
+# https://open-meteo.com/en/docs?forecast_days=3&daily=weather_code,temperature_2m_max,temperature_2m_min,uv_index_max,precipitation_probability_max&latitude=37.3688&longitude=-122.0363&timezone=America%2FLos_Angeles&temperature_unit=fahrenheit&wind_speed_unit=mph&precipitation_unit=inch&current=temperature_2m,precipitation&hourly=
 CACHE_FILE=/tmp/tmux-weather-cache.tmp
 PREVIOUS_ENTRY_FILE=/tmp/tmux-weather-cache-entry.tmp
 INTERVAL=180 # fetch weather every 3 minutes
